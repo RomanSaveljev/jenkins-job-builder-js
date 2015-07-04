@@ -1,0 +1,10 @@
+{
+  "name": "jenkins-job-builder",
+  "author": "Roman Saveljev <roman.saveljev@haltian.com>",
+  "description": "JavaScript API to generate jenkins-job-builder input YAML",
+  "version": "0.0.1",
+  "dependencies":
+  {
+    "yamljs": "*"
+  }
+}
