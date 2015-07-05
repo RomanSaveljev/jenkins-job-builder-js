@@ -1,9 +1,9 @@
 var should = require('should');
-var Xvnc = require('../lib/wrappers/xvnc.js');
+var Inject = require('../lib/wrappers/inject.js');
 var testlib = require('./testlib.js');
 
-describe('Xvnc', function() {
-  describe('constructor', testlib.describeObjectProxyConstructor(Xvnc));
-  describe('object', testlib.describeObjectProxyUppableAndable(Xvnc));
+describe('Inject', function() {
+  describe('constructor', testlib.describeObjectProxyConstructor(Inject));
+  describe('object', testlib.describeObjectProxyUppableAndable(Inject));
   describe('name', testlib.describeObjectProxyProperty(Inject, 'scriptContent', 'script-content'));
 });
