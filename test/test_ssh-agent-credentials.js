@@ -5,5 +5,5 @@ var testlib = require('./testlib.js');
 describe('SshAgentCredentials', function() {
   describe('constructor', testlib.describeProxyConstructor(SshAgentCredentials));
   describe('object', testlib.describeProxyUppableAndable(SshAgentCredentials));
-  describe('properties', testlib.describeObjectProxyArrayProperty(SshAgentCredentials, 'users', 'users'));
+  describe('properties', testlib.describePrimitiveArrayProxyProperty(SshAgentCredentials, 'users', 'users'));
 });

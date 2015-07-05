@@ -118,11 +118,11 @@ describe('Object flag accessor generator', function() {
 describe('Array proxy accessor generator', function() {
   describe('Basic sanity', function() {
     it('returns function', function() {
-      should(util.generateArrayProxyAccessor('a', 'b')).be.Function();
+      should(util.generatePrimitiveArrayProxyAccessor('a', 'b')).be.Function();
     });
   });
   describe('Generated function', function() {
-    var accessor = util.generateArrayProxyAccessor('outer', 'inner');
+    var accessor = util.generatePrimitiveArrayProxyAccessor('outer', 'inner');
     it('returns ArrayProxy object', function() {
       var obj = {outer: {inner: []}};
       should(accessor.apply(obj)).be.instanceof(ArrayProxy);

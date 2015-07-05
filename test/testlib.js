@@ -1,5 +1,5 @@
 var should = require('should');
-var ArrayProxy = require('../lib/proxies/array-proxy.js');
+var PrimitiveArrayProxy = require('../lib/proxies/primitive-array-proxy.js');
 
 exports.describeProxyConstructor = function(constructor) {
   return function() {
@@ -53,7 +53,7 @@ exports.describeObjectProxyProperty = function(constructor, property, internalNa
   };
 };
 
-exports.describeObjectProxyArrayProperty = function(constructor, property, internalName) {
+exports.describePrimitiveArrayProxyProperty = function(constructor, property, internalName) {
   if (internalName === undefined) {
     internalName = property;
   }
@@ -65,13 +65,13 @@ exports.describeObjectProxyArrayProperty = function(constructor, property, inter
       var obj = new constructor(null, null);
       should(obj[property]).be.a.Function();
     });
-    it(property + '() returns ArrayProxy', function() {
+    it(property + '() returns PrimitiveArrayProxy', function() {
       var internal = {};
       var obj = new constructor(null, internal);
       var getter = obj[property];
       should(getter.apply(obj)).be.instanceof(ArrayProxy);
     });
-    it('returned ArrayProxy manipulates ' + internalName, function() {
+    it('returned PrimitiveArrayProxy manipulates ' + internalName, function() {
       var internal = {};
       var obj = new constructor(null, internal);
       var getter = obj[property];
