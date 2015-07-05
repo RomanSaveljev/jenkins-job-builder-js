@@ -29,9 +29,12 @@ exports.describeObjectProxyUppableAndable = function(constructor) {
       should(new constructor(upper, {}).and()).be.exactly(upper);
     });
   };
-}
+};
 
 exports.describeObjectProxyProperty = function(constructor, property, internalName) {
+  if (internalName === undefined) {
+    internalName = property;
+  }
   return function() {
     it('should have ' + property, function() {
       should(new constructor(null, null)).have.property(property);
@@ -48,9 +51,12 @@ exports.describeObjectProxyProperty = function(constructor, property, internalNa
       should(internal[internalName]).be.equal('value for ' + property);
     });
   };
-}
+};
 
 exports.describeObjectProxyArrayProperty = function(constructor, property, internalName) {
+  if (internalName === undefined) {
+    internalName = property;
+  }
   return function() {
     it('should have ' + property, function() {
       should(new constructor(null, null)).have.property(property);
@@ -73,4 +79,4 @@ exports.describeObjectProxyArrayProperty = function(constructor, property, inter
       should(internal[internalName]).containEql('value for ' + property);
     });
   }
-}
+};
