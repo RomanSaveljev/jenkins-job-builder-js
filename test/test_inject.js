@@ -1,5 +1,5 @@
 var should = require('should');
-var Inject = require('../lib/inject.js');
+var Inject = require('../lib/wrappers/inject.js');
 
 describe('Inject', function() {
   it('should export defined', function() {
