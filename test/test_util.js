@@ -1,5 +1,6 @@
 var should = require('should');
 var util = require('../lib/util.js');
+var ArrayProxy = require('../lib/proxies/array-proxy.js');
 
 describe('Nested accessor generator', function() {
   describe('Basic sanity', function() {
@@ -134,6 +135,21 @@ describe('Object flag accessor generator', function() {
         var flagger = util.generateObjectFlagAccessor('flag', constructor);
         flagger.apply(obj);
       });
+    });
+  });
+});
+
+describe('Array proxy accessor generator', function() {
+  describe('Basic sanity', function() {
+    it('returns function', function() {
+      should(util.generateArrayProxyAccessor('a', 'b')).be.Function();
+    });
+  });
+  describe('Generated function', function() {
+    it('returns ArrayProxy object', function() {
+      var accessor = util.generateArrayProxyAccessor('outer', 'inner');
+      var obj = {outer: {inner: []}};
+      should(accessor.apply(obj)).be.instanceof(ArrayProxy);
     });
   });
 });
