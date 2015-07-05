@@ -26,10 +26,6 @@
     "mocha-lcov-reporter": "*",
     "mocha": "*"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/fengmk2/jenkins-job-builder.git"
-  },
   "keywords": [
     "jenkins-job-builder"
   ],
