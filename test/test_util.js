@@ -27,11 +27,11 @@ describe('Primitive accessor generator', function() {
 describe('String flag accessor generator', function() {
   describe('Basic sanity', function() {
     it('returns function', function() {
-      should(util.generateStringFlagAccessor('flag')).be.Function();
+      should(util.generatePrimitiveElementAccessor('flag')).be.Function();
     });
   });
   describe('Generated function', function() {
-    var flagger = util.generateStringFlagAccessor('flag');
+    var flagger = util.generatePrimitiveElementAccessor('flag');
     it('adds new member', function() {
       var obj = {array: []};
       should(obj.array).have.length(0);
@@ -47,24 +47,6 @@ describe('String flag accessor generator', function() {
       should(obj.array).containEql('something');
       should(obj.array).containEql('flag');
     });
-    it('does not create duplicates', function() {
-      var obj = {array: ['flag']};
-      should(obj.array).have.length(1);
-      flagger.apply(obj, [true]);
-      should(obj.array).have.length(1);
-    });
-    it('does no action on removing non-existent flag', function() {
-      var obj = {array: ['something']};
-      flagger.apply(obj, [false]);
-      should(obj.array).containEql('something');
-      should(obj.array).have.length(1);
-    });
-    it('removes flag', function() {
-      var obj = {array: ['flag']};
-      flagger.apply(obj, [false]);
-      should(obj.array).not.containEql('something');
-      should(obj.array).have.length(0);
-    })
   });
 });
 
