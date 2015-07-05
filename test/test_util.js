@@ -146,10 +146,21 @@ describe('Array proxy accessor generator', function() {
     });
   });
   describe('Generated function', function() {
+    var accessor = util.generateArrayProxyAccessor('outer', 'inner');
     it('returns ArrayProxy object', function() {
-      var accessor = util.generateArrayProxyAccessor('outer', 'inner');
       var obj = {outer: {inner: []}};
       should(accessor.apply(obj)).be.instanceof(ArrayProxy);
+    });
+    it('creates array as needed', function() {
+      var obj = {outer: {}};
+      accessor.apply(obj);
+      should(obj.outer.inner).be.Array();
+    });
+    it('appends to existing array', function() {
+      var obj = {outer: {inner: ['first']}};
+      accessor.apply(obj).set('second');
+      should(obj.outer.inner).containEql('first');
+      should(obj.outer.inner).containEql('second');
     });
   });
 });
