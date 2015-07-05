@@ -3,8 +3,8 @@ var CopyToSlave = require('../lib/wrappers/copy-to-slave.js');
 var testlib = require('./testlib.js');
 
 describe('CopyToSlave', function() {
-  describe('constructor', testlib.describeObjectProxyConstructor(CopyToSlave));
-  describe('object', testlib.describeObjectProxyUppableAndable(CopyToSlave));
+  describe('constructor', testlib.describeProxyConstructor(CopyToSlave));
+  describe('object', testlib.describeProxyUppableAndable(CopyToSlave));
   describe('properties', testlib.describeObjectProxyArrayProperty(CopyToSlave, 'includes'));
   describe('properties', testlib.describeObjectProxyArrayProperty(CopyToSlave, 'excludes'));
   describe('properties', testlib.describeObjectProxyProperty(CopyToSlave, 'flatten'));

@@ -3,8 +3,8 @@ var Xvfb = require('../lib/wrappers/xvfb.js');
 var testlib = require('./testlib.js');
 
 describe('Xvfb', function() {
-  describe('constructor', testlib.describeObjectProxyConstructor(Xvfb));
-  describe('object', testlib.describeObjectProxyUppableAndable(Xvfb));
+  describe('constructor', testlib.describeProxyConstructor(Xvfb));
+  describe('object', testlib.describeProxyUppableAndable(Xvfb));
   describe('installationName', testlib.describeObjectProxyProperty(Xvfb, 'installationName', 'installation-name'));
   describe('autoDisplayName', testlib.describeObjectProxyProperty(Xvfb, 'autoDisplayName', 'auto-display-name'));
   describe('displayName', testlib.describeObjectProxyProperty(Xvfb, 'displayName', 'display-name'));

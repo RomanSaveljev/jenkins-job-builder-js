@@ -3,8 +3,8 @@ var Timeout = require('../lib/wrappers/timeout.js');
 var testlib = require('./testlib.js');
 
 describe('Timeout', function() {
-  describe('constructor', testlib.describeObjectProxyConstructor(Timeout));
-  describe('object', testlib.describeObjectProxyUppableAndable(Timeout));
+  describe('constructor', testlib.describeProxyConstructor(Timeout));
+  describe('object', testlib.describeProxyUppableAndable(Timeout));
   describe('fail', testlib.describeObjectProxyProperty(Timeout, 'fail', 'fail'));
   describe('abort', testlib.describeObjectProxyProperty(Timeout, 'abort', 'abort'));
   describe('writeDescription', testlib.describeObjectProxyProperty(Timeout, 'writeDescription', 'write-description'));

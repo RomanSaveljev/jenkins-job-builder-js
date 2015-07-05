@@ -1,7 +1,7 @@
 var should = require('should');
 var ArrayProxy = require('../lib/proxies/array-proxy.js');
 
-exports.describeObjectProxyConstructor = function(constructor) {
+exports.describeProxyConstructor = function(constructor) {
   return function() {
     it('should export defined', function() {
       should(constructor).be.Function();
@@ -12,7 +12,7 @@ exports.describeObjectProxyConstructor = function(constructor) {
   };
 };
 
-exports.describeObjectProxyUppableAndable = function(constructor) {
+exports.describeProxyUppableAndable = function(constructor) {
   return function() {
     it('should have up()', function() {
       should(new constructor(null, null)).have.property('up');

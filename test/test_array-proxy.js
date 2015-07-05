@@ -3,8 +3,8 @@ var ArrayProxy = require('../lib/proxies/array-proxy.js');
 var testlib = require('./testlib.js');
 
 describe('ArrayProxy', function() {
-  describe('constructor', testlib.describeObjectProxyConstructor(ArrayProxy));
-  describe('object', testlib.describeObjectProxyUppableAndable(ArrayProxy));
+  describe('constructor', testlib.describeProxyConstructor(ArrayProxy));
+  describe('object', testlib.describeProxyUppableAndable(ArrayProxy));
   describe('set', function() {
     it('adds new elements', function() {
       var array = [];
