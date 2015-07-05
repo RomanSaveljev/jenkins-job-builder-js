@@ -56,7 +56,7 @@ describe('Object flag accessor generator', function() {
       var constructor = function() {
         return this;
       };
-      should(util.generateObjectFlagAccessor('flag', constructor)).be.Function();
+      should(util.generateObjectElementAccessor('flag', constructor)).be.Function();
     });
   });
   describe('Generated function', function() {
@@ -64,7 +64,7 @@ describe('Object flag accessor generator', function() {
       var constructor = function() {
         return this;
       }
-      var flagger = util.generateObjectFlagAccessor('flag', constructor);
+      var flagger = util.generateObjectElementAccessor('flag', constructor);
       it('implicitly adds member', function() {
         var obj = {array: []};
         flagger.apply(obj);
@@ -80,12 +80,6 @@ describe('Object flag accessor generator', function() {
         flagger.apply(obj);
         should(obj.array).have.length(2);
       });
-      it('does not add duplicates', function() {
-        var obj = {array: [{flag: {}}]};
-        flagger.apply(obj);
-        should(obj.array).have.length(1);
-        should(obj.array).containEql({flag: {}});
-      });
     });
     describe('proxy constructor', function() {
       it('is called', function() {
@@ -95,7 +89,7 @@ describe('Object flag accessor generator', function() {
           executed = true;
           return this;
         };
-        var flagger = util.generateObjectFlagAccessor('flag', constructor);
+        var flagger = util.generateObjectElementAccessor('flag', constructor);
         flagger.apply(obj);
         should(executed).be.exactly(true);
       });
@@ -105,16 +99,16 @@ describe('Object flag accessor generator', function() {
           should(parent).be.exactly(obj);
           return this;
         };
-        var flagger = util.generateObjectFlagAccessor('flag', constructor);
+        var flagger = util.generateObjectElementAccessor('flag', constructor);
         flagger.apply(obj);
       });
-      it('receives inner object', function() {
-        var obj = {array: [{flag: {property: true}}]};
+      it('receives inner empty object', function() {
+        var obj = {array: [{flag: {}}]};
         var constructor = function(parent, inner) {
-          should(inner).have.property('property');
+          should(inner).be.empty();
           return this;
         };
-        var flagger = util.generateObjectFlagAccessor('flag', constructor);
+        var flagger = util.generateObjectElementAccessor('flag', constructor);
         flagger.apply(obj);
       });
     });
