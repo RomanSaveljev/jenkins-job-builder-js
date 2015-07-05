@@ -75,7 +75,7 @@ exports.describeObjectProxyArrayProperty = function(constructor, property, inter
       var internal = {};
       var obj = new constructor(null, internal);
       var getter = obj[property];
-      getter.apply(obj).set('value for ' + property);
+      getter.apply(obj).add('value for ' + property);
       should(internal[internalName]).containEql('value for ' + property);
     });
   }
