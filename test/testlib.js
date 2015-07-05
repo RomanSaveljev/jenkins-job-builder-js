@@ -1,4 +1,5 @@
 var should = require('should');
+var ArrayProxy = require('../lib/proxies/array-proxy.js');
 
 exports.describeObjectProxyConstructor = function(constructor) {
   return function() {
@@ -43,9 +44,33 @@ exports.describeObjectProxyProperty = function(constructor, property, internalNa
       var internal = {};
       var obj = new constructor(null, internal);
       var setter = obj[property];
-      should(obj).not.be.exactly(null);
       setter.apply(obj, ['value for ' + property]);
       should(internal[internalName]).be.equal('value for ' + property);
     });
   };
+}
+
+exports.describeObjectProxyArrayProperty = function(constructor, property, internalName) {
+  return function() {
+    it('should have ' + property, function() {
+      should(new constructor(null, null)).have.property(property);
+    });
+    it('should have ' + property + '()', function() {
+      var obj = new constructor(null, null);
+      should(obj[property]).be.a.Function();
+    });
+    it(property + '() returns ArrayProxy', function() {
+      var internal = {};
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      should(getter.apply(obj)).be.instanceof(ArrayProxy);
+    });
+    it('returned ArrayProxy manipulates ' + internalName, function() {
+      var internal = {};
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      getter.apply(obj).set('value for ' + property);
+      should(internal[internalName]).containEql('value for ' + property);
+    });
+  }
 }
