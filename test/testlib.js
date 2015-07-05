@@ -1,0 +1,51 @@
+var should = require('should');
+
+exports.describeObjectProxyConstructor = function(constructor) {
+  return function() {
+    it('should export defined', function() {
+      should(constructor).be.Function();
+    });
+    it('should export constructor', function() {
+      should(new constructor(null, {})).be.Object;
+    });
+  };
+};
+
+exports.describeObjectProxyUppableAndable = function(constructor) {
+  return function() {
+    it('should have up()', function() {
+      should(new constructor(null, null)).have.property('up');
+    });
+    it('should be uppable', function() {
+      var upper = {a: 1};
+      should(new constructor(upper, {}).up()).be.exactly(upper);
+    });
+    it('should have and()', function() {
+      should(new constructor(null, null)).have.property('and');
+    });
+    it('should be andable', function() {
+      var upper = {a: 1};
+      should(new constructor(upper, {}).and()).be.exactly(upper);
+    });
+  };
+}
+
+exports.describeObjectProxyProperty = function(constructor, property, internalName) {
+  return function() {
+    it('should have ' + property, function() {
+      should(new constructor(null, null)).have.property(property);
+    });
+    it('should have ' + property + '()', function() {
+      var obj = new constructor(null, null);
+      should(obj[property]).be.a.Function();
+    });
+    it('should have ' + property + '() update ' + internalName, function() {
+      var internal = {};
+      var obj = new constructor(null, internal);
+      var setter = obj[property];
+      should(obj).not.be.exactly(null);
+      setter.apply(obj, ['value for ' + property]);
+      should(internal[internalName]).be.equal('value for ' + property);
+    });
+  };
+}
