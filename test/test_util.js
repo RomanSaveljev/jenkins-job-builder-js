@@ -2,14 +2,14 @@ var should = require('should');
 var util = require('../lib/util.js');
 var ArrayProxy = require('../lib/proxies/array-proxy.js');
 
-describe('Nested accessor generator', function() {
+describe('Primitive accessor generator', function() {
   describe('Basic sanity', function() {
     it('returns function', function() {
-      should(util.generateNestedAccessor('a', 'b')).be.Function();
+      should(util.generatePrimitiveAccessor('a', 'b')).be.Function();
     });
   });
   describe('Generated function', function() {
-    var accessor = util.generateNestedAccessor('outer', 'inner');
+    var accessor = util.generatePrimitiveAccessor('outer', 'inner');
     var obj = {outer: {inner: 5}};
     it.skip('gets inner field value', function() {
       should(accessor.apply(obj)).be.exactly(5);
@@ -158,7 +158,7 @@ describe('Array proxy accessor generator', function() {
     });
     it('appends to existing array', function() {
       var obj = {outer: {inner: ['first']}};
-      accessor.apply(obj).set('second');
+      accessor.apply(obj).add('second');
       should(obj.outer.inner).containEql('first');
       should(obj.outer.inner).containEql('second');
     });
