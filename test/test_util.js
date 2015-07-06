@@ -1,19 +1,17 @@
 var should = require('should');
 var util = require('../lib/util.js');
-var ArrayProxy = require('../lib/proxies/array-proxy.js');
+var PrimitiveArrayProxy = require('../lib/proxies/primitive-array-proxy.js');
+var ObjectArrayProxy = require('../lib/proxies/object-array-proxy.js');
 
 describe('Primitive accessor generator', function() {
-  describe('Basic sanity', function() {
-    it('returns function', function() {
+  describe('simply', function() {
+    it('returns a function', function() {
       should(util.generatePrimitiveAccessor('a', 'b')).be.Function();
     });
   });
   describe('Generated function', function() {
     var accessor = util.generatePrimitiveAccessor('outer', 'inner');
     var obj = {outer: {inner: 5}};
-    it.skip('gets inner field value', function() {
-      should(accessor.apply(obj)).be.exactly(5);
-    });
     it('sets inner field value', function() {
       accessor.apply(obj, ['text']);
       should(obj.outer.inner).be.exactly('text');
@@ -24,39 +22,115 @@ describe('Primitive accessor generator', function() {
   });
 });
 
-describe('String flag accessor generator', function() {
-  describe('Basic sanity', function() {
-    it('returns function', function() {
-      should(util.generatePrimitiveElementAccessor('flag')).be.Function();
+describe('Object accessor generator', function() {
+  describe('simply', function() {
+    it('returns a function', function() {
+      should(util.generateObjectAccessor('a', 'b', function() {return this})).be.Function();
     });
   });
   describe('Generated function', function() {
-    var flagger = util.generatePrimitiveElementAccessor('flag');
-    it('adds new member', function() {
-      var obj = {array: []};
-      should(obj.array).have.length(0);
-      flagger.apply(obj, [true]);
-      should(obj.array).have.length(1);
-      should(obj.array).containEql('flag');
+    var constructor = function(upper, shared) {
+      this.upper = upper;
+      this.shared = shared;
+      return this;
+    };
+    var accessor = util.generateObjectAccessor('outer', 'inner', constructor);
+    it('sets inner field value to empty object', function() {
+      var obj = {outer: {}};
+      accessor.apply(obj);
+      should(obj.outer.inner).be.Object();
+      should(obj.outer.inner).be.empty();
     });
-    it('keeps existing member', function() {
-      var obj = {array: ['something']};
-      should(obj.array).have.length(1);
-      flagger.apply(obj, [true]);
-      should(obj.array).have.length(2);
-      should(obj.array).containEql('something');
-      should(obj.array).containEql('flag');
+    it('drops existing inner object', function() {
+      var obj = {outer: {key: 3}};
+      accessor.apply(obj);
+      should(obj.outer.inner).be.Object();
+      should(obj.outer.inner).be.empty();
+    });
+    it('passes correct upper to constructor', function() {
+      var obj = {outer: {key: 3}};
+      var proxy = accessor.apply(obj);
+      should(proxy.upper).be.exactly(obj);
+    });
+  });
+  describe('Generated function', function() {
+    var constructor = function(upper, shared) {
+      this.upper = upper;
+      this.shared = shared;
+      should(shared).be.empty();
+      this.shared.property = true;
+      return this;
+    };
+    var accessor = util.generateObjectAccessor('outer', 'inner', constructor);
+    it('passes correct shared to constructor', function() {
+      var obj = {outer: {key: true}};
+      var proxy = accessor.apply(obj);
+      should(proxy.shared).have.property('property');
     });
   });
 });
 
-describe('Object flag accessor generator', function() {
+describe('Primitive array accessor generator', function() {
+  describe('Basic sanity', function() {
+    it('returns function', function() {
+      should(util.generatePrimitiveArrayAccessor('a', 'b')).be.Function();
+    });
+  });
+  describe('Generated function', function() {
+    var accessor = util.generatePrimitiveArrayAccessor('outer', 'inner');
+    it('returns PrimitiveArrayProxy object', function() {
+      var obj = {outer: {inner: []}};
+      should(accessor.apply(obj)).be.instanceof(PrimitiveArrayProxy);
+    });
+    it('creates array as needed', function() {
+      var obj = {outer: {}};
+      accessor.apply(obj);
+      should(obj.outer.inner).be.Array();
+    });
+    it('always drops existing array', function() {
+      var obj = {outer: {inner: ['first']}};
+      accessor.apply(obj);
+      should(obj.outer.inner).be.empty();
+    });
+  });
+});
+
+describe('Object array accessor generator', function() {
+  var constructor = function() {
+    return this;
+  };
+  describe('Basic sanity', function() {
+    it('returns function', function() {
+      should(util.generateObjectArrayAccessor('a', 'b', constructor)).be.Function();
+    });
+  });
+  describe('Generated function', function() {
+    var accessor = util.generateObjectArrayAccessor('outer', 'inner', constructor);
+    it('returns ObjectArrayProxy object', function() {
+      var obj = {outer: {inner: []}};
+      should(accessor.apply(obj)).be.instanceof(ObjectArrayProxy);
+    });
+    it('creates array as needed', function() {
+      var obj = {outer: {}};
+      accessor.apply(obj);
+      should(obj.outer.inner).be.Array();
+    });
+    it('always drops existing array', function() {
+      var obj = {outer: {inner: ['first']}};
+      accessor.apply(obj);
+      should(obj.outer.inner).be.empty();
+    });
+  });
+});
+
+
+describe('Keyed object element accessor generator', function() {
   describe('Basic sanity', function() {
     it('returns function', function() {
       var constructor = function() {
         return this;
       };
-      should(util.generateKeyedObjectElementAccessor('flag', constructor)).be.Function();
+      should(util.generateKeyedObjectElementAccessor('array', 'key', constructor)).be.Function();
     });
   });
   describe('Generated function', function() {
@@ -64,21 +138,11 @@ describe('Object flag accessor generator', function() {
       var constructor = function() {
         return this;
       }
-      var flagger = util.generateKeyedObjectElementAccessor('flag', constructor);
-      it('implicitly adds member', function() {
+      var flagger = util.generateKeyedObjectElementAccessor('array', 'key', constructor);
+      it('adds member', function() {
         var obj = {array: []};
         flagger.apply(obj);
-        should(obj.array).containEql({flag: {}});
-      });
-      it('detects uniqueness', function() {
-        var obj = {array: [{something: {}}]};
-        flagger.apply(obj);
-        should(obj.array).containEql({flag: {}});
-      });
-      it('keeps existing', function() {
-        var obj = {array: [{something: {}}]};
-        flagger.apply(obj);
-        should(obj.array).have.length(2);
+        should(obj.array).containEql({key: {}});
       });
     });
     describe('proxy constructor', function() {
@@ -89,7 +153,7 @@ describe('Object flag accessor generator', function() {
           executed = true;
           return this;
         };
-        var flagger = util.generateKeyedObjectElementAccessor('flag', constructor);
+        var flagger = util.generateKeyedObjectElementAccessor('array', 'flag', constructor);
         flagger.apply(obj);
         should(executed).be.exactly(true);
       });
@@ -99,44 +163,19 @@ describe('Object flag accessor generator', function() {
           should(parent).be.exactly(obj);
           return this;
         };
-        var flagger = util.generateKeyedObjectElementAccessor('flag', constructor);
+        var flagger = util.generateKeyedObjectElementAccessor('array', 'flag', constructor);
         flagger.apply(obj);
       });
       it('receives inner empty object', function() {
-        var obj = {array: [{flag: {}}]};
+        var obj = {array: []};
         var constructor = function(parent, inner) {
+          should(inner).be.Object();
           should(inner).be.empty();
           return this;
         };
-        var flagger = util.generateKeyedObjectElementAccessor('flag', constructor);
+        var flagger = util.generateKeyedObjectElementAccessor('array', 'flag', constructor);
         flagger.apply(obj);
       });
-    });
-  });
-});
-
-describe('Array proxy accessor generator', function() {
-  describe('Basic sanity', function() {
-    it('returns function', function() {
-      should(util.generatePrimitiveArrayAccessor('a', 'b')).be.Function();
-    });
-  });
-  describe('Generated function', function() {
-    var accessor = util.generatePrimitiveArrayAccessor('outer', 'inner');
-    it('returns ArrayProxy object', function() {
-      var obj = {outer: {inner: []}};
-      should(accessor.apply(obj)).be.instanceof(ArrayProxy);
-    });
-    it('creates array as needed', function() {
-      var obj = {outer: {}};
-      accessor.apply(obj);
-      should(obj.outer.inner).be.Array();
-    });
-    it('appends to existing array', function() {
-      var obj = {outer: {inner: ['first']}};
-      accessor.apply(obj).add('second');
-      should(obj.outer.inner).containEql('first');
-      should(obj.outer.inner).containEql('second');
     });
   });
 });
