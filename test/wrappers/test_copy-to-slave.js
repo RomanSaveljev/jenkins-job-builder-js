@@ -1,6 +1,6 @@
 var should = require('should');
-var CopyToSlave = require('../lib/wrappers/copy-to-slave.js');
-var testlib = require('./testlib.js');
+var CopyToSlave = require('../../lib/wrappers/copy-to-slave.js');
+var testlib = require('../testlib.js');
 
 describe('CopyToSlave', function() {
   describe('constructor', testlib.describeProxyConstructor(CopyToSlave));

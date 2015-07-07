@@ -1,6 +1,6 @@
 var should = require('should');
-var Xvfb = require('../lib/wrappers/xvfb.js');
-var testlib = require('./testlib.js');
+var Xvfb = require('../../lib/wrappers/xvfb.js');
+var testlib = require('../testlib.js');
 
 describe('Xvfb', function() {
   describe('constructor', testlib.describeProxyConstructor(Xvfb));

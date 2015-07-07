@@ -1,6 +1,6 @@
 var should = require('should');
-var Credential = require('../lib/wrappers/credentials-binding/credential.js');
-var testlib = require('./testlib.js');
+var Credential = require('../../lib/wrappers/credentials-binding/credential.js');
+var testlib = require('../testlib.js');
 
 describe('Credential', function() {
   describe('constructor', testlib.describeProxyConstructor(Credential));

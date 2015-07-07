@@ -1,6 +1,6 @@
 var should = require('should');
-var Inject = require('../lib/wrappers/inject.js');
-var testlib = require('./testlib.js');
+var Inject = require('../../lib/wrappers/inject.js');
+var testlib = require('../testlib.js');
 
 describe('Inject', function() {
   describe('constructor', testlib.describeProxyConstructor(Inject));

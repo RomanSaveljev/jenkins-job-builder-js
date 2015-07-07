@@ -1,6 +1,6 @@
 var should = require('should');
-var Timeout = require('../lib/wrappers/timeout.js');
-var testlib = require('./testlib.js');
+var Timeout = require('../../lib/wrappers/timeout.js');
+var testlib = require('../testlib.js');
 
 describe('Timeout', function() {
   describe('constructor', testlib.describeProxyConstructor(Timeout));

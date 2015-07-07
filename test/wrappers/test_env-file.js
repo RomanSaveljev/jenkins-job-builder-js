@@ -1,6 +1,6 @@
 var should = require('should');
-var EnvFile = require('../lib/wrappers/env-file.js');
-var testlib = require('./testlib.js');
+var EnvFile = require('../../lib/wrappers/env-file.js');
+var testlib = require('../testlib.js');
 
 describe('EnvFile', function() {
   describe('constructor', testlib.describeProxyConstructor(EnvFile));

@@ -1,6 +1,6 @@
 var should = require('should');
-var Ansicolor = require('../lib/wrappers/ansicolor.js');
-var testlib = require('./testlib.js');
+var Ansicolor = require('../../lib/wrappers/ansicolor.js');
+var testlib = require('../testlib.js');
 
 describe('Ansicolor', function() {
   describe('constructor', testlib.describeProxyConstructor(Ansicolor));

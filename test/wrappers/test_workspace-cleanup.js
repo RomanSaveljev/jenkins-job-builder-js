@@ -1,6 +1,6 @@
 var should = require('should');
-var WorkspaceCleanup = require('../lib/wrappers/workspace-cleanup.js');
-var testlib = require('./testlib.js');
+var WorkspaceCleanup = require('../../lib/wrappers/workspace-cleanup.js');
+var testlib = require('../testlib.js');
 
 describe('WorkspaceCleanup', function() {
   describe('constructor', testlib.describeProxyConstructor(WorkspaceCleanup));

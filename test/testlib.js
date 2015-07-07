@@ -69,7 +69,7 @@ exports.describePrimitiveArrayProxyProperty = function(constructor, property, in
       var internal = {};
       var obj = new constructor(null, internal);
       var getter = obj[property];
-      should(getter.apply(obj)).be.instanceof(ArrayProxy);
+      should(getter.apply(obj)).be.instanceof(PrimitiveArrayProxy);
     });
     it('returned PrimitiveArrayProxy manipulates ' + internalName, function() {
       var internal = {};

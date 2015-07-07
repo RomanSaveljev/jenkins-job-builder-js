@@ -1,6 +1,6 @@
 var should = require('should');
-var ConfigFile = require('../lib/wrappers/config-file-provider/config-file.js');
-var testlib = require('./testlib.js');
+var ConfigFile = require('../../lib/wrappers/config-file-provider/config-file.js');
+var testlib = require('../testlib.js');
 
 describe('ConfigFile', function() {
   describe('constructor', testlib.describeProxyConstructor(ConfigFile));

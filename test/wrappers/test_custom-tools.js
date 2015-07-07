@@ -1,6 +1,6 @@
 var should = require('should');
-var CustomTools = require('../lib/wrappers/custom-tools.js');
-var testlib = require('./testlib.js');
+var CustomTools = require('../../lib/wrappers/custom-tools.js');
+var testlib = require('../testlib.js');
 
 describe('CustomTools', function() {
   describe('constructor', testlib.describeProxyConstructor(CustomTools));

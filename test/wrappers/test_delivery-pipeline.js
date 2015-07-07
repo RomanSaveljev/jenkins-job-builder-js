@@ -1,6 +1,6 @@
 var should = require('should');
-var DeliveryPipeline = require('../lib/wrappers/delivery-pipeline.js');
-var testlib = require('./testlib.js');
+var DeliveryPipeline = require('../../lib/wrappers/delivery-pipeline.js');
+var testlib = require('../testlib.js');
 
 describe('DeliveryPipeline', function() {
   describe('constructor', testlib.describeProxyConstructor(DeliveryPipeline));
