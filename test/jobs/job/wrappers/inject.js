@@ -5,5 +5,5 @@ var testlib = require('../../../testlib.js');
 describe('Inject', function() {
   describe('constructor', testlib.describeProxyConstructor(Inject));
   describe('object', testlib.describeProxyUppableAndable(Inject));
-  describe('name', testlib.describeObjectProxyProperty(Inject, 'scriptContent', 'script-content'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(Inject, 'script-content'));
 });

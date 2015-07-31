@@ -5,6 +5,6 @@ var testlib = require('../../../../testlib.js');
 describe('Credential', function() {
   describe('constructor', testlib.describeProxyConstructor(Credential));
   describe('object', testlib.describeProxyUppableAndable(Credential));
-  describe('properties', testlib.describeObjectProxyProperty(Credential, 'credentialId', 'credential-id'));
-  describe('properties', testlib.describeObjectProxyProperty(Credential, 'variable'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(Credential, 'credential-id'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(Credential, 'variable'));
 });

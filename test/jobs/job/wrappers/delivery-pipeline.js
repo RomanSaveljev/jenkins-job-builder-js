@@ -5,6 +5,6 @@ var testlib = require('../../../testlib.js');
 describe('DeliveryPipeline', function() {
   describe('constructor', testlib.describeProxyConstructor(DeliveryPipeline));
   describe('object', testlib.describeProxyUppableAndable(DeliveryPipeline));
-  describe('properties', testlib.describeObjectProxyProperty(DeliveryPipeline, 'versionTemplate', 'version-template'));
-  describe('properties', testlib.describeObjectProxyProperty(DeliveryPipeline, 'setDisplayName', 'set-display-name'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(DeliveryPipeline, 'version-template'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(DeliveryPipeline, 'set-display-name'));
 });

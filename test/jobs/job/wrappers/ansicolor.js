@@ -5,5 +5,5 @@ var testlib = require('../../../testlib.js');
 describe('Ansicolor', function() {
   describe('constructor', testlib.describeProxyConstructor(Ansicolor));
   describe('object', testlib.describeProxyUppableAndable(Ansicolor));
-  describe('properties', testlib.describeObjectProxyProperty(Ansicolor, 'colormap'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(Ansicolor, 'colormap'));
 });

@@ -1,6 +1,13 @@
 var should = require('should');
 var PrimitiveArrayProxy = require('../lib/misc/primitive-array-proxy.js');
 
+function camelize(str) {
+  return str.replace(/-([a-z])/g, function (g) {
+    return g[1].toUpperCase();
+  });
+};
+exports.camelize = camelize;
+
 exports.describeProxyConstructor = function(constructor) {
   return function() {
     it('should export defined', function() {
@@ -31,9 +38,10 @@ exports.describeProxyUppableAndable = function(constructor) {
   };
 };
 
-exports.describeObjectProxyProperty = function(constructor, property, internalName) {
+exports.describeProxyPrimitiveProperty = function(constructor, property, internalName) {
   if (internalName === undefined) {
     internalName = property;
+    property = camelize(internalName);
   }
   return function() {
     it('should have ' + property, function() {
@@ -53,9 +61,10 @@ exports.describeObjectProxyProperty = function(constructor, property, internalNa
   };
 };
 
-exports.describePrimitiveArrayProxyProperty = function(constructor, property, internalName) {
+exports.describeProxyPrimitiveArrayProperty = function(constructor, property, internalName) {
   if (internalName === undefined) {
     internalName = property;
+    property = camelize(internalName);
   }
   return function() {
     it('should have ' + property, function() {
