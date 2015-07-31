@@ -1,1 +1,1 @@
-module.exports = require('./lib/jenkins-job-builder');
+module.exports = require('./lib/jobs.js');
