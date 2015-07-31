@@ -1,5 +1,5 @@
 var should = require('should');
-var PrimitiveArrayProxy = require('../lib/proxies/primitive-array-proxy.js');
+var PrimitiveArrayProxy = require('../lib/misc/primitive-array-proxy.js');
 
 exports.describeProxyConstructor = function(constructor) {
   return function() {
