@@ -12,4 +12,7 @@ cov-all:
 		--reporter html-cov --require blanket --recursive
 
 create-tests:
-	(cd lib && find -type f) | while read JSFILE; do mkdir -p test/$$(dirname $$JSFILE) && touch test/$$JSFILE; done
+	(cd lib && find -type f) | \
+	while read JSFILE; \
+		do mkdir -p test/$$(dirname $$JSFILE) && touch test/$$(dirname $$JSFILE)/test_$$(basename $$JSFILE); \
+	done
