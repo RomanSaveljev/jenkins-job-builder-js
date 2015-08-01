@@ -26,6 +26,17 @@ macro primitiveArray {
 }
 export primitiveArray;
 
+macro objectArray {
+  rule {
+    ($anUtil, $anObject, $aProperty, $aConstructor)
+  } => {
+    $anObject.prototype[$anUtil.camelize($aProperty)] = function(value) {
+      return $anUtil.objectArrayAccessor.apply(this, [$aProperty, $aConstructor, value]);
+    }
+  }
+}
+export objectArray;
+
 macro primitive {
   rule {
     ($anUtil, $anObject, $aProperty)
