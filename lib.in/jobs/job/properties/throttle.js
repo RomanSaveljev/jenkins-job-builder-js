@@ -2,15 +2,9 @@
 
 var util = require('../../../misc/util.js');
 
-var Throttle = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(Throttle.prototype, 'upper');
-Throttle.prototype.maxPerNode = util.generatePrimitiveAccessor('obj', 'max-per-node');
-Throttle.prototype.maxTotal = util.generatePrimitiveAccessor('obj', 'max-total');
-Throttle.prototype.enabled = util.generatePrimitiveAccessor('obj', 'enabled');
-Throttle.prototype.option = util.generatePrimitiveAccessor('obj', 'option');
-Throttle.prototype.categories = util.generatePrimitiveArrayAccessor('obj', 'categories');
-
-module.exports = Throttle;
+uppableObjectProxy(Throttle)
+primitive(util, Throttle, 'max-per-node')
+primitive(util, Throttle, 'max-total')
+primitive(util, Throttle, 'enabled')
+primitive(util, Throttle, 'option')
+primitiveArray(util, Throttle, 'categories')
