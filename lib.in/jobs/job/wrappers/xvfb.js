@@ -1,31 +1,16 @@
-/*!
-* xvfb - lib/wrappers/xvfb.js
-* Copyright(c) 2015 Roman Saveljev <roman.saveljev@haltian.com>
-* MIT Licensed
-*/
-
 "use strict";
 
-/**
- * Module dependencies.
- */
 var util = require('../../../misc/util.js');
 
-var Xvfb = function(upper, xvfb) {
-  this.upper = upper;
-  this.xvfb = xvfb;
-};
-util.makeUppable(Xvfb.prototype, 'upper');
-Xvfb.prototype.installationName = util.generatePrimitiveAccessor('xvfb', 'installation-name');
-Xvfb.prototype.autoDisplayName = util.generatePrimitiveAccessor('xvfb', 'auto-display-name');
-Xvfb.prototype.displayName = util.generatePrimitiveAccessor('xvfb', 'display-name');
-Xvfb.prototype.assignedLabels = util.generatePrimitiveAccessor('xvfb', 'assigned-labels');
-Xvfb.prototype.parallelBuild = util.generatePrimitiveAccessor('xvfb', 'parallel-build');
-Xvfb.prototype.timeout = util.generatePrimitiveAccessor('xvfb', 'timeout');
-Xvfb.prototype.screen = util.generatePrimitiveAccessor('xvfb', 'screen');
-Xvfb.prototype.displayNameOffset = util.generatePrimitiveAccessor('xvfb', 'display-name-offset');
-Xvfb.prototype.additionalOptions = util.generatePrimitiveAccessor('xvfb', 'additional-options');
-Xvfb.prototype.debug = util.generatePrimitiveAccessor('xvfb', 'debug');
-Xvfb.prototype.shutdownWithBuild = util.generatePrimitiveAccessor('xvfb', 'shutdown-with-build');
-
-module.exports = Xvfb;
+uppableObjectProxy(Xvfb)
+primitive(util, Xvfb, 'installation-name')
+primitive(util, Xvfb, 'auto-display-name')
+primitive(util, Xvfb, 'display-name')
+primitive(util, Xvfb, 'assigned-labels')
+primitive(util, Xvfb, 'parallel-build')
+primitive(util, Xvfb, 'timeout')
+primitive(util, Xvfb, 'screen')
+primitive(util, Xvfb, 'display-name-offset')
+primitive(util, Xvfb, 'additional-options')
+primitive(util, Xvfb, 'debug')
+primitive(util, Xvfb, 'shutdown-with-build')

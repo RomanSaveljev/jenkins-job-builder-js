@@ -2,12 +2,6 @@
 
 var util = require('../../../misc/util.js');
 
-var DeliveryPipeline = function(upper, deliveryPipeline) {
-  this.upper = upper;
-  this.deliveryPipeline = deliveryPipeline;
-};
-util.makeUppable(DeliveryPipeline.prototype, 'upper');
-DeliveryPipeline.prototype.versionTemplate = util.generatePrimitiveAccessor('deliveryPipeline', 'version-template');
-DeliveryPipeline.prototype.setDisplayName = util.generatePrimitiveAccessor('deliveryPipeline', 'set-display-name');
-
-module.exports = DeliveryPipeline;
+uppableObjectProxy(DeliveryPipeline)
+primitive(util, DeliveryPipeline, 'version-template')
+primitive(util, DeliveryPipeline, 'set-display-name')

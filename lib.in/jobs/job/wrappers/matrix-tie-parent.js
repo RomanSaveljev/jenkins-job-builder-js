@@ -2,11 +2,5 @@
 
 var util = require('../../../misc/util.js');
 
-var MatrixTieParent = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(MatrixTieParent.prototype, 'upper');
-MatrixTieParent.prototype.node = util.generatePrimitiveAccessor('obj', 'node');
-
-module.exports = MatrixTieParent;
+uppableObjectProxy(MatrixTieParent)
+primitive(util, MatrixTieParent, 'node')

@@ -1,29 +1,14 @@
-/*!
- * timeout - lib/wrappers/timeout.js
- * Copyright(c) 2015 Roman Saveljev <roman.saveljev@haltian.com>
- * MIT Licensed
- */
-
 "use strict";
 
-/**
- * Module dependencies.
- */
 var util = require('../../../misc/util.js');
 
-var Timeout = function(upper, timeoutRef) {
-  this.upper = upper;
-  this.timeoutRef = timeoutRef;
-};
-util.makeUppable(Timeout.prototype, 'upper');
-Timeout.prototype.fail = util.generatePrimitiveAccessor('timeoutRef', 'fail');
-Timeout.prototype.abort = util.generatePrimitiveAccessor('timeoutRef', 'abort');
-Timeout.prototype.writeDescription = util.generatePrimitiveAccessor('timeoutRef', 'write-description');
-Timeout.prototype.timeout = util.generatePrimitiveAccessor('timeoutRef', 'timeout');
-Timeout.prototype.timeoutVar = util.generatePrimitiveAccessor('timeoutRef', 'timeout-var');
-Timeout.prototype.type = util.generatePrimitiveAccessor('timeoutRef', 'type');
-Timeout.prototype.elasticPercentage = util.generatePrimitiveAccessor('timeoutRef', 'elastic-percentage');
-Timeout.prototype.elasticNumberBuilds = util.generatePrimitiveAccessor('timeoutRef', 'elastic-number-builds');
-Timeout.prototype.elasticDefaultTimeout = util.generatePrimitiveAccessor('timeoutRef', 'elastic-default-timeout');
-
-module.exports = Timeout;
+uppableObjectProxy(Timeout)
+primitive(util, Timeout, 'fail')
+primitive(util, Timeout, 'abort')
+primitive(util, Timeout, 'write-description')
+primitive(util, Timeout, 'timeout')
+primitive(util, Timeout, 'timeout-var')
+primitive(util, Timeout, 'type')
+primitive(util, Timeout, 'elastic-percentage')
+primitive(util, Timeout, 'elastic-number-builds')
+primitive(util, Timeout, 'elastic-default-timeout')

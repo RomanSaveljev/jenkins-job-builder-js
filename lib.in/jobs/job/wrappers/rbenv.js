@@ -2,18 +2,12 @@
 
 var util = require('../../../misc/util.js');
 
-var Rbenv = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(Rbenv.prototype, 'upper');
-Rbenv.prototype.rubyVersion = util.generatePrimitiveAccessor('obj', 'ruby-version');
-Rbenv.prototype.ignoreLocalVersion = util.generatePrimitiveAccessor('obj', 'ignore-local-version');
-Rbenv.prototype.preinstallGemList = util.generatePrimitiveAccessor('obj', 'preinstall-gem-list');
-Rbenv.prototype.rbenvRoot = util.generatePrimitiveAccessor('obj', 'rbenv-root');
-Rbenv.prototype.rbenvRepo = util.generatePrimitiveAccessor('obj', 'rbenv-repo');
-Rbenv.prototype.rbenvBranch = util.generatePrimitiveAccessor('obj', 'rbenv-branch');
-Rbenv.prototype.rubyBuildRepo = util.generatePrimitiveAccessor('obj', 'ruby-build-repo');
-Rbenv.prototype.rubyBuildBranch = util.generatePrimitiveAccessor('obj', 'ruby-build-branch');
-
-module.exports = Rbenv;
+uppableObjectProxy(Rbenv)
+primitive(util, Rbenv, 'ruby-version')
+primitive(util, Rbenv, 'ignore-local-version')
+primitive(util, Rbenv, 'preinstall-gem-list')
+primitive(util, Rbenv, 'rbenv-root')
+primitive(util, Rbenv, 'rbenv-repo')
+primitive(util, Rbenv, 'rbenv-branch')
+primitive(util, Rbenv, 'ruby-build-repo')
+primitive(util, Rbenv, 'ruby-build-branch')

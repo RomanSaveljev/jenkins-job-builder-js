@@ -1,24 +1,8 @@
-/*!
- * workspace-cleanup - lib/wrappers/workspace-cleanup.js
- * Copyright(c) 2015 Roman Saveljev <roman.saveljev@haltian.com>
- * MIT Licensed
- */
-
 "use strict";
 
-/**
- * Module dependencies.
- */
 var util = require('../../../misc/util.js');
 
-var WorkspaceCleanup = function(upper, workspaceCleanup) {
-  this.upper = upper;
-  this.workspaceCleanup = workspaceCleanup;
-};
-util.makeUppable(WorkspaceCleanup.prototype, 'upper');
-WorkspaceCleanup.prototype.include = util.generatePrimitiveArrayAccessor('workspaceCleanup', 'include');
-WorkspaceCleanup.prototype.exclude = util.generatePrimitiveArrayAccessor('workspaceCleanup', 'exclude');
-WorkspaceCleanup.prototype.dirmatch = util.generatePrimitiveAccessor('workspaceCleanup', 'dirmatch');
-
-
-module.exports = WorkspaceCleanup;
+uppableObjectProxy(WorkspaceCleanup)
+primitiveArray(util, WorkspaceCleanup, 'include')
+primitiveArray(util, WorkspaceCleanup, 'exclude')
+primitive(util, WorkspaceCleanup, 'dirmatch')

@@ -2,15 +2,9 @@
 
 var util = require('../../../misc/util.js');
 
-var MongoDb = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(MongoDb.prototype, 'upper');
-MongoDb.prototype.name = util.generatePrimitiveArrayAccessor('obj', 'name');
-MongoDb.prototype.dataDirectory = util.generatePrimitiveArrayAccessor('obj', 'data-directory');
-MongoDb.prototype.port = util.generatePrimitiveArrayAccessor('obj', 'port');
-MongoDb.prototype.startupParams = util.generatePrimitiveArrayAccessor('obj', 'startup-params');
-MongoDb.prototype.startTimeout = util.generatePrimitiveArrayAccessor('obj', 'start-timeout');
-
-module.exports = MongoDb;
+uppableObjectProxy(MongoDb)
+primitiveArray(util, MongoDb, 'name')
+primitiveArray(util, MongoDb, 'data-directory')
+primitiveArray(util, MongoDb, 'port')
+primitiveArray(util, MongoDb, 'startup-params')
+primitiveArray(util, MongoDb, 'start-timeout')

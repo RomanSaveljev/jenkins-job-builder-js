@@ -2,13 +2,7 @@
 
 var util = require('../../../../misc/util.js');
 
-var ConfigFile = function(upper, configFile) {
-  this.upper = upper;
-  this.configFile = configFile;
-};
-util.makeUppable(ConfigFile.prototype, 'upper');
-ConfigFile.prototype.fileId = util.generatePrimitiveAccessor('configFile', 'file-id');
-ConfigFile.prototype.target = util.generatePrimitiveAccessor('configFile', 'target');
-ConfigFile.prototype.variable = util.generatePrimitiveAccessor('configFile', 'variable');
-
-module.exports = ConfigFile;
+uppableObjectProxy(ConfigFile)
+primitive(util, ConfigFile, 'file-id')
+primitive(util, ConfigFile, 'target')
+primitive(util, ConfigFile, 'variable')
