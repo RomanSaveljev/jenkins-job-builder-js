@@ -10,7 +10,7 @@ lib/%.js : lib.in/%.js
 	sjs --module ./lib.in/macros.sjs -o $@ $<
 
 expand: $(ALL_LIB_JS)
-	@echo All templates from lib.in expanded successfully
+	@echo All templates from lib.in expanded successfully 1>&2
 
 test-all: expand
 	@NODE_ENV=test $(MOCHA) \
