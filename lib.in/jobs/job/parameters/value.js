@@ -2,13 +2,7 @@
 
 var util = require('../../../misc/util.js');
 
-var Value = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(Value.prototype, 'upper');
-Value.prototype.name = util.generatePrimitiveAccessor('obj', 'name');
-Value.prototype.default = util.generatePrimitiveAccessor('obj', 'default');
-Value.prototype.description = util.generatePrimitiveAccessor('obj', 'description');
-
-module.exports = Value;
+uppableObjectProxy(Value)
+primitive(util, Value, 'name')
+primitive(util, Value, 'default')
+primitive(util, Value, 'description')
