@@ -7,6 +7,6 @@ var Jobs = function() {
   this.jobs = [];
   return this;
 };
-Jobs.prototype.job = util.generateKeyedObjectElementAccessor('jobs', 'job', Job);
+keyedObjectElement(util, Jobs, 'job', Job)
 
 module.exports = Jobs;
