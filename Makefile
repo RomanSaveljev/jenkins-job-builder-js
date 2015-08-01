@@ -5,7 +5,7 @@ MOCHA = ./node_modules/.bin/mocha
 
 ALL_LIB_JS := $(patsubst lib.in/%,lib/%,$(shell find lib.in -type f -name '*.js'))
 
-lib/%.js : lib.in/%.js
+lib/%.js : lib.in/%.js lib.in/macros.sjs
 	mkdir -p $(dir $@)
 	sjs --module ./lib.in/macros.sjs -o $@ $<
 

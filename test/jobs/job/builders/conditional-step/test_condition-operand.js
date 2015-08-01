@@ -8,11 +8,6 @@ describe('ConditionOperand', function() {
   describe('object', testlib.describeProxyUppableAndable(ConditionOperand));
   describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'condition-kind'));
   describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'condition-expression'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'cause'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'exclusive-cause'));
-  describe('properties', testlib.describeProxyObjectProperty(ConditionOperand, 'day-selector'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'use-build-time'));
-  describe('properties', testlib.describeProxyPrimitiveArrayProperty(ConditionOperand, 'nodes'));
   describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'condition-string1'));
   describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'condition-string2'));
   describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'condition-case-insensitive'));
@@ -21,19 +16,5 @@ describe('ConditionOperand', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'condition-command'));
   describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'condition-filename'));
   describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'condition-basedir'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'include-pattern'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'exclude-pattern'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'lhs'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'rhs'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'comparator'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'regex'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'label'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'earliest-hour'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'earliest-min'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'latest-hour'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'latest-min'));
-  describe('properties', testlib.describeProxyPrimitiveArrayProperty(ConditionOperand, 'condition-operands', ConditionOperand));
-  describe('properties', testlib.describeProxyPrimitiveProperty(ConditionOperand, 'on-evaluation-failure'));
-  describe('properties', testlib.describeProxyPrimitiveArrayProperty(ConditionOperand, 'steps', Builders));
-
+  describe('properties', testlib.describeProxyObjectProperty(ConditionOperand, 'condition-operand', ConditionOperand));
 });

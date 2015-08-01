@@ -53,7 +53,7 @@ exports.describeProxyPrimitiveProperty = function(constructor, key) {
       var obj = new constructor(null, internal);
       var setter = obj[property];
       setter.apply(obj, ['value for ' + property]);
-      should(internal[internalName]).be.equal('value for ' + property);
+      should(internal[key]).be.equal('value for ' + property);
     });
   };
 };
@@ -81,7 +81,7 @@ exports.describeProxyObjectProperty = function(constructor, key, type) {
       var obj = new constructor(null, internal);
       var getter = obj[property];
       getter.apply(obj, []);
-      should(internal[key]).be.instanceof(type);
+      should(internal[key]).be.Object();
     });
     it(property + '() getter should return specific type object', function() {
       var internal = {};
@@ -115,6 +115,40 @@ exports.describeProxyPrimitiveArrayProperty = function(constructor, key) {
       var getter = obj[property];
       getter.apply(obj).add('value for ' + property);
       should(internal[key]).containEql('value for ' + property);
+    });
+  }
+};
+
+exports.describeProxyCustomArrayProperty = function(constructor, key, type) {
+  var property = camelize(key);
+  return function() {
+    it('should have ' + property, function() {
+      should(new constructor(null, null)).have.property(property);
+    });
+    it('should have ' + property + '()', function() {
+      var obj = new constructor(null, null);
+      should(obj[property]).be.a.Function();
+    });
+    it(property + '() getter should assign ' + key, function() {
+      var internal = {};
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      getter.apply(obj, []);
+      should(internal).have.property(key);
+    });
+    it(property + '() getter should reset ' + key, function() {
+      var internal = {};
+      internal[key] = 5;
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      getter.apply(obj, []);
+      should(internal[key]).be.Array();
+    });
+    it(property + '() returns specific type of object', function() {
+      var internal = {};
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      should(getter.apply(obj)).be.instanceof(type);
     });
   }
 };

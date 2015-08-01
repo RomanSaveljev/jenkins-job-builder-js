@@ -1,6 +1,7 @@
 "use strict";
 
 var util = require('../../../misc/util.js');
+var ConditionOperand = require('./conditional-step/condition-operand.js');
 
 uppableObjectProxy(ConditionalStep)
 primitive(util, ConditionalStep, 'condition-kind')
@@ -13,7 +14,7 @@ primitive(util, ConditionalStep, 'condition-best')
 primitive(util, ConditionalStep, 'condition-command');
 primitive(util, ConditionalStep, 'condition-filename')
 primitive(util, ConditionalStep, 'condition-basedir')
-primitive(util, ConditionalStep, 'condition-operand')
+object(util, ConditionalStep, 'condition-operand', ConditionOperand)
 primitive(util, ConditionalStep, 'on-evaluation-failure')
 // necessary duplication
 ConditionalStep.prototype.steps = function(value) {

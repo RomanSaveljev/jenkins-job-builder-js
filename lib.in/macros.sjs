@@ -30,7 +30,7 @@ macro uppableArrayProxy {
     module.exports = $anObject;
   }
 }
-export uppableObjectProxy;
+export uppableArrayProxy;
 
 macro primitiveArray {
   rule {

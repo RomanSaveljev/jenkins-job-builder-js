@@ -13,4 +13,4 @@ primitive(util, ConditionOperand, 'condition-best')
 primitive(util, ConditionOperand, 'condition-command');
 primitive(util, ConditionOperand, 'condition-filename')
 primitive(util, ConditionOperand, 'condition-basedir')
-primitive(util, ConditionOperand, 'condition-operand')
+object(util, ConditionOperand, 'condition-operand', ConditionOperand)
