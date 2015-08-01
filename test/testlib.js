@@ -38,11 +38,8 @@ exports.describeProxyUppableAndable = function(constructor) {
   };
 };
 
-exports.describeProxyPrimitiveProperty = function(constructor, property, internalName) {
-  if (internalName === undefined) {
-    internalName = property;
-    property = camelize(internalName);
-  }
+exports.describeProxyPrimitiveProperty = function(constructor, key) {
+  var property = camelize(key);
   return function() {
     it('should have ' + property, function() {
       should(new constructor(null, null)).have.property(property);
@@ -51,7 +48,7 @@ exports.describeProxyPrimitiveProperty = function(constructor, property, interna
       var obj = new constructor(null, null);
       should(obj[property]).be.a.Function();
     });
-    it('should have ' + property + '() update ' + internalName, function() {
+    it('should have ' + property + '() update ' + key, function() {
       var internal = {};
       var obj = new constructor(null, internal);
       var setter = obj[property];
@@ -61,11 +58,43 @@ exports.describeProxyPrimitiveProperty = function(constructor, property, interna
   };
 };
 
-exports.describeProxyPrimitiveArrayProperty = function(constructor, property, internalName) {
-  if (internalName === undefined) {
-    internalName = property;
-    property = camelize(internalName);
-  }
+exports.describeProxyObjectProperty = function(constructor, key, type) {
+  var property = camelize(key);
+  return function() {
+    it('should have ' + property, function() {
+      should(new constructor(null, null)).have.property(property);
+    });
+    it('should have ' + property + '()', function() {
+      var obj = new constructor(null, null);
+      should(obj[property]).be.a.Function();
+    });
+    it(property + '() getter should assign ' + key, function() {
+      var internal = {};
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      getter.apply(obj, []);
+      should(internal).have.property(key);
+    });
+    it(property + '() getter should reset ' + key, function() {
+      var internal = {};
+      internal[key] = 5;
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      getter.apply(obj, []);
+      should(internal[key]).be.instanceof(type);
+    });
+    it(property + '() getter should return specific type object', function() {
+      var internal = {};
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      var ret = getter.apply(obj, []);
+      should(ret).be.instanceof(type);
+    });
+  };
+};
+
+exports.describeProxyPrimitiveArrayProperty = function(constructor, key) {
+  var property = camelize(key);
   return function() {
     it('should have ' + property, function() {
       should(new constructor(null, null)).have.property(property);
@@ -80,12 +109,12 @@ exports.describeProxyPrimitiveArrayProperty = function(constructor, property, in
       var getter = obj[property];
       should(getter.apply(obj)).be.instanceof(PrimitiveArrayProxy);
     });
-    it('returned PrimitiveArrayProxy manipulates ' + internalName, function() {
+    it('returned PrimitiveArrayProxy manipulates ' + key, function() {
       var internal = {};
       var obj = new constructor(null, internal);
       var getter = obj[property];
       getter.apply(obj).add('value for ' + property);
-      should(internal[internalName]).containEql('value for ' + property);
+      should(internal[key]).containEql('value for ' + property);
     });
   }
 };

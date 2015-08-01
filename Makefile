@@ -1,7 +1,7 @@
 REPORTER = nyan
 MOCHA = ./node_modules/.bin/mocha
 
-.PHONY: expand test-all cov-all create-tests
+.PHONY: expand test-all cov-all create-tests list-untested list-tested
 
 ALL_LIB_JS := $(patsubst lib.in/%,lib/%,$(shell find lib.in -type f -name '*.js'))
 
@@ -25,3 +25,9 @@ create-tests: expand
 	while read JSFILE; \
 		do mkdir -p test/$$(dirname $$JSFILE) && touch test/$$(dirname $$JSFILE)/test_$$(basename $$JSFILE); \
 	done
+
+list-untested: create-tests
+	find test -type f -name 'test_*.js' -size 0
+
+list-tested: create-tests
+	find test -type f -name 'test_*.js' -not -size 0
