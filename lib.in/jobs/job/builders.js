@@ -30,46 +30,38 @@ var SystemGroovy = require('./builders/system-groovy.js');
 var Project = require('./builders/project.js');
 var TriggerRemote = require('./builders/trigger-remote.js');
 
-var Builders = function(upper, array) {
-  this.upper = upper;
-  this.array = array;
-  return this;
-};
-
-util.makeUppable(Builders.prototype, 'upper');
-Builders.prototype.ant = util.generateKeyedObjectElementAccessor('array', 'ant', Ant);
-Builders.prototype.artifactResolver = util.generateKeyedObjectElementAccessor('array', 'artifact-resolver', ArtifactResolver);
-Builders.prototype.batch = util.generateKeyedPrimitiveElementAccessor('array', 'batch');
-Builders.prototype.beaker = util.generateKeyedObjectElementAccessor('array', 'beaker', Beaker);
-Builders.prototype.buildersFrom = util.generateKeyedPrimitiveElementAccessor('array', 'builders-from');
-Builders.prototype.changeAssemblyVersion = util.generateKeyedObjectElementAccessor('array', 'change-assembly-version', ChangeAssemblyVersion);
-Builders.prototype.cmake = util.generateKeyedObjectElementAccessor('array', 'cmake', Cmake);
-Builders.prototype.conditionalStep = util.generateKeyedObjectElementAccessor('array', 'conditional-step', ConditionalStep);
-Builders.prototype.configFileProvider = util.generateKeyedObjectElementAccessor('array', 'config-file-provider', ConfigFileProvider);
-Builders.prototype.copyArtifact = util.generateKeyedObjectElementAccessor('array', 'copy-artifact', CopyArtifact);
-Builders.prototype.criticalBlockEnd = util.generateKeyedObjectElementAccessor('array', 'critical-block-end', CriticalBlockEnd);
-Builders.prototype.criticalBlockStart = util.generateKeyedObjectElementAccessor('array', 'critical-block-start', CriticalBlockStart);
-Builders.prototype.dsl = util.generateKeyedObjectElementAccessor('array', 'dsl', DSL);
-Builders.prototype.githubNotifier = util.generateKeyedObjectElementAccessor('array', 'github-notifier', GithubNotifier);
-Builders.prototype.gradle = util.generateKeyedObjectElementAccessor('array', 'gradle', Gradle);
-Builders.prototype.grails = util.generateKeyedObjectElementAccessor('array', 'grails', Grails);
-Builders.prototype.groovy = util.generateKeyedObjectElementAccessor('array', 'groovy', Groovy);
-Builders.prototype.inject = util.generateKeyedObjectElementAccessor('array', 'inject', Inject);
-Builders.prototype.managedScript = util.generateKeyedObjectElementAccessor('array', 'managed-script', ManagedScript);
-Builders.prototype.mavenBuilder = util.generateKeyedObjectElementAccessor('array', 'maven-builder', MavenBuilder);
-Builders.prototype.mavenTarget = util.generateKeyedObjectElementAccessor('array', 'maven-target', MavenTarget);
-Builders.prototype.msbuild = util.generateKeyedObjectElementAccessor('array', 'msbuild', Msbuild);
-Builders.prototype.multijob = util.generateKeyedObjectElementAccessor('array', 'multijob', Multijob);
-Builders.prototype.powershell = util.generateKeyedPrimitiveElementAccessor('array', 'powershell');
-Builders.prototype.python = util.generateKeyedPrimitiveElementAccessor('array', 'python');
-Builders.prototype.sbt = util.generateKeyedObjectElementAccessor('array', 'sbt', SBT);
-Builders.prototype.shell = util.generateKeyedPrimitiveElementAccessor('array', 'shell');
-Builders.prototype.shiningPanda = util.generateKeyedObjectElementAccessor('array', 'shining-panda', ShiningPanda);
-Builders.prototype.sonar = util.generateKeyedObjectElementAccessor('array', 'sonar', Sonar);
-Builders.prototype.sonatypeClm = util.generateKeyedObjectElementAccessor('array', 'sonatype-clm', SonatypeClm);
-Builders.prototype.sshBuilder = util.generateKeyedObjectElementAccessor('array', 'ssh-builder', SshBuilder);
-Builders.prototype.systemGroovy = util.generateKeyedObjectElementAccessor('array', 'system-groovy', SystemGroovy);
-Builders.prototype.triggerBuilds = util.generateKeyedArrayElementAccessor('array', 'trigger-builds', Project);
-Builders.prototype.triggerRemote = util.generateKeyedObjectElementAccessor('array', 'trigger-remote', TriggerRemote);
-
-module.exports = Builders;
+uppableArrayProxy(Builders)
+keyedObjectElement(util, Builders, 'ant', Ant)
+keyedObjectElement(util, Builders, 'artifact-resolver', ArtifactResolver)
+keyedPrimitiveElement(util, Builders, 'batch')
+keyedObjectElement(util, Builders, 'beaker', Beaker)
+keyedPrimitiveElement(util, Builders, 'builders-from')
+keyedObjectElement(util, Builders, 'change-assembly-version', ChangeAssemblyVersion)
+keyedObjectElement(util, Builders, 'cmake', Cmake)
+keyedObjectElement(util, Builders, 'conditional-step', ConditionalStep)
+keyedObjectElement(util, Builders, 'config-file-provider', ConfigFileProvider)
+keyedObjectElement(util, Builders, 'copy-artifact', CopyArtifact)
+keyedObjectElement(util, Builders, 'critical-block-end', CriticalBlockEnd)
+keyedObjectElement(util, Builders, 'critical-block-start', CriticalBlockStart)
+keyedObjectElement(util, Builders, 'dsl', DSL)
+keyedObjectElement(util, Builders, 'github-notifier', GithubNotifier)
+keyedObjectElement(util, Builders, 'gradle', Gradle)
+keyedObjectElement(util, Builders, 'grails', Grails)
+keyedObjectElement(util, Builders, 'groovy', Groovy)
+keyedObjectElement(util, Builders, 'inject', Inject)
+keyedObjectElement(util, Builders, 'managed-script', ManagedScript)
+keyedObjectElement(util, Builders, 'maven-builder', MavenBuilder)
+keyedObjectElement(util, Builders, 'maven-target', MavenTarget)
+keyedObjectElement(util, Builders, 'msbuild', Msbuild)
+keyedObjectElement(util, Builders, 'multijob', Multijob)
+keyedPrimitiveElement(util, Builders, 'powershell')
+keyedPrimitiveElement(util, Builders, 'python')
+keyedObjectElement(util, Builders, 'sbt', SBT)
+keyedPrimitiveElement(util, Builders, 'shell')
+keyedObjectElement(util, Builders, 'shining-panda', ShiningPanda)
+keyedObjectElement(util, Builders, 'sonar', Sonar)
+keyedObjectElement(util, Builders, 'sonatype-clm', SonatypeClm)
+keyedObjectElement(util, Builders, 'ssh-builder', SshBuilder)
+keyedObjectElement(util, Builders, 'system-groovy', SystemGroovy)
+keyedArrayElement(util, Builders, 'trigger-builds', Project)
+keyedObjectElement(util, Builders, 'trigger-remote', TriggerRemote)

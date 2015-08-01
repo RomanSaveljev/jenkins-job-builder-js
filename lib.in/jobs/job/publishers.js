@@ -76,85 +76,79 @@ var WorkspaceCleanup = require('./publishers/workspace-cleanup.js');
 var XmlSummary = require('./publishers/xml-summary.js');
 var Xunit = require('./publishers/xunit.js');
 
-var Publishers = function(upper, array) {
-  this.upper = upper;
-  this.array = array;
-};
-util.makeUppable(Publishers.prototype, 'upper');
-Publishers.prototype.aggregateFlowTests = util.generateKeyedObjectElementAccessor('array', 'aggregate-flow-tests', AggregateFlowTests);
-Publishers.prototype.aggregateTests = util.generateKeyedObjectElementAccessor('array', 'aggregate-tests', AggregateTests);
-Publishers.prototype.archive = util.generateKeyedObjectElementAccessor('array', 'archive', Archive);
-Publishers.prototype.artifactDeployer = util.generateKeyedObjectElementAccessor('array', 'artifact-deployer', ArtifactDeployer);
-Publishers.prototype.blameUpstream = util.generateKeyedObjectElementAccessor('array', 'blame-upstream', BlameUpstream);
-Publishers.prototype.buildPublisher = util.generateKeyedObjectElementAccessor('array', 'build-publisher', BuildPublisher);
-Publishers.prototype.campfile = util.generateKeyedObjectElementAccessor('array', 'campfire', Campfire);
-Publishers.prototype.checkStyle = util.generateKeyedObjectElementAccessor('array', 'checkstyle', CheckStyle);
-Publishers.prototype.cifs = util.generateKeyedObjectElementAccessor('array', 'cifs', Cifs);
-Publishers.prototype.cigame = util.generateKeyedObjectElementAccessor('array', 'cigame', Cigame);
-Publishers.prototype.cloneWorkspace = util.generateKeyedObjectElementAccessor('array', 'clone-workspace', CloneWorkspace);
-Publishers.prototype.cloverphp = util.generateKeyedObjectElementAccessor('array', 'cloverphp', Cloverphp);
-Publishers.prototype.cobertura = util.generateKeyedObjectElementAccessor('array', 'cobertura', Cobertura);
-Publishers.prototype.conditionalPublisher = util.generateKeyedArrayElementAccessor('array', 'conditional-publisher', ConditionalPublisher);
-Publishers.prototype.copyToMaster = util.generateKeyedObjectElementAccessor('array', 'copy-to-master', CopyToMaster);
-Publishers.prototype.cppcheck = util.generateKeyedObjectElementAccessor('array', 'cppcheck', CppCheck);
-Publishers.prototype.descriptionSetter = util.generateKeyedObjectElementAccessor('array', 'description-setter', DescriptionSetter);
-Publishers.prototype.displayUpstreamChanges = util.generateKeyedObjectElementAccessor('array', 'display-upstream-changes', DisplayUpstreamChanges);
-Publishers.prototype.downstreamExt = util.generateKeyedObjectElementAccessor('array', 'downstream-ext', DownstreamExt);
-Publishers.prototype.doxygen = util.generateKeyedObjectElementAccessor('array', 'doxygen', Doxygen);
-Publishers.prototype.dry = util.generateKeyedObjectElementAccessor('array', 'dry', Dry);
-Publishers.prototype.email = util.generateKeyedObjectElementAccessor('array', 'email', Email);
-Publishers.prototype.emailExt = util.generateKeyedObjectElementAccessor('array', 'email-ext', EmailExt);
-Publishers.prototype.emotionalJenkins = util.generateKeyedObjectElementAccessor('array', 'emotional-jenkins', EmotionalJenkins);
-Publishers.prototype.findbugs = util.generateKeyedObjectElementAccessor('array', 'findbugs', FindBugs);
-Publishers.prototype.fingerprint = util.generateKeyedObjectElementAccessor('array', 'fingerprint', FingerPrint);
-Publishers.prototype.fitnesse = util.generateKeyedObjectElementAccessor('array', 'fitnesse', Fitnesse);
-Publishers.prototype.ftp = util.generateKeyedObjectElementAccessor('array', 'ftp', Ftp);
-Publishers.prototype.gatling = util.generateKeyedObjectElementAccessor('array', 'gatling', Gatling);
-Publishers.prototype.git = util.generateKeyedObjectElementAccessor('array', 'git', Git);
-Publishers.prototype.githubNotifier = util.generateKeyedObjectElementAccessor('array', 'github-notifier', GithubNotifier);
-Publishers.prototype.groovyPostbuild = util.generateKeyedObjectElementAccessor('array', 'groovy-postbuild', GroovyPostbuild);
-Publishers.prototype.htmlPublisher = util.generateKeyedObjectElementAccessor('array', 'html-publisher', HtmlPublisher);
-Publishers.prototype.imageGallery = util.generateKeyedArrayElementAccessor('array', 'image-gallery', ImageGallery);
-Publishers.prototype.ircbot = util.generateKeyedObjectElementAccessor('array', 'ircbot', IrcBot);
-Publishers.prototype.jabber = util.generateKeyedObjectElementAccessor('array', 'jabber', Jabber);
-Publishers.prototype.jacoco = util.generateKeyedObjectElementAccessor('array', 'jacoco', Jacoco);
-Publishers.prototype.jclouds = util.generateKeyedObjectElementAccessor('array', 'jclouds', Jclouds);
-Publishers.prototype.jira = util.generateKeyedObjectElementAccessor('array', 'jira', Jira);
-Publishers.prototype.joinTrigger = util.generateKeyedObjectElementAccessor('array', 'join-trigger', JoinTrigger);
-Publishers.prototype.junit = util.generateKeyedObjectElementAccessor('array', 'junit', Junit);
-Publishers.prototype.logparser = util.generateKeyedObjectElementAccessor('array', 'logparser', LogParser);
-Publishers.prototype.logstash = util.generateKeyedObjectElementAccessor('array', 'logstash', LogStash);
-Publishers.prototype.mavenDeploy = util.generateKeyedObjectElementAccessor('array', 'maven-deploy', MavenDeploy);
-Publishers.prototype.naginator = util.generateKeyedObjectElementAccessor('array', 'naginator', Naginator);
-Publishers.prototype.performance = util.generateKeyedObjectElementAccessor('array', 'performance', Performance);
-Publishers.prototype.pipeline = util.generateKeyedObjectElementAccessor('array', 'pipeline', Pipeline);
-Publishers.prototype.plot = util.generateKeyedObjectElementAccessor('array', 'plot', Plot);
-Publishers.prototype.pmd = util.generateKeyedObjectElementAccessor('array', 'pmd', Pmd);
-Publishers.prototype.postTasks = util.generateKeyedObjectElementAccessor('array', 'post-tasks', PostTasks);
-Publishers.prototype.postbuildscript = util.generateKeyedObjectElementAccessor('array', 'postbuildsript', PostBuildScript);
-Publishers.prototype.richTextPublisher = util.generateKeyedObjectElementAccessor('array', 'rich-text-publisher', RichTextPublisher);
-Publishers.prototype.robot = util.generateKeyedObjectElementAccessor('array', 'robot', Robot);
-Publishers.prototype.rubyMetrics = util.generateKeyedObjectElementAccessor('array', 'ruby-metrics', RubyMetrics);
-Publishers.prototype.s3 = util.generateKeyedObjectElementAccessor('array', 's3', S3);
-Publishers.prototype.scanBuild = util.generateKeyedObjectElementAccessor('array', 'scan-build', ScanBuild);
-Publishers.prototype.scoverage = util.generateKeyedObjectElementAccessor('array', 'scoverage', Scoverage);
-Publishers.prototype.scp = util.generateKeyedObjectElementAccessor('array', 'scp', Scp);
-Publishers.prototype.shiningPanda = util.generateKeyedObjectElementAccessor('array', 'shining-panda', ShiningPanda);
-Publishers.prototype.sitemonitor = util.generateKeyedObjectElementAccessor('array', 'sitemonitor', SiteMonitor);
-Publishers.prototype.sloccount = util.generateKeyedObjectElementAccessor('array', 'sloccount', SlocCount);
-Publishers.prototype.sonar = util.generateKeyedObjectElementAccessor('array', 'sonar', Sonar);
-Publishers.prototype.ssh = util.generateKeyedObjectElementAccessor('array', 'ssh', Ssh);
-Publishers.prototype.stash = util.generateKeyedObjectElementAccessor('array', 'stash', Stash);
-Publishers.prototype.tap = util.generateKeyedObjectElementAccessor('array', 'tap', Tap);
-Publishers.prototype.testng = util.generateKeyedObjectElementAccessor('array', 'testng', TestNg);
-Publishers.prototype.textFinder = util.generateKeyedObjectElementAccessor('array', 'text-finder', TextFinder);
-Publishers.prototype.trigger = util.generateKeyedObjectElementAccessor('array', 'trigger', Trigger);
-Publishers.prototype.triggerParameterizedBuilds = util.generateKeyedArrayElementAccessor('array', 'trigger-parameterized-builds', TriggerParameterizedBuilds);
-Publishers.prototype.valgrind = util.generateKeyedObjectElementAccessor('array', 'valgrind', Valgrind);
-Publishers.prototype.violations = util.generateKeyedObjectElementAccessor('array', 'violations', Violations);
-Publishers.prototype.warnings = util.generateKeyedObjectElementAccessor('array', 'warnings', Warnings);
-Publishers.prototype.workspaceCleanup = util.generateKeyedObjectElementAccessor('array', 'workspace-cleanup', WorkspaceCleanup);
-Publishers.prototype.xmlSummary = util.generateKeyedObjectElementAccessor('array', 'xml-summary', XmlSummary);
-Publishers.prototype.xunit = util.generateKeyedObjectElementAccessor('array', 'xunit', Xunit);
-
-module.exports = Publishers;
+uppableArrayProxy(Publishers)
+keyedObjectElement(util, Publishers, 'aggregate-flow-tests', AggregateFlowTests)
+keyedObjectElement(util, Publishers, 'aggregate-tests', AggregateTests)
+keyedObjectElement(util, Publishers, 'archive', Archive)
+keyedObjectElement(util, Publishers, 'artifact-deployer', ArtifactDeployer)
+keyedObjectElement(util, Publishers, 'blame-upstream', BlameUpstream)
+keyedObjectElement(util, Publishers, 'build-publisher', BuildPublisher)
+keyedObjectElement(util, Publishers, 'campfire', Campfire)
+keyedObjectElement(util, Publishers, 'checkstyle', CheckStyle)
+keyedObjectElement(util, Publishers, 'cifs', Cifs)
+keyedObjectElement(util, Publishers, 'cigame', Cigame)
+keyedObjectElement(util, Publishers, 'clone-workspace', CloneWorkspace)
+keyedObjectElement(util, Publishers, 'cloverphp', Cloverphp)
+keyedObjectElement(util, Publishers, 'cobertura', Cobertura)
+keyedArrayElement(util, Publishers, 'conditional-publisher', ConditionalPublisher)
+keyedObjectElement(util, Publishers, 'copy-to-master', CopyToMaster)
+keyedObjectElement(util, Publishers, 'cppcheck', CppCheck)
+keyedObjectElement(util, Publishers, 'description-setter', DescriptionSetter)
+keyedObjectElement(util, Publishers, 'display-upstream-changes', DisplayUpstreamChanges)
+keyedObjectElement(util, Publishers, 'downstream-ext', DownstreamExt)
+keyedObjectElement(util, Publishers, 'doxygen', Doxygen)
+keyedObjectElement(util, Publishers, 'dry', Dry)
+keyedObjectElement(util, Publishers, 'email', Email)
+keyedObjectElement(util, Publishers, 'email-ext', EmailExt)
+keyedObjectElement(util, Publishers, 'emotional-jenkins', EmotionalJenkins)
+keyedObjectElement(util, Publishers, 'findbugs', FindBugs)
+keyedObjectElement(util, Publishers, 'fingerprint', FingerPrint)
+keyedObjectElement(util, Publishers, 'fitnesse', Fitnesse)
+keyedObjectElement(util, Publishers, 'ftp', Ftp)
+keyedObjectElement(util, Publishers, 'gatling', Gatling)
+keyedObjectElement(util, Publishers, 'git', Git)
+keyedObjectElement(util, Publishers, 'github-notifier', GithubNotifier)
+keyedObjectElement(util, Publishers, 'groovy-postbuild', GroovyPostbuild)
+keyedObjectElement(util, Publishers, 'html-publisher', HtmlPublisher)
+keyedArrayElement(util, Publishers, 'image-gallery', ImageGallery)
+keyedObjectElement(util, Publishers, 'ircbot', IrcBot)
+keyedObjectElement(util, Publishers, 'jabber', Jabber)
+keyedObjectElement(util, Publishers, 'jacoco', Jacoco)
+keyedObjectElement(util, Publishers, 'jclouds', Jclouds)
+keyedObjectElement(util, Publishers, 'jira', Jira)
+keyedObjectElement(util, Publishers, 'join-trigger', JoinTrigger)
+keyedObjectElement(util, Publishers, 'junit', Junit)
+keyedObjectElement(util, Publishers, 'logparser', LogParser)
+keyedObjectElement(util, Publishers, 'logstash', LogStash)
+keyedObjectElement(util, Publishers, 'maven-deploy', MavenDeploy)
+keyedObjectElement(util, Publishers, 'naginator', Naginator)
+keyedObjectElement(util, Publishers, 'performance', Performance)
+keyedObjectElement(util, Publishers, 'pipeline', Pipeline)
+keyedObjectElement(util, Publishers, 'plot', Plot)
+keyedObjectElement(util, Publishers, 'pmd', Pmd)
+keyedObjectElement(util, Publishers, 'post-tasks', PostTasks)
+keyedObjectElement(util, Publishers, 'postbuildsript', PostBuildScript)
+keyedObjectElement(util, Publishers, 'rich-text-publisher', RichTextPublisher)
+keyedObjectElement(util, Publishers, 'robot', Robot)
+keyedObjectElement(util, Publishers, 'ruby-metrics', RubyMetrics)
+keyedObjectElement(util, Publishers, 's3', S3)
+keyedObjectElement(util, Publishers, 'scan-build', ScanBuild)
+keyedObjectElement(util, Publishers, 'scoverage', Scoverage)
+keyedObjectElement(util, Publishers, 'scp', Scp)
+keyedObjectElement(util, Publishers, 'shining-panda', ShiningPanda)
+keyedObjectElement(util, Publishers, 'sitemonitor', SiteMonitor)
+keyedObjectElement(util, Publishers, 'sloccount', SlocCount)
+keyedObjectElement(util, Publishers, 'sonar', Sonar)
+keyedObjectElement(util, Publishers, 'ssh', Ssh)
+keyedObjectElement(util, Publishers, 'stash', Stash)
+keyedObjectElement(util, Publishers, 'tap', Tap)
+keyedObjectElement(util, Publishers, 'testng', TestNg)
+keyedObjectElement(util, Publishers, 'text-finder', TextFinder)
+keyedObjectElement(util, Publishers, 'trigger', Trigger)
+keyedArrayElement(util, Publishers, 'trigger-parameterized-builds', TriggerParameterizedBuilds)
+keyedObjectElement(util, Publishers, 'valgrind', Valgrind)
+keyedObjectElement(util, Publishers, 'violations', Violations)
+keyedObjectElement(util, Publishers, 'warnings', Warnings)
+keyedObjectElement(util, Publishers, 'workspace-cleanup', WorkspaceCleanup)
+keyedObjectElement(util, Publishers, 'xml-summary', XmlSummary)
+keyedObjectElement(util, Publishers, 'xunit', Xunit)

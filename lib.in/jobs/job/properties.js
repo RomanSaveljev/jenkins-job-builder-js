@@ -17,26 +17,20 @@ var SlaveUtilization = require('./properties/slave-utilization.js');
 var Throttle = require('./properties/throttle.js');
 var ZeromqEvent = require('../../misc/empty-proxy.js');
 
-var Properties = function(upper, array) {
-  this.upper = upper;
-  this.array = array;
-};
-util.makeUppable(Properties.prototype, 'upper');
+uppableArrayProxy(Properties)
 Properties.prototype.authorization = util.generateToDomember('TODO: need to decide on adding user defined properties');
-Properties.prototype.batchTasks = util.generateKeyedObjectElementAccessor('array', 'batch-tasks', BatchTasks);
-Properties.prototype.buildBlocker = util.generateKeyedObjectElementAccessor('array', 'build-blocker', BuildBlocker);
-Properties.prototype.buildsChainFingerprinter = util.generateKeyedObjectElementAccessor('array', 'builds-chain-fingerprinter', BuildsChainFingerprinter);
-Properties.prototype.copyArtifact = util.generateKeyedObjectElementAccessor('array', 'copyartifact', CopyArtifact);
-Properties.prototype.deliveryPipeline = util.generateKeyedObjectElementAccessor('array', 'delivery-pipeline', DeliveryPipeline);
-Properties.prototype.github = util.generateKeyedObjectElementAccessor('array', 'github', Github);
-Properties.prototype.heavyJob = util.generateKeyedObjectElementAccessor('array', 'heavy-job', HeavyJob);
-Properties.prototype.inject = util.generateKeyedObjectElementAccessor('array', 'inject', Inject);
-Properties.prototype.leastLoad = util.generateKeyedObjectElementAccessor('array', 'least-load', LeastLoad);
-Properties.prototype.ownership = util.generateKeyedObjectElementAccessor('array', 'ownership', Ownership);
-Properties.prototype.prioritySorter = util.generateKeyedObjectElementAccessor('array', 'priority-sorter', PrioritySorter);
-Properties.prototype.promotedBuild = util.generateKeyedObjectElementAccessor('array', 'promoted-build', PromotedBuild);
-Properties.prototype.slaveUtilization = util.generateKeyedObjectElementAccessor('array', 'slave-utilization', SlaveUtilization);
-Properties.prototype.throttle = util.generateKeyedObjectElementAccessor('array', 'throttle', Throttle);
-Properties.prototype.zeromqEvent = util.generateKeyedObjectElementAccessor('array', 'zeromq-event', ZeromqEvent);
-
-module.exports = Properties;
+keyedObjectElement(util, Properties, 'batch-tasks', BatchTasks)
+keyedObjectElement(util, Properties, 'build-blocker', BuildBlocker)
+keyedObjectElement(util, Properties, 'builds-chain-fingerprinter', BuildsChainFingerprinter)
+keyedObjectElement(util, Properties, 'copyartifact', CopyArtifact)
+keyedObjectElement(util, Properties, 'delivery-pipeline', DeliveryPipeline)
+keyedObjectElement(util, Properties, 'github', Github)
+keyedObjectElement(util, Properties, 'heavy-job', HeavyJob)
+keyedObjectElement(util, Properties, 'inject', Inject)
+keyedObjectElement(util, Properties, 'least-load', LeastLoad)
+keyedObjectElement(util, Properties, 'ownership', Ownership)
+keyedObjectElement(util, Properties, 'priority-sorter', PrioritySorter)
+keyedObjectElement(util, Properties, 'promoted-build', PromotedBuild)
+keyedObjectElement(util, Properties, 'slave-utilization', SlaveUtilization)
+keyedObjectElement(util, Properties, 'throttle', Throttle)
+keyedObjectElement(util, Properties, 'zeromq-event', ZeromqEvent)

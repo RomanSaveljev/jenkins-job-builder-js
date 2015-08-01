@@ -1,14 +1,5 @@
-/*!
- * parameters - lib/parameters.js
- * Copyright(c) 2015 Roman Saveljev <roman.saveljev@haltian.com>
- * MIT Licensed
- */
-
 "use strict";
 
-/**
- * Module dependencies.
- */
 var util = require('../../misc/util.js');
 var String = require('./parameters/value.js');
 var Bool = require('./parameters/value.js');
@@ -28,29 +19,21 @@ var SvnTags = require('./parameters/svn-tags.js');
 var Text = require('./parameters/text.js');
 var ValidatingString = require('./parameters/validating-string.js');
 
-var Parameters = function(upper, array) {
-  this.upper = upper;
-  this.array = array;
-  return this;
-};
-
-util.makeUppable(Parameters.prototype, 'upper');
-Parameters.prototype.bool = util.generateKeyedObjectElementAccessor('array', 'bool', Bool);
-Parameters.prototype.choice = util.generateKeyedObjectElementAccessor('array', 'choice', Choice);
-Parameters.prototype.dynamicChoice = util.generateKeyedObjectElementAccessor('array', 'dynamic-choice', DynamicChoice);
-Parameters.prototype.dynamicChoiceScriptler = util.generateKeyedObjectElementAccessor('array', 'dynamic-choice-scriptler', DynamicChoiceScriptler);
-Parameters.prototype.dynamicString = util.generateKeyedObjectElementAccessor('array', 'dynamic-string', DynamicString);
-Parameters.prototype.dynamicStringScriptler = util.generateKeyedObjectElementAccessor('array', 'dynamic-string-scriptler', DynamicStringScriptler);
-Parameters.prototype.extendedChoice = util.generateKeyedObjectElementAccessor('array', 'extended-choice', ExtendedChoice);
-Parameters.prototype.file = util.generateKeyedObjectElementAccessor('array', 'file', File);
-Parameters.prototype.label = util.generateKeyedObjectElementAccessor('array', 'label', Label);
-Parameters.prototype.matrixCombinations = util.generateKeyedObjectElementAccessor('array', 'matrix-combinations', MatrixCombinations);
-Parameters.prototype.node = util.generateKeyedObjectElementAccessor('array', 'node', Node);
-Parameters.prototype.password = util.generateKeyedObjectElementAccessor('array', 'password', Password);
-Parameters.prototype.run = util.generateKeyedObjectElementAccessor('array', 'run', Run);
-Parameters.prototype.string = util.generateKeyedObjectElementAccessor('array', 'string', String);
-Parameters.prototype.svnTags = util.generateKeyedObjectElementAccessor('array', 'svn-tags', SvnTags);
-Parameters.prototype.text = util.generateKeyedObjectElementAccessor('array', 'text', Text);
-Parameters.prototype.validatingString = util.generateKeyedObjectElementAccessor('array', 'validating-string', ValidatingString);
-
-module.exports = Parameters;
+uppableArrayProxy(Parameters)
+keyedObjectElement(util, Parameters, 'bool', Bool)
+keyedObjectElement(util, Parameters, 'choice', Choice)
+keyedObjectElement(util, Parameters, 'dynamic-choice', DynamicChoice)
+keyedObjectElement(util, Parameters, 'dynamic-choice-scriptler', DynamicChoiceScriptler)
+keyedObjectElement(util, Parameters, 'dynamic-string', DynamicString)
+keyedObjectElement(util, Parameters, 'dynamic-string-scriptler', DynamicStringScriptler)
+keyedObjectElement(util, Parameters, 'extended-choice', ExtendedChoice)
+keyedObjectElement(util, Parameters, 'file', File)
+keyedObjectElement(util, Parameters, 'label', Label)
+keyedObjectElement(util, Parameters, 'matrix-combinations', MatrixCombinations)
+keyedObjectElement(util, Parameters, 'node', Node)
+keyedObjectElement(util, Parameters, 'password', Password)
+keyedObjectElement(util, Parameters, 'run', Run)
+keyedObjectElement(util, Parameters, 'string', String)
+keyedObjectElement(util, Parameters, 'svn-tags', SvnTags)
+keyedObjectElement(util, Parameters, 'text', Text)
+keyedObjectElement(util, Parameters, 'validating-string', ValidatingString)

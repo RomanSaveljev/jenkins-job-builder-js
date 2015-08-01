@@ -1,14 +1,5 @@
-/*!
- * wrappers - lib/wrappers.js
- * Copyright(c) 2015 Roman Saveljev <roman.saveljev@haltian.com>
- * MIT Licensed
- */
-
 "use strict";
 
-/**
- * Module dependencies.
- */
 var util = require('../../misc/util.js');
 var Inject = require('./wrappers/inject.js');
 var BuildName = require('./wrappers/build-name.js');
@@ -48,51 +39,42 @@ var Release = require('./wrappers/release.js');
 var RvmEnv = require('./wrappers/rvm-env.js');
 var SauceOndemand = require('./wrappers/sauce-ondemand.js');
 
-
-var Wrappers = function(upper, array) {
-  this.upper = upper;
-  this.array = array;
-  return this;
-};
-
-util.makeUppable(Wrappers.prototype, 'upper');
-Wrappers.prototype.ansicolor = util.generateKeyedObjectElementAccessor('array', 'ansicolor', Ansicolor);
-Wrappers.prototype.buildName = util.generateKeyedObjectElementAccessor('array', 'build-name', BuildName);
-Wrappers.prototype.buildUserVars = util.generateKeyedObjectElementAccessor('array', 'build-user-vars', BuildUserVars);
-Wrappers.prototype.ciSkip = util.generateKeyedObjectElementAccessor('array', 'ci-skip', CiSkip);
-Wrappers.prototype.configFileProvider = util.generateKeyedObjectElementAccessor('array', 'config-file-provider', ConfigFileProvider);
-Wrappers.prototype.copyToSlave = util.generateKeyedObjectElementAccessor('array', 'copy-to-slave', CopyToSlave);
-Wrappers.prototype.credentialsBinding = util.generateKeyedObjectElementAccessor('array', 'credentials-binding', CredentialsBinding);
-Wrappers.prototype.customTools = util.generateKeyedObjectElementAccessor('array', 'custom-tools', CustomTools);
-Wrappers.prototype.deliveryPipeline = util.generateKeyedObjectElementAccessor('array', 'delivery-pipeline', DeliveryPipeline);
-Wrappers.prototype.envFile = util.generateKeyedObjectElementAccessor('array', 'env-file', EnvFile);
-Wrappers.prototype.envScript = util.generateKeyedObjectElementAccessor('array', 'env-script', EnvScript);
-Wrappers.prototype.exclusion = util.generateKeyedObjectElementAccessor('array', 'exclusion', Exclusion);
-Wrappers.prototype.inject = util.generateKeyedObjectElementAccessor('array', 'inject', Inject);
-Wrappers.prototype.injectOwnershipVariables = util.generateKeyedObjectElementAccessor('array', 'inject-ownership-variables', InjectOwnershipVariables);
-Wrappers.prototype.injectPasswords = util.generateKeyedObjectElementAccessor('array', 'inject-passwords', InjectPasswords);
-Wrappers.prototype.jclouds = util.generateKeyedObjectElementAccessor('array', 'jclouds', JClouds);
-Wrappers.prototype.jobLogLogger = util.generateKeyedObjectElementAccessor('array', 'job-log-logger', JobLogLogger);
-Wrappers.prototype.liveScreenshot = util.generateKeyedObjectElementAccessor('array', 'live-screenshot', LiveScreenshot);
-Wrappers.prototype.locks = util.generatePrimitiveArrayAccessor('array', 'locks');
-Wrappers.prototype.logFileSize = util.generateKeyedObjectElementAccessor('array', 'logfilesize', LogFileSize);
-Wrappers.prototype.logStash = util.generateKeyedObjectElementAccessor('array', 'logstash', LogStash);
-Wrappers.prototype.m2RepositoryCleanup = util.generateKeyedObjectElementAccessor('array', 'm2-repository-cleanup', M2RepositoryCleanup);
-Wrappers.prototype.maskPasswords = util.generateKeyedObjectElementAccessor('array', 'mask-passwords', MaskPasswords);
-Wrappers.prototype.matrixTieParent = util.generateKeyedObjectElementAccessor('array', 'matrix-tie-parent', MatrixTieParent);
-Wrappers.prototype.mongoDb = util.generateKeyedObjectElementAccessor('array', 'mongo-db', MongoDb);
-Wrappers.prototype.pathIgnore = util.generateKeyedObjectElementAccessor('array', 'pathignore', PathIgnore);
-Wrappers.prototype.portAllocator = util.generateKeyedObjectElementAccessor('array', 'port-allocator', PortAllocator);
-Wrappers.prototype.preScmBuildStep = util.generateKeyedObjectElementAccessor('array', 'pre-scm-buildstep', PreScmBuildstep);
-Wrappers.prototype.rbEnv = util.generateKeyedObjectElementAccessor('array', 'rbenv', Rbenv);
-Wrappers.prototype.release = util.generateKeyedObjectElementAccessor('array', 'release', Release);
-Wrappers.prototype.rvmEnv = util.generateKeyedObjectElementAccessor('array', 'rvm-env', RvmEnv);
-Wrappers.prototype.sauceOnDemand = util.generateKeyedObjectElementAccessor('array', 'sauce-ondemand', SauceOndemand);
-Wrappers.prototype.sshAgentCredentials = util.generateKeyedObjectElementAccessor('array', 'ssh-agent-credentials', SshAgentCredentials);
-Wrappers.prototype.timeout = util.generateKeyedObjectElementAccessor('array', 'timeout', Timeout);
-Wrappers.prototype.timestamps = util.generateKeyedObjectElementAccessor('array', 'timestamps', Timestamps);
-Wrappers.prototype.workspaceCleanup = util.generateKeyedObjectElementAccessor('array', 'workspace-cleanup', WorkspaceCleanup);
-Wrappers.prototype.xvfb = util.generateKeyedObjectElementAccessor('array', 'xvfb', Xvfb);
-Wrappers.prototype.xvnc = util.generateKeyedObjectElementAccessor('array', 'xvnc', Xvnc);
-
-module.exports = Wrappers;
+uppableArrayProxy(Wrappers)
+keyedObjectElement(util, Wrappers, 'ansicolor', Ansicolor)
+keyedObjectElement(util, Wrappers, 'build-name', BuildName)
+keyedObjectElement(util, Wrappers, 'build-user-vars', BuildUserVars)
+keyedObjectElement(util, Wrappers, 'ci-skip', CiSkip)
+keyedObjectElement(util, Wrappers, 'config-file-provider', ConfigFileProvider)
+keyedObjectElement(util, Wrappers, 'copy-to-slave', CopyToSlave)
+keyedObjectElement(util, Wrappers, 'credentials-binding', CredentialsBinding)
+keyedObjectElement(util, Wrappers, 'custom-tools', CustomTools)
+keyedObjectElement(util, Wrappers, 'delivery-pipeline', DeliveryPipeline)
+keyedObjectElement(util, Wrappers, 'env-file', EnvFile)
+keyedObjectElement(util, Wrappers, 'env-script', EnvScript)
+keyedObjectElement(util, Wrappers, 'exclusion', Exclusion)
+keyedObjectElement(util, Wrappers, 'inject', Inject)
+keyedObjectElement(util, Wrappers, 'inject-ownership-variables', InjectOwnershipVariables)
+keyedObjectElement(util, Wrappers, 'inject-passwords', InjectPasswords)
+keyedObjectElement(util, Wrappers, 'jclouds', JClouds)
+keyedObjectElement(util, Wrappers, 'job-log-logger', JobLogLogger)
+keyedObjectElement(util, Wrappers, 'live-screenshot', LiveScreenshot)
+keyedPrimitiveArrayElement(util, Wrappers, 'locks')
+keyedObjectElement(util, Wrappers, 'logfilesize', LogFileSize)
+keyedObjectElement(util, Wrappers, 'logstash', LogStash)
+keyedObjectElement(util, Wrappers, 'm2-repository-cleanup', M2RepositoryCleanup)
+keyedObjectElement(util, Wrappers, 'mask-passwords', MaskPasswords)
+keyedObjectElement(util, Wrappers, 'matrix-tie-parent', MatrixTieParent)
+keyedObjectElement(util, Wrappers, 'mongo-db', MongoDb)
+keyedObjectElement(util, Wrappers, 'pathignore', PathIgnore)
+keyedObjectElement(util, Wrappers, 'port-allocator', PortAllocator)
+keyedObjectElement(util, Wrappers, 'pre-scm-buildstep', PreScmBuildstep)
+keyedObjectElement(util, Wrappers, 'rbenv', Rbenv)
+keyedObjectElement(util, Wrappers, 'release', Release)
+keyedObjectElement(util, Wrappers, 'rvm-env', RvmEnv)
+keyedObjectElement(util, Wrappers, 'sauce-ondemand', SauceOndemand)
+keyedObjectElement(util, Wrappers, 'ssh-agent-credentials', SshAgentCredentials)
+keyedObjectElement(util, Wrappers, 'timeout', Timeout)
+keyedObjectElement(util, Wrappers, 'timestamps', Timestamps)
+keyedObjectElement(util, Wrappers, 'workspace-cleanup', WorkspaceCleanup)
+keyedObjectElement(util, Wrappers, 'xvfb', Xvfb)
+keyedObjectElement(util, Wrappers, 'xvnc', Xvnc)

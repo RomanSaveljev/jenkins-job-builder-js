@@ -97,3 +97,36 @@ macro keyedObjectElement {
   }
 }
 export keyedObjectElement;
+
+macro keyedArrayElement {
+  rule {
+    ($anUtil, $anObject, $aProperty, $aConstructor)
+  } => {
+    $anObject.prototype[$anUtil.camelize($aProperty)] = function(value) {
+      return $anUtil.keyedArrayElementAccessor.apply(this, [$aProperty, $aConstructor, value]);
+    }
+  }
+}
+export keyedArrayElement;
+
+macro keyedPrimitiveElement {
+  rule {
+    ($anUtil, $anObject, $aProperty)
+  } => {
+    $anObject.prototype[$anUtil.camelize($aProperty)] = function(value) {
+      return $anUtil.keyedPrimitiveElementAccessor.apply(this, [$aProperty, value]);
+    }
+  }
+}
+export keyedPrimitiveElement;
+
+macro keyedPrimitiveArrayElement {
+  rule {
+    ($anUtil, $anObject, $aProperty)
+  } => {
+    $anObject.prototype[$anUtil.camelize($aProperty)] = function(value) {
+      return $anUtil.keyedPrimitiveArrayElementAccessor.apply(this, [$aProperty, value]);
+    }
+  }
+}
+export keyedPrimitiveArrayElement;

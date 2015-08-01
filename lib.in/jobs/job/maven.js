@@ -3,29 +3,23 @@
 var util = require('../../misc/util.js');
 var RootModule = require('./maven/root-module.js');
 
-var Maven = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(Maven.prototype, 'upper');
-Maven.prototype.rootModule = util.generateObjectAccessor('obj', 'root-module', RootModule);
-Maven.prototype.rootPom = util.generatePrimitiveAccessor('obj', 'root-pom');
-Maven.prototype.goals = util.generatePrimitiveAccessor('obj', 'goals');
-Maven.prototype.mavenOpts = util.generatePrimitiveAccessor('obj', 'maven-opts');
-Maven.prototype.mavenName = util.generatePrimitiveAccessor('obj', 'maven-name');
-Maven.prototype.privateRepository = util.generatePrimitiveAccessor('obj', 'private-repository');
-Maven.prototype.ignoreUpstreamChanges = util.generatePrimitiveAccessor('obj', 'ignore-upstream-changes');
-Maven.prototype.incrementalBuild = util.generatePrimitiveAccessor('obj', 'incremental-build');
-Maven.prototype.automaticArchiving = util.generatePrimitiveAccessor('obj', 'automatic-archiving');
-Maven.prototype.automaticSiteArchiving = util.generatePrimitiveAccessor('obj', 'automatic-site-archiving');
-Maven.prototype.automaticFingerprinting = util.generatePrimitiveAccessor('obj', 'automatic-fingerprinting');
-Maven.prototype.parallelBuildModules = util.generatePrimitiveAccessor('obj', 'parallel-build-modules');
-Maven.prototype.resolveDependencies = util.generatePrimitiveAccessor('obj', 'resolve-dependencies');
-Maven.prototype.runHeadless = util.generatePrimitiveAccessor('obj', 'run-headless');
-Maven.prototype.processPlugins = util.generatePrimitiveAccessor('obj', 'process-plugins');
-Maven.prototype.customWorkspace = util.generatePrimitiveAccessor('obj', 'custom-workspace');
-Maven.prototype.settings = util.generatePrimitiveAccessor('obj', 'settings');
-Maven.prototype.globalSettings = util.generatePrimitiveAccessor('obj', 'global-settings');
-Maven.prototype.postStepRunCondition = util.generatePrimitiveAccessor('obj', 'post-step-run-condition');
-
-module.exports = Maven;
+uppableObjectProxy(Maven)
+object(util, Maven, 'root-module', RootModule)
+primitive(util, Maven, 'root-pom')
+primitive(util, Maven, 'goals')
+primitive(util, Maven, 'maven-opts')
+primitive(util, Maven, 'maven-name')
+primitive(util, Maven, 'private-repository')
+primitive(util, Maven, 'ignore-upstream-changes')
+primitive(util, Maven, 'incremental-build')
+primitive(util, Maven, 'automatic-archiving')
+primitive(util, Maven, 'automatic-site-archiving')
+primitive(util, Maven, 'automatic-fingerprinting')
+primitive(util, Maven, 'parallel-build-modules')
+primitive(util, Maven, 'resolve-dependencies')
+primitive(util, Maven, 'run-headless')
+primitive(util, Maven, 'process-plugins')
+primitive(util, Maven, 'custom-workspace')
+primitive(util, Maven, 'settings')
+primitive(util, Maven, 'global-settings')
+primitive(util, Maven, 'post-step-run-condition')

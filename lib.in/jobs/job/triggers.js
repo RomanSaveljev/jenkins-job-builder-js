@@ -12,24 +12,16 @@ var PollUrl = require('./triggers/pollurl.js');
 var Reverse = require('./triggers/reverse.js');
 var Script = require('./triggers/script.js');
 
-var Triggers = function(upper, array) {
-  this.upper = upper;
-  this.array = array;
-  return this;
-};
-
-util.makeUppable(Triggers.prototype, 'upper');
-Triggers.prototype.buildResult = util.generateKeyedObjectElementAccessor('array', 'build-result', BuildResult);
-Triggers.prototype.gerrit = util.generateKeyedObjectElementAccessor('array', 'gerrit', Gerrit);
-Triggers.prototype.github = util.generateKeyedObjectElementAccessor('array', 'github', Github);
-Triggers.prototype.githubPullRequest = util.generateKeyedObjectElementAccessor('array', 'github-pull-request', GithubPullRequest);
-Triggers.prototype.gitlabMergeRequest = util.generateKeyedObjectElementAccessor('array', 'gitlab-merge-request', GitlabMergeRequest);
-Triggers.prototype.groovyScript = util.generateKeyedObjectElementAccessor('array', 'groovy-script', GroovyScript);
-Triggers.prototype.ivy = util.generateKeyedObjectElementAccessor('array', 'ivy', Ivy);
-Triggers.prototype.pollscm = util.generateKeyedPrimitiveElementAccessor('array', 'pollscm');
-Triggers.prototype.pollurl = util.generateKeyedObjectElementAccessor('array', 'pollurl', PollUrl);
-Triggers.prototype.reverse = util.generateKeyedObjectElementAccessor('array', 'reverse', Reverse);
-Triggers.prototype.script = util.generateKeyedObjectElementAccessor('array', 'script', Script);
-Triggers.prototype.timed = util.generateKeyedPrimitiveElementAccessor('array', 'timed');
-
-module.exports = Triggers;
+uppableArrayProxy(Triggers)
+keyedObjectElement(util, Triggers, 'build-result', BuildResult)
+keyedObjectElement(util, Triggers, 'gerrit', Gerrit)
+keyedObjectElement(util, Triggers, 'github', Github)
+keyedObjectElement(util, Triggers, 'github-pull-request', GithubPullRequest)
+keyedObjectElement(util, Triggers, 'gitlab-merge-request', GitlabMergeRequest)
+keyedObjectElement(util, Triggers, 'groovy-script', GroovyScript)
+keyedObjectElement(util, Triggers, 'ivy', Ivy)
+keyedPrimitiveElement(util, Triggers, 'pollscm')
+keyedObjectElement(util, Triggers, 'pollurl', PollUrl)
+keyedObjectElement(util, Triggers, 'reverse', Reverse)
+keyedObjectElement(util, Triggers, 'script', Script)
+keyedPrimitiveElement(util, Triggers, 'timed')
