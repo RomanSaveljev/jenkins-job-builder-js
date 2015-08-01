@@ -3,11 +3,5 @@
 var util = require('../../../../misc/util.js');
 var Tag = require('./tag.js');
 
-var Tags = function(upper, array) {
-  this.upper = upper;
-  this.array = array;
-};
-util.makeUppable(Tags.prototype, 'upper');
-Tags.prototype.tag = util.generateKeyedObjectElementAccessor('obj', 'tag', Tag);
-
-module.exports = Tags;
+uppableArrayProxy(Tags)
+keyedObjectElement(util, Tags, 'tag', Tag)

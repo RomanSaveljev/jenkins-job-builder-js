@@ -3,11 +3,5 @@
 var util = require('../../../../misc/util.js');
 var Note = require('./note.js');
 
-var Notes = function(upper, array) {
-  this.upper = upper;
-  this.array = array;
-};
-util.makeUppable(Notes.prototype, 'upper');
-Notes.prototype.note = util.generateKeyedObjectElementAccessor('obj', 'note', Note);
-
-module.exports = Notes;
+uppableArrayProxy(Notes)
+keyedObjectElement(util, Notes, 'note', Note)

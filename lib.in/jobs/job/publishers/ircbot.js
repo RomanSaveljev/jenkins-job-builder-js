@@ -3,19 +3,13 @@
 var util = require('../../../misc/util.js');
 var Channel = require('./ircbot/channel.js');
 
-var IrcBot = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(IrcBot.prototype, 'upper');
-IrcBot.prototype.strategy = util.generatePrimitiveAccessor('obj', 'strategy');
-IrcBot.prototype.notifyStart = util.generatePrimitiveAccessor('obj', 'notify-start');
-IrcBot.prototype.notifyCommitters = util.generatePrimitiveAccessor('obj', 'notify-committers');
-IrcBot.prototype.notifyCulprits = util.generatePrimitiveAccessor('obj', 'notify-culprits');
-IrcBot.prototype.notifyUpstream = util.generatePrimitiveAccessor('obj', 'notify-upstream');
-IrcBot.prototype.notifyFixers = util.generatePrimitiveAccessor('obj', 'notify-fixers');
-IrcBot.prototype.messageType = util.generatePrimitiveAccessor('obj', 'message-type');
-IrcBot.prototype.channels = util.generateObjectArrayAccessor('obj', 'artifacts', Channel);
-IrcBot.prototype.matrixNotifier = util.generatePrimitiveAccessor('obj', 'matrix-notifier');
-
-module.exports = IrcBot;
+uppableObjectProxy(IrcBot)
+primitive(util, IrcBot, 'strategy')
+primitive(util, IrcBot, 'notify-start')
+primitive(util, IrcBot, 'notify-committers')
+primitive(util, IrcBot, 'notify-culprits')
+primitive(util, IrcBot, 'notify-upstream')
+primitive(util, IrcBot, 'notify-fixers')
+primitive(util, IrcBot, 'message-type')
+objectArray(util, IrcBot, 'artifacts', Channel)
+primitive(util, IrcBot, 'matrix-notifier')

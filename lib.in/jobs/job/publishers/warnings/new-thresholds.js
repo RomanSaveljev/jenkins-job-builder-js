@@ -3,12 +3,6 @@
 var util = require('../../../../misc/util.js');
 var NewThreshold = require('./new-threshold.js');
 
-var NewThresholds = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(NewThresholds.prototype, 'upper');
-NewThresholds.prototype.unstable = util.generateObjectAccessor('obj', 'unstable', NewThreshold);
-NewThresholds.prototype.failed = util.generateObjectAccessor('obj', 'failed', NewThreshold);
-
-module.exports = NewThresholds;
+uppableObjectProxy(NewThresholds)
+object(util, NewThresholds, 'unstable', NewThreshold)
+object(util, NewThresholds, 'failed', NewThreshold)

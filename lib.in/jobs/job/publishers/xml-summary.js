@@ -2,12 +2,6 @@
 
 var util = require('../../../misc/util.js');
 
-var XmlSummary = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(XmlSummary.prototype, 'upper');
-XmlSummary.prototype.files = util.generatePrimitiveAccessor('obj', 'files');
-XmlSummary.prototype.shownOnProjectPage = util.generatePrimitiveAccessor('obj', 'shown-on-project-page');
-
-module.exports = XmlSummary;
+uppableObjectProxy(XmlSummary)
+primitive(util, XmlSummary, 'files')
+primitive(util, XmlSummary, 'shown-on-project-page')

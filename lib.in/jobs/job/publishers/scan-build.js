@@ -2,13 +2,7 @@
 
 var util = require('../../../misc/util.js');
 
-var ScanBuild = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(ScanBuild.prototype, 'upper');
-ScanBuild.prototype.markUnstable = util.generatePrimitiveAccessor('obj', 'mark-unstable');
-ScanBuild.prototype.threshold = util.generatePrimitiveAccessor('obj', 'threshold');
-ScanBuild.prototype.excludePaths = util.generatePrimitiveAccessor('obj', 'exclude-paths');
-
-module.exports = ScanBuild;
+uppableObjectProxy(ScanBuild)
+primitive(util, ScanBuild, 'mark-unstable')
+primitive(util, ScanBuild, 'threshold')
+primitive(util, ScanBuild, 'exclude-paths')

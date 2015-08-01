@@ -2,16 +2,10 @@
 
 var util = require('../../../misc/util.js');
 
-var Naginator = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(Naginator.prototype, 'upper');
-Naginator.prototype.rerunUnstableBuilds = util.generatePrimitiveAccessor('obj', 'rerun-unstable-builds');
-Naginator.prototype.fixedDelay = util.generatePrimitiveAccessor('obj', 'fixed-delay');
-Naginator.prototype.progressiveDelayIncrement = util.generatePrimitiveAccessor('obj', 'progressive-delay-increment');
-Naginator.prototype.progressiveDelayMaximum = util.generatePrimitiveAccessor('obj', 'progressive-delay-maximum');
-Naginator.prototype.maxFailedBuilds = util.generatePrimitiveAccessor('obj', 'max-failed-builds');
-Naginator.prototype.regularExpression = util.generatePrimitiveAccessor('obj', 'regular-expression');
-
-module.exports = Naginator;
+uppableObjectProxy(Naginator)
+primitive(util, Naginator, 'rerun-unstable-builds')
+primitive(util, Naginator, 'fixed-delay')
+primitive(util, Naginator, 'progressive-delay-increment')
+primitive(util, Naginator, 'progressive-delay-maximum')
+primitive(util, Naginator, 'max-failed-builds')
+primitive(util, Naginator, 'regular-expression')

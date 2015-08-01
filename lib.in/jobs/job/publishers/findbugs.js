@@ -3,24 +3,18 @@
 var util = require('../../../misc/util.js');
 var Thresholds = require('./dry/thresholds.js');
 
-var FindBugs = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(FindBugs.prototype, 'upper');
-FindBugs.prototype.pattern = util.generatePrimitiveAccessor('obj', 'pattern');
-FindBugs.prototype.rankPriority = util.generatePrimitiveAccessor('obj', 'rank-priority');
-FindBugs.prototype.includeFiles = util.generatePrimitiveAccessor('obj', 'include-files');
-FindBugs.prototype.excludeFiles = util.generatePrimitiveAccessor('obj', 'exclude-files');
-FindBugs.prototype.canRunOnFailed = util.generatePrimitiveAccessor('obj', 'can-run-on-failed');
-FindBugs.prototype.shouldDetectModules = util.generatePrimitiveAccessor('obj', 'should-detect-modules');
-FindBugs.prototype.healthy = util.generatePrimitiveAccessor('obj', 'healthy');
-FindBugs.prototype.unhealthy = util.generatePrimitiveAccessor('obj', 'unhealthy');
-FindBugs.prototype.healthThreshold = util.generatePrimitiveAccessor('obj', 'health-threshold');
-FindBugs.prototype.dontComputeNew = util.generatePrimitiveAccessor('obj', 'dont-compute-new');
-FindBugs.prototype.useDeltaValues = util.generatePrimitiveAccessor('obj', 'use-delta-values');
-FindBugs.prototype.usePreviousBuildAsReference = util.generatePrimitiveAccessor('obj', 'use-previous-build-as-reference');
-FindBugs.prototype.useStableBuildAsReference = util.generatePrimitiveAccessor('obj', 'use-stable-build-as-reference');
-FindBugs.prototype.thresholds = util.generateObjectAccessor('obj', 'thresholds', Thresholds);
-
-module.exports = FindBugs;
+uppableObjectProxy(FindBugs)
+primitive(util, FindBugs, 'pattern')
+primitive(util, FindBugs, 'rank-priority')
+primitive(util, FindBugs, 'include-files')
+primitive(util, FindBugs, 'exclude-files')
+primitive(util, FindBugs, 'can-run-on-failed')
+primitive(util, FindBugs, 'should-detect-modules')
+primitive(util, FindBugs, 'healthy')
+primitive(util, FindBugs, 'unhealthy')
+primitive(util, FindBugs, 'health-threshold')
+primitive(util, FindBugs, 'dont-compute-new')
+primitive(util, FindBugs, 'use-delta-values')
+primitive(util, FindBugs, 'use-previous-build-as-reference')
+primitive(util, FindBugs, 'use-stable-build-as-reference')
+object(util, FindBugs, 'thresholds', Thresholds)

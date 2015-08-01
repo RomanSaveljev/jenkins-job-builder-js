@@ -2,13 +2,7 @@
 
 var util = require('../../../../misc/util.js');
 
-var Channel = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(Channel.prototype, 'upper');
-Channel.prototype.name = util.generatePrimitiveAccessor('obj', 'name');
-Channel.prototype.password = util.generatePrimitiveAccessor('obj', 'password');
-Channel.prototype.notifyOnly = util.generatePrimitiveAccessor('obj', 'notify-only');
-
-module.exports = Channel;
+uppableObjectProxy(Channel)
+primitive(util, Channel, 'name')
+primitive(util, Channel, 'password')
+primitive(util, Channel, 'notify-only')

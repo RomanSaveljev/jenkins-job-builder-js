@@ -2,14 +2,8 @@
 
 var util = require('../../../misc/util.js');
 
-var Campfire = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(Campfire.prototype, 'upper');
-Campfire.prototype.subdomain = util.generatePrimitiveAccessor('obj', 'subdomain');
-Campfire.prototype.token = util.generatePrimitiveAccessor('obj', 'token');
-Campfire.prototype.ssl = util.generatePrimitiveAccessor('obj', 'ssl');
-Campfire.prototype.room = util.generatePrimitiveAccessor('obj', 'room');
-
-module.exports = Campfire;
+uppableObjectProxy(Campfire)
+primitive(util, Campfire, 'subdomain')
+primitive(util, Campfire, 'token')
+primitive(util, Campfire, 'ssl')
+primitive(util, Campfire, 'room')

@@ -2,12 +2,6 @@
 
 var util = require('../../../misc/util.js');
 
-var CopyToMaster = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(CopyToMaster.prototype, 'upper');
-CopyToMaster.prototype.includes = util.generatePrimitiveArrayAccessor('obj', 'includes');
-CopyToMaster.prototype.excludes = util.generatePrimitiveArrayAccessor('obj', 'excludes');
-
-module.exports = CopyToMaster;
+uppableObjectProxy(CopyToMaster)
+primitiveArray(util, CopyToMaster, 'includes')
+primitiveArray(util, CopyToMaster, 'excludes')

@@ -2,15 +2,9 @@
 
 var util = require('../../../misc/util.js');
 
-var HtmlPublisher = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(HtmlPublisher.prototype, 'upper');
-HtmlPublisher.prototype.name = util.generatePrimitiveAccessor('obj', 'name');
-HtmlPublisher.prototype.dir = util.generatePrimitiveAccessor('obj', 'dir');
-HtmlPublisher.prototype.files = util.generatePrimitiveAccessor('obj', 'files');
-HtmlPublisher.prototype.keepAll = util.generatePrimitiveAccessor('obj', 'keep-all');
-HtmlPublisher.prototype.allowMissing = util.generatePrimitiveAccessor('obj', 'allow-missing');
-
-module.exports = HtmlPublisher;
+uppableObjectProxy(HtmlPublisher)
+primitive(util, HtmlPublisher, 'name')
+primitive(util, HtmlPublisher, 'dir')
+primitive(util, HtmlPublisher, 'files')
+primitive(util, HtmlPublisher, 'keep-all')
+primitive(util, HtmlPublisher, 'allow-missing')

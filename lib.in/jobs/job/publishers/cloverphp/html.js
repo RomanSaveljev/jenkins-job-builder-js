@@ -2,12 +2,6 @@
 
 var util = require('../../../../misc/util.js');
 
-var Html = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(Html.prototype, 'upper');
-Html.prototype.dir = util.generatePrimitiveAccessor('obj', 'dir');
-Html.prototype.archive = util.generatePrimitiveAccessor('obj', 'archive');
-
-module.exports = Html;
+uppableObjectProxy(Html)
+primitive(util, Html, 'dir')
+primitive(util, Html, 'archive')

@@ -2,13 +2,7 @@
 
 var util = require('../../../misc/util.js');
 
-var TestNg = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(TestNg.prototype, 'upper');
-TestNg.prototype.pattern = util.generatePrimitiveAccessor('obj', 'pattern');
-TestNg.prototype.escapeTestDescription = util.generatePrimitiveAccessor('obj', 'escape-test-description');
-TestNg.prototype.escapeExceptionMsg = util.generatePrimitiveAccessor('obj', 'escape-exception-msg');
-
-module.exports = TestNg;
+uppableObjectProxy(TestNg)
+primitive(util, TestNg, 'pattern')
+primitive(util, TestNg, 'escape-test-description')
+primitive(util, TestNg, 'escape-exception-msg')

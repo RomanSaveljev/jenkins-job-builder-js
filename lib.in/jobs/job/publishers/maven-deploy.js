@@ -2,15 +2,9 @@
 
 var util = require('../../../misc/util.js');
 
-var MavenDeploy = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(MavenDeploy.prototype, 'upper');
-MavenDeploy.prototype.id = util.generatePrimitiveAccessor('obj', 'id');
-MavenDeploy.prototype.url = util.generatePrimitiveAccessor('obj', 'url');
-MavenDeploy.prototype.uniqueVersion = util.generatePrimitiveAccessor('obj', 'unique-version');
-MavenDeploy.prototype.deployUnstable = util.generatePrimitiveAccessor('obj', 'deploy-unstable');
-MavenDeploy.prototype.releaseEnvVar = util.generatePrimitiveAccessor('obj', 'release-env-var');
-
-module.exports = MavenDeploy;
+uppableObjectProxy(MavenDeploy)
+primitive(util, MavenDeploy, 'id')
+primitive(util, MavenDeploy, 'url')
+primitive(util, MavenDeploy, 'unique-version')
+primitive(util, MavenDeploy, 'deploy-unstable')
+primitive(util, MavenDeploy, 'release-env-var')

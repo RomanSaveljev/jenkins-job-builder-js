@@ -2,14 +2,10 @@
 
 var util = require('../../../misc/util.js');
 
-var PostBuildScript = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(PostBuildScript.prototype, 'upper');
-PostBuildScript.prototype.genericScript = util.generatePrimitiveArrayAccessor('obj', 'generic-script');
-PostBuildScript.prototype.groovyScript = util.generatePrimitiveArrayAccessor('obj', 'groovy-script');
-PostBuildScript.prototype.groovy = util.generatePrimitiveArrayAccessor('obj', 'groovy');
+uppableObjectProxy(PostBuildScript)
+primitiveArray(util, PostBuildScript, 'generic-script')
+primitiveArray(util, PostBuildScript, 'groovy-script')
+primitiveArray(util, PostBuildScript, 'groovy')
 PostBuildScript.prototype.builders = function(value) {
     if (value === undefined) {
       // this is to avoid circular dependencies
@@ -22,8 +18,6 @@ PostBuildScript.prototype.builders = function(value) {
     }
   };
 };
-PostBuildScript.prototype.scriptOnlyIfSucceeded = util.generatePrimitiveAccessor('obj', 'script-only-if-succeeded');
-PostBuildScript.prototype.scriptOnlyIfFailed = util.generatePrimitiveAccessor('obj', 'script-only-if-failed');
-PostBuildScript.prototype.executeOn = util.generatePrimitiveAccessor('obj', 'execute-on');
-
-module.exports = PostBuildScript;
+primitive(util, PostBuildScript, 'script-only-if-succeeded')
+primitive(util, PostBuildScript, 'script-only-if-failed')
+primitive(util, PostBuildScript, 'execute-on')

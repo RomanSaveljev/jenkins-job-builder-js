@@ -2,18 +2,12 @@
 
 var util = require('../../../../misc/util.js');
 
-var Threshold = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(Threshold.prototype, 'upper');
-Threshold.prototype.totalAll = util.generatePrimitiveAccessor('obj', 'total-all');
-Threshold.prototype.totalHigh = util.generatePrimitiveAccessor('obj', 'total-high');
-Threshold.prototype.totalNormal = util.generatePrimitiveAccessor('obj', 'total-normal');
-Threshold.prototype.totalLow = util.generatePrimitiveAccessor('obj', 'total-low');
-Threshold.prototype.newAll = util.generatePrimitiveAccessor('obj', 'new-all');
-Threshold.prototype.newHigh = util.generatePrimitiveAccessor('obj', 'new-high');
-Threshold.prototype.newNormal = util.generatePrimitiveAccessor('obj', 'new-normal');
-Threshold.prototype.newLow = util.generatePrimitiveAccessor('obj', 'new-low');
-
-module.exports = Threshold;
+uppableObjectProxy(Threshold)
+primitive(util, Threshold, 'total-all')
+primitive(util, Threshold, 'total-high')
+primitive(util, Threshold, 'total-normal')
+primitive(util, Threshold, 'total-low')
+primitive(util, Threshold, 'new-all')
+primitive(util, Threshold, 'new-high')
+primitive(util, Threshold, 'new-normal')
+primitive(util, Threshold, 'new-low')
