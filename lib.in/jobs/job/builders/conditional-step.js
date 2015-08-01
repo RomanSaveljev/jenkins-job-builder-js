@@ -2,35 +2,20 @@
 
 var util = require('../../../misc/util.js');
 
-function allConditions(prototype, obj) {
-  prototype.conditionKind = util.generatePrimitiveAccessor(obj, 'condition-kind');
-  prototype.conditionExpression = util.generatePrimitiveAccessor(obj, 'condition-expression');
-  prototype.conditionStringOne = util.generatePrimitiveAccessor(obj, 'condition-string1');
-  prototype.conditionStringTwo = util.generatePrimitiveAccessor(obj, 'condition-string2');
-  prototype.conditionCaseInsensitive = util.generatePrimitiveAccessor(obj, 'condition-case-insensitive');
-  prototype.conditionWorst = util.generatePrimitiveAccessor(obj, 'condition-worst');
-  prototype.conditionBest = util.generatePrimitiveAccessor(obj, 'condition-best');
-  prototype.conditionCommand = util.generatePrimitiveAccessor(obj, 'condition-command');
-  prototype.conditionFilename = util.generatePrimitiveAccessor(obj, 'condition-filename');
-  prototype.conditionBasedir = util.generatePrimitiveAccessor(obj, 'condition-basedir');
-  prototype.conditionOperand = util.generateObjectAccessor(obj, 'condition-operand', ConditionOperand);
-};
-
-var ConditionOperand = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(ConditionOperand.prototype, 'upper');
-allConditions(ConditionOperand.prototype, 'obj');
-
-var ConditionalStep = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-
-util.makeUppable(ConditionalStep.prototype, 'upper');
-allConditions(ConditionalStep.prototype, 'obj');
-ConditionalStep.prototype.onEvaluationFailure = util.generatePrimitiveAccessor('obj', 'on-evaluation-failure');
+uppableObjectProxy(ConditionalStep)
+primitive(util, ConditionalStep, 'condition-kind')
+primitive(util, ConditionalStep, 'condition-expression')
+primitive(util, ConditionalStep, 'condition-string1')
+primitive(util, ConditionalStep, 'condition-string2')
+primitive(util, ConditionalStep, 'condition-case-insensitive')
+primitive(util, ConditionalStep, 'condition-worst')
+primitive(util, ConditionalStep, 'condition-best')
+primitive(util, ConditionalStep, 'condition-command');
+primitive(util, ConditionalStep, 'condition-filename')
+primitive(util, ConditionalStep, 'condition-basedir')
+primitive(util, ConditionalStep, 'condition-operand')
+primitive(util, ConditionalStep, 'on-evaluation-failure')
+// necessary duplication
 ConditionalStep.prototype.steps = function(value) {
   if (value === undefined) {
     // always create a fresh array to enforce declarative code style
@@ -42,5 +27,3 @@ ConditionalStep.prototype.steps = function(value) {
     throw 'TODO: setter is not implemented';
   }
 }
-
-module.exports = ConditionalStep;

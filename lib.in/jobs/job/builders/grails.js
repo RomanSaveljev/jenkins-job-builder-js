@@ -2,24 +2,18 @@
 
 var util = require('../../../misc/util.js');
 
-var Grails = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(Grails.prototype, 'upper');
-Grails.prototype.useWrapper = util.generatePrimitiveAccessor('obj', 'use-wrapper');
-Grails.prototype.name = util.generatePrimitiveAccessor('obj', 'name');
-Grails.prototype.forceUpgrade = util.generatePrimitiveAccessor('obj', 'force-upgrade');
-Grails.prototype.nonInteractive = util.generatePrimitiveAccessor('obj', 'non-interactive');
-Grails.prototype.targets = util.generatePrimitiveAccessor('obj', 'targets');
-Grails.prototype.serverPort = util.generatePrimitiveAccessor('obj', 'server-port');
-Grails.prototype.workDir = util.generatePrimitiveAccessor('obj', 'work-dir');
-Grails.prototype.projectDir = util.generatePrimitiveAccessor('obj', 'project-dir');
-Grails.prototype.baseDir = util.generatePrimitiveAccessor('obj', 'base-dir');
-Grails.prototype.properties = util.generatePrimitiveAccessor('obj', 'properties');
-Grails.prototype.plainOutput = util.generatePrimitiveAccessor('obj', 'plainOutput');
-Grails.prototype.stackTrace = util.generatePrimitiveAccessor('obj', 'strack-trace');
-Grails.prototype.verbose = util.generatePrimitiveAccessor('obj', 'verbose');
-Grails.prototype.refreshDependencies = util.generatePrimitiveAccessor('obj', 'refresh-dependencies');
-
-module.exports = Grails;
+uppableObjectProxy(Grails)
+primitive(util, Grails, 'use-wrapper')
+primitive(util, Grails, 'name')
+primitive(util, Grails, 'force-upgrade')
+primitive(util, Grails, 'non-interactive')
+primitive(util, Grails, 'targets')
+primitive(util, Grails, 'server-port')
+primitive(util, Grails, 'work-dir')
+primitive(util, Grails, 'project-dir')
+primitive(util, Grails, 'base-dir')
+primitive(util, Grails, 'properties')
+primitive(util, Grails, 'plainOutput')
+primitive(util, Grails, 'strack-trace')
+primitive(util, Grails, 'verbose')
+primitive(util, Grails, 'refresh-dependencies')

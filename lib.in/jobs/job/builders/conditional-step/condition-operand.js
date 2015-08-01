@@ -3,14 +3,14 @@
 var util = require('../../../../misc/util.js');
 
 uppableObjectProxy(ConditionOperand)
-primitive(util, ConditionKind, 'condition-kind')
-primitive(util, ConditionKind, 'condition-expression')
-primitive(util, ConditionKind, 'condition-string1')
-primitive(util, ConditionKind, 'condition-string2')
-primitive(util, ConditionKind, 'condition-case-insensitive')
-primitive(util, ConditionKind, 'condition-worst')
-primitive(util, ConditionKind, 'condition-best')
-primitive(util, ConditionKind, 'condition-command');
-primitive(util, ConditionKind, 'condition-filename')
-primitive(util, ConditionKind, 'condition-basedir')
-primitive(util, ConditionKind, 'condition-operand')
+primitive(util, ConditionOperand, 'condition-kind')
+primitive(util, ConditionOperand, 'condition-expression')
+primitive(util, ConditionOperand, 'condition-string1')
+primitive(util, ConditionOperand, 'condition-string2')
+primitive(util, ConditionOperand, 'condition-case-insensitive')
+primitive(util, ConditionOperand, 'condition-worst')
+primitive(util, ConditionOperand, 'condition-best')
+primitive(util, ConditionOperand, 'condition-command');
+primitive(util, ConditionOperand, 'condition-filename')
+primitive(util, ConditionOperand, 'condition-basedir')
+primitive(util, ConditionOperand, 'condition-operand')

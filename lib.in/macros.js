@@ -47,3 +47,14 @@ macro primitive {
   }
 }
 export primitive;
+
+macro object {
+  rule {
+    ($anUtil, $anObject, $aProperty, $aConstructor)
+  } => {
+    $anObject.prototype[$anUtil.camelize($aProperty)] = function(value) {
+      return $anUtil.objectAccessor.apply(this, [$aProperty, $aConstructor, value]);
+    }
+  }
+}
+export object;
