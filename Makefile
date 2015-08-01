@@ -4,10 +4,10 @@ MOCHA = ./node_modules/.bin/mocha
 .PHONY: expand test-all cov-all create-tests
 
 ALL_LIB_JS := $(patsubst lib.in/%,lib/%,$(shell find lib.in -type f -name '*.js'))
-$(info $(ALL_LIB_JS))
 
 lib/%.js : lib.in/%.js
-	@sjs --module ./lib.in/macros.sjs -o $@ $<
+	mkdir -p $(dir $@)
+	sjs --module ./lib.in/macros.sjs -o $@ $<
 
 expand: $(ALL_LIB_JS)
 	@echo All templates from lib.in expanded successfully

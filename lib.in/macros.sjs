@@ -38,7 +38,7 @@ macro primitiveArray {
   } => {
     $anObject.prototype[$anUtil.camelize($aProperty)] = function(value) {
       return $anUtil.primitiveArrayAccessor.apply(this, [$aProperty, value]);
-    }
+    };
   }
 }
 export primitiveArray;
@@ -49,7 +49,7 @@ macro objectArray {
   } => {
     $anObject.prototype[$anUtil.camelize($aProperty)] = function(value) {
       return $anUtil.objectArrayAccessor.apply(this, [$aProperty, $aConstructor, value]);
-    }
+    };
   }
 }
 export objectArray;
@@ -60,7 +60,7 @@ macro customArray {
   } => {
     $anObject.prototype[$anUtil.camelize($aProperty)] = function(value) {
       return $anUtil.customArrayAccessor.apply(this, [$aProperty, $aConstructor, value]);
-    }
+    };
   }
 }
 export customArray;
@@ -71,7 +71,7 @@ macro primitive {
   } => {
     $anObject.prototype[$anUtil.camelize($aProperty)] = function(value) {
       return $anUtil.primitiveAccessor.apply(this, [$aProperty, value]);
-    }
+    };
   }
 }
 export primitive;
@@ -82,7 +82,7 @@ macro object {
   } => {
     $anObject.prototype[$anUtil.camelize($aProperty)] = function(value) {
       return $anUtil.objectAccessor.apply(this, [$aProperty, $aConstructor, value]);
-    }
+    };
   }
 }
 export object;
@@ -93,7 +93,7 @@ macro keyedObjectElement {
   } => {
     $anObject.prototype[$anUtil.camelize($aProperty)] = function(value) {
       return $anUtil.keyedObjectElementAccessor.apply(this, [$aProperty, $aConstructor, value]);
-    }
+    };
   }
 }
 export keyedObjectElement;
@@ -104,7 +104,7 @@ macro keyedArrayElement {
   } => {
     $anObject.prototype[$anUtil.camelize($aProperty)] = function(value) {
       return $anUtil.keyedArrayElementAccessor.apply(this, [$aProperty, $aConstructor, value]);
-    }
+    };
   }
 }
 export keyedArrayElement;
@@ -115,7 +115,7 @@ macro keyedPrimitiveElement {
   } => {
     $anObject.prototype[$anUtil.camelize($aProperty)] = function(value) {
       return $anUtil.keyedPrimitiveElementAccessor.apply(this, [$aProperty, value]);
-    }
+    };
   }
 }
 export keyedPrimitiveElement;
@@ -126,7 +126,7 @@ macro keyedPrimitiveArrayElement {
   } => {
     $anObject.prototype[$anUtil.camelize($aProperty)] = function(value) {
       return $anUtil.keyedPrimitiveArrayElementAccessor.apply(this, [$aProperty, value]);
-    }
+    };
   }
 }
 export keyedPrimitiveArrayElement;
