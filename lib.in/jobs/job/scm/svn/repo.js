@@ -2,15 +2,9 @@
 
 var util = require('../../../../misc/util.js');
 
-var Repo = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(Repo.prototype, 'upper');
-Repo.prototype.url = util.generatePrimitiveAccessor('obj', 'url');
-Repo.prototype.basedir = util.generatePrimitiveAccessor('obj', 'basedir');
-Repo.prototype.credentialsId = util.generatePrimitiveAccessor('obj', 'credentials-id');
-Repo.prototype.repoDepth = util.generatePrimitiveAccessor('obj', 'repo-depth');
-Repo.prototype.ignoreExternals = util.generatePrimitiveAccessor('obj', 'ignore-externals');
-
-module.exports = Repo;
+uppableObjectProxy(Repo)
+primitive(util, Repo, 'url')
+primitive(util, Repo, 'basedir')
+primitive(util, Repo, 'credentials-id')
+primitive(util, Repo, 'repo-depth')
+primitive(util, Repo, 'ignore-externals')

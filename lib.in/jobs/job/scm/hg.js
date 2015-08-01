@@ -2,20 +2,14 @@
 
 var util = require('../../../misc/util.js');
 
-var Hg = function(upper, obj) {
-  this.upper = upper;
-  this.obj = obj;
-};
-util.makeUppable(Hg.prototype, 'upper');
-Hg.prototype.url = util.generatePrimitiveAccessor('obj', 'url');
-Hg.prototype.credentialsId = util.generatePrimitiveAccessor('obj', 'credentials-id');
-Hg.prototype.revisionType = util.generatePrimitiveAccessor('obj', 'revision-type');
-Hg.prototype.revision = util.generatePrimitiveAccessor('obj', 'revision');
-Hg.prototype.modules = util.generatePrimitiveArrayAccessor('obj', 'modules');
-Hg.prototype.clean = util.generatePrimitiveAccessor('obj', 'clean');
-Hg.prototype.subdir = util.generatePrimitiveAccessor('obj', 'subdir');
-Hg.prototype.disableChangelog = util.generatePrimitiveAccessor('obj', 'disable-changelog');
-Hg.prototype.browser = util.generatePrimitiveAccessor('obj', 'browser');
-Hg.prototype.browserUrl = util.generatePrimitiveAccessor('obj', 'browser-url');
-
-module.exports = Hg;
+uppableObjectProxy(Hg)
+primitive(util, Hg, 'url')
+primitive(util, Hg, 'credentials-id')
+primitive(util, Hg, 'revision-type')
+primitive(util, Hg, 'revision')
+primitiveArray(util, Hg, 'modules')
+primitive(util, Hg, 'clean')
+primitive(util, Hg, 'subdir')
+primitive(util, Hg, 'disable-changelog')
+primitive(util, Hg, 'browser')
+primitive(util, Hg, 'browser-url')
