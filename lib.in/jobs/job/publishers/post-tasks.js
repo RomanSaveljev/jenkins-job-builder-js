@@ -6,5 +6,5 @@ var Match = require('./post-tasks/match.js');
 uppableObjectProxy(PostTasks)
 objectArray(util, PostTasks, 'matches', Match)
 primitive(util, PostTasks, 'escalate-status')
-primitive(util, PostTasks, 'escalate-status')
+primitive(util, PostTasks, 'run-if-job-successful')
 primitive(util, PostTasks, 'script')
