@@ -1,7 +1,7 @@
 var should = require('should');
 var CheckStyle = require('../../../../lib/jobs/job/publishers/checkstyle.js');
 var testlib = require('../../../testlib.js');
-var Thresholds = require('../../../../lib/jobs/job/publishers/checkstyle/thresholds.js');
+var Thresholds = require('../../../../lib/jobs/job/publishers/dry/thresholds.js');
 
 describe('CheckStyle', function() {
   describe('constructor', testlib.describeProxyConstructor(CheckStyle));

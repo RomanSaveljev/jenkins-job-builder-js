@@ -1,7 +1,7 @@
 "use strict";
 
 var util = require('../../../misc/util.js');
-var Thresholds = require('./checkstyle/thresholds.js');
+var Thresholds = require('./dry/thresholds.js');
 
 uppableObjectProxy(CheckStyle)
 primitive(util, CheckStyle, 'pattern')
