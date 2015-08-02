@@ -3,6 +3,7 @@
 var util = require('../../../misc/util.js');
 var Bool = require('./project/bool.js');
 var BlockThresholds = require('./project/block-thresholds.js');
+var ParameterFactories = require('./project/parameter-factories.js');
 
 uppableObjectProxy(Project)
 primitiveArray(util, Project, 'project')
