@@ -7,5 +7,5 @@ var Failing = require('./metric-target.js');
 
 uppableArrayProxy(MetricTargets)
 keyedObjectElement(util, MetricTargets, 'healthy', Healthy)
-keyedObjectElement(util, MetricTargets, 'healthy', Unhealthy)
+keyedObjectElement(util, MetricTargets, 'unhealthy', Unhealthy)
 keyedObjectElement(util, MetricTargets, 'failing', Failing)

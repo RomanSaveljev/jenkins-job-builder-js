@@ -94,6 +94,62 @@ exports.describeProxyObjectProperty = function(constructor, key, type) {
   };
 };
 
+exports.describeProxyKeyedObjectProperty = function(constructor, key, type) {
+  var property = camelize(key);
+  return function() {
+    it('should have ' + property, function() {
+      should(new constructor(null, null)).have.property(property);
+    });
+    it('should have ' + property + '()', function() {
+      var obj = new constructor(null, null);
+      should(obj[property]).be.a.Function();
+    });
+    it(property + '() getter should push array element', function() {
+      var internal = [];
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      getter.apply(obj);
+      should(internal).have.length(1);
+    });
+    it(property + '() repeated getter should push array element', function() {
+      var internal = [];
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      getter.apply(obj);
+      getter.apply(obj);
+      should(internal).have.length(2);
+    });
+    it(property + '() getter should push object', function() {
+      var internal = [];
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      getter.apply(obj);
+      should(internal[0]).be.an.Object();
+    });
+    it('object pushed by ' + property + '() getter should have ' + key + ' property', function() {
+      var internal = [];
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      getter.apply(obj);
+      should(internal[0]).have.property(key);
+    });
+    it(key + ' property should reference object', function() {
+      var internal = [];
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      getter.apply(obj);
+      should(internal[0][key]).be.an.Object();
+    });
+    it(property + '() getter should return specific type object', function() {
+      var internal = [];
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      var ret = getter.apply(obj, []);
+      should(ret).be.instanceof(type);
+    });
+  };
+};
+
 exports.describeProxyPrimitiveArrayProperty = function(constructor, key) {
   var property = camelize(key);
   return function() {
