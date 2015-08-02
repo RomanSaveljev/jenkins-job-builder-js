@@ -8,7 +8,7 @@ var ChangeAssemblyVersion = require('./builders/change-assembly-version.js');
 var Cmake = require('./builders/cmake.js');
 var ConditionalStep = require('./builders/conditional-step.js');
 var ConfigFileProvider = require('./wrappers/config-file-provider.js');
-var CopyArtifact = require('./builders/copy-artifact.js');
+var CopyArtifact = require('./builders/copyartifact.js');
 var CriticalBlockEnd = require('../../misc/empty-proxy.js');
 var CriticalBlockStart = require('../../misc/empty-proxy.js');
 var DSL = require('./builders/dsl.js');
@@ -40,7 +40,7 @@ keyedObjectElement(util, Builders, 'change-assembly-version', ChangeAssemblyVers
 keyedObjectElement(util, Builders, 'cmake', Cmake)
 keyedObjectElement(util, Builders, 'conditional-step', ConditionalStep)
 keyedObjectElement(util, Builders, 'config-file-provider', ConfigFileProvider)
-keyedObjectElement(util, Builders, 'copy-artifact', CopyArtifact)
+keyedObjectElement(util, Builders, 'copyartifact', CopyArtifact)
 keyedObjectElement(util, Builders, 'critical-block-end', CriticalBlockEnd)
 keyedObjectElement(util, Builders, 'critical-block-start', CriticalBlockStart)
 keyedObjectElement(util, Builders, 'dsl', DSL)
