@@ -150,6 +150,55 @@ exports.describeProxyKeyedObjectProperty = function(constructor, key, type) {
   };
 };
 
+exports.describeProxyKeyedPrimitiveProperty = function(constructor, key) {
+  var property = camelize(key);
+  return function() {
+    it('should have ' + property, function() {
+      should(new constructor(null, null)).have.property(property);
+    });
+    it('should have ' + property + '()', function() {
+      var obj = new constructor(null, null);
+      should(obj[property]).be.a.Function();
+    });
+    it(property + '() setter should push array element', function() {
+      var internal = [];
+      var obj = new constructor(null, internal);
+      var setter = obj[property];
+      setter.apply(obj, ['value']);
+      should(internal).have.length(1);
+    });
+    it(property + '() repeated setter should push array element', function() {
+      var internal = [];
+      var obj = new constructor(null, internal);
+      var setter = obj[property];
+      setter.apply(obj, [1]);
+      setter.apply(obj, [2]);
+      should(internal).have.length(2);
+    });
+    it(property + '() setter should push object', function() {
+      var internal = [];
+      var obj = new constructor(null, internal);
+      var setter = obj[property];
+      setter.apply(obj, [null]);
+      should(internal[0]).be.an.Object();
+    });
+    it('object pushed by ' + property + '() setter should have ' + key + ' property', function() {
+      var internal = [];
+      var obj = new constructor(null, internal);
+      var setter = obj[property];
+      setter.apply(obj, [7]);
+      should(internal[0]).have.property(key);
+    });
+    it(key + ' property should hold primitive value', function() {
+      var internal = [];
+      var obj = new constructor(null, internal);
+      var setter = obj[property];
+      setter.apply(obj, ['value for ' + property]);
+      should(internal[0][key]).be.equal('value for ' + property);
+    });
+  };
+};
+
 exports.describeProxyPrimitiveArrayProperty = function(constructor, key) {
   var property = camelize(key);
   return function() {
