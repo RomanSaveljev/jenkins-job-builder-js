@@ -1,7 +1,7 @@
 "use strict";
 
 var util = require('../../../misc/util.js');
-var Parameter = require('./dynamic-choice-scriptler/parameter.js');
+var Parameter = require('./dynamic-scriptler/parameter.js');
 
 uppableObjectProxy(DynamicScriptler)
 primitive(util, DynamicScriptler, 'name')
