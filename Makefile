@@ -1,6 +1,8 @@
 REPORTER = nyan
 MOCHA = ./node_modules/.bin/mocha
 
+FILTER ?= .+
+
 .PHONY: expand test-all cov-all create-tests list-untested list-tested
 
 ALL_LIB_JS := $(patsubst lib.in/%,lib/%,$(shell find lib.in -type f -name '*.js'))
@@ -14,7 +16,7 @@ expand: $(ALL_LIB_JS)
 
 test-all: expand
 	@NODE_ENV=test $(MOCHA) \
-		--reporter $(REPORTER) --recursive
+		--reporter $(REPORTER) --recursive -g $(FILTER)
 
 cov-all: expand
 	@NODE_ENV=test $(MOCHA) \
