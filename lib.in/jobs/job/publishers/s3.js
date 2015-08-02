@@ -7,4 +7,4 @@ var MetadataTag = require('./s3/metadata-tag.js');
 uppableObjectProxy(S3)
 primitive(util, S3, 's3-profile')
 objectArray(util, S3, 'entries', Entry)
-object(util, S3, 'metadata-tags', MetadataTag)
+objectArray(util, S3, 'metadata-tags', MetadataTag)
