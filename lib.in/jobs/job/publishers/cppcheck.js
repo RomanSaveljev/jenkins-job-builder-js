@@ -2,7 +2,9 @@
 
 var util = require('../../../misc/util.js');
 var Thresholds = require('./cppcheck/thresholds.js');
+var Graph = require('./cppcheck/graph.js');
 
 uppableObjectProxy(CppCheck)
 primitive(util, CppCheck, 'pattern')
-objectArray(util, CppCheck, 'thresholds', Thresholds)
+object(util, CppCheck, 'thresholds', Thresholds)
+object(util, CppCheck, 'graph', Graph)
