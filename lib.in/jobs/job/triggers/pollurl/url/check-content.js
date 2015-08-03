@@ -4,6 +4,6 @@ var util = require('../../../../../misc/util.js');
 
 uppableObjectProxy(CheckContent)
 primitive(util, CheckContent, 'simple')
-primitive(util, CheckContent, 'json')
-primitive(util, CheckContent, 'text')
-primitive(util, CheckContent, 'xml')
+primitiveArray(util, CheckContent, 'json')
+primitiveArray(util, CheckContent, 'text')
+primitiveArray(util, CheckContent, 'xml')
