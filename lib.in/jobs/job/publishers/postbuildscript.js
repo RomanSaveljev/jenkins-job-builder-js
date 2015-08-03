@@ -11,8 +11,8 @@ PostBuildScript.prototype.builders = function(value) {
     // this is to avoid circular dependencies
     var Builders = require('../builders.js');
     // always create a fresh array to enforce declarative code style
-    this[outer][inner] = [];
-    return new Builders(this, this[outer][inner]);
+    this.obj.builders = [];
+    return new Builders(this, this.obj.builders);
   } else {
     throw 'TODO: setter is not implemented';
   }
