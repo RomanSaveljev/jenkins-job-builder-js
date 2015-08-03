@@ -5,7 +5,6 @@ var Remote = require('./git/remote.js');
 var Merge = require('./git/merge.js');
 var ChangeLogAgainst = require('./git/changelog-against.js');
 var Clean = require('./git/clean.js');
-var SparseCheckout = require('./git/sparse-checkout.js');
 var Submodule = require('./git/submodule.js');
 
 uppableObjectProxy(Git)
@@ -34,15 +33,11 @@ primitive(util, Git, 'browser')
 primitive(util, Git, 'browser-url')
 primitive(util, Git, 'browser-version')
 primitive(util, Git, 'project-name')
-primitive(util, Git, 'repo-name')
 primitive(util, Git, 'choosing-strategy')
 primitive(util, Git, 'git-config-name')
 primitive(util, Git, 'git-config-email')
 object(util, Git, 'changelog-against', ChangeLogAgainst)
 object(util, Git, 'clean', Clean)
-primitiveArray(util, Git, 'ignore-commits-with-messages')
-primitive(util, Git, 'force-polling-using-workspace')
-object(util, Git, 'sparse-checkout', SparseCheckout)
 object(util, Git, 'submodule', Submodule)
 primitive(util, Git, 'timeout')
 primitive(util, Git, 'wipe-workspace')
