@@ -1,0 +1,33 @@
+var should = require('should');
+var EmailExt = require('../../../../lib/jobs/job/publishers/email-ext.js');
+var testlib = require('../../../testlib.js');
+
+describe('EmailExt', function() {
+  describe('constructor', testlib.describeProxyConstructor(EmailExt));
+  describe('object', testlib.describeProxyUppableAndable(EmailExt));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'recipients'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'reply-to'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'content-type'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'subject'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'body'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'attach-build-log'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'attachments'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'always'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'unstable'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'first-failure'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'not-built'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'aborted'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'regression'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'failure'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'second-failure'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'improvement'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'still-failing'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'success'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'fixed'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'still-unstable'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'pre-build'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'presend-script'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'save-output'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(EmailExt, 'matrix-trigger'));
+  describe('properties', testlib.describeProxyPrimitiveArrayProperty(EmailExt, 'send-to'));
+});
