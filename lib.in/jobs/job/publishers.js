@@ -11,6 +11,7 @@ var Campfire = require('./publishers/campfire.js');
 var CheckStyle = require('./publishers/checkstyle.js');
 var Cifs = require('./publishers/cifs.js');
 var Cigame = require('../../misc/empty-proxy.js');
+var ClaimBuild = require('../../misc/empty-proxy.js');
 var CloneWorkspace = require('./publishers/clone-workspace.js');
 var Cloverphp = require('./publishers/cloverphp.js');
 var Cobertura = require('./publishers/cobertura.js');
@@ -34,6 +35,7 @@ var Git = require('./publishers/git.js');
 var GithubNotifier = require('../../misc/empty-proxy.js');
 var GroovyPostbuild = require('./publishers/groovy-postbuild.js');
 var HtmlPublisher = require('./publishers/html-publisher.js');
+var ImageGallery = require('./publishers/image-gallery.js');
 var IrcBot = require('./publishers/ircbot.js');
 var Jabber = require('./publishers/jabber.js');
 var Jacoco = require('./publishers/jacoco.js');
@@ -42,7 +44,7 @@ var Jira = require('../../misc/empty-proxy.js');
 var JoinTrigger = require('./publishers/join-trigger.js');
 var Junit = require('./publishers/junit.js');
 var LogParser = require('./publishers/logparser.js');
-var LogStash = require('../../misc/empty-proxy.js');
+var LogStash = require('./publishers/logstash.js');
 var MavenDeploy = require('./publishers/maven-deploy.js');
 var Naginator = require('./publishers/naginator.js');
 var Performance = require('./publishers/performance.js');
@@ -87,6 +89,7 @@ keyedObjectElement(util, Publishers, 'campfire', Campfire)
 keyedObjectElement(util, Publishers, 'checkstyle', CheckStyle)
 keyedObjectElement(util, Publishers, 'cifs', Cifs)
 keyedObjectElement(util, Publishers, 'cigame', Cigame)
+keyedObjectElement(util, Publishers, 'claim-build', ClaimBuild)
 keyedObjectElement(util, Publishers, 'clone-workspace', CloneWorkspace)
 keyedObjectElement(util, Publishers, 'cloverphp', Cloverphp)
 keyedObjectElement(util, Publishers, 'cobertura', Cobertura)
@@ -124,10 +127,10 @@ keyedObjectElement(util, Publishers, 'maven-deploy', MavenDeploy)
 keyedObjectElement(util, Publishers, 'naginator', Naginator)
 keyedObjectElement(util, Publishers, 'performance', Performance)
 keyedObjectElement(util, Publishers, 'pipeline', Pipeline)
-keyedObjectElement(util, Publishers, 'plot', Plot)
+keyedArrayElement(util, Publishers, 'plot', Plot)
 keyedObjectElement(util, Publishers, 'pmd', Pmd)
-keyedObjectElement(util, Publishers, 'post-tasks', PostTasks)
-keyedObjectElement(util, Publishers, 'postbuildsript', PostBuildScript)
+keyedArrayElement(util, Publishers, 'post-tasks', PostTasks)
+keyedObjectElement(util, Publishers, 'postbuildscript', PostBuildScript)
 keyedObjectElement(util, Publishers, 'rich-text-publisher', RichTextPublisher)
 keyedObjectElement(util, Publishers, 'robot', Robot)
 keyedObjectElement(util, Publishers, 'ruby-metrics', RubyMetrics)
@@ -145,7 +148,7 @@ keyedObjectElement(util, Publishers, 'tap', Tap)
 keyedObjectElement(util, Publishers, 'testng', TestNg)
 keyedObjectElement(util, Publishers, 'text-finder', TextFinder)
 keyedObjectElement(util, Publishers, 'trigger', Trigger)
-keyedArrayElement(util, Publishers, 'trigger-parameterized-builds', TriggerParameterizedBuilds)
+keyedArrayElement(util, Publishers, 'trigger-parameterized-builds', TriggerParameterizedBuild)
 keyedObjectElement(util, Publishers, 'valgrind', Valgrind)
 keyedObjectElement(util, Publishers, 'violations', Violations)
 keyedObjectElement(util, Publishers, 'warnings', Warnings)
