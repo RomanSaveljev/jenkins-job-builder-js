@@ -18,8 +18,8 @@ var Throttle = require('./properties/throttle.js');
 var ZeromqEvent = require('../../misc/empty-proxy.js');
 
 uppableArrayProxy(Properties)
-Properties.prototype.authorization = util.generateToDomember('TODO: need to decide on adding user defined properties');
-keyedObjectElement(util, Properties, 'batch-tasks', BatchTasks)
+Properties.prototype.authorization = util.generateToDoMember('TODO: need to decide on adding user defined properties');
+keyedArrayElement(util, Properties, 'batch-tasks', BatchTasks)
 keyedObjectElement(util, Properties, 'build-blocker', BuildBlocker)
 keyedObjectElement(util, Properties, 'builds-chain-fingerprinter', BuildsChainFingerprinter)
 keyedObjectElement(util, Properties, 'copyartifact', CopyArtifact)
