@@ -1,20 +1,20 @@
 "use strict";
 
 var util = require('../misc/util.js');
-var Wrappers = require('./wrappers.js');
-var Builders = require('./builders.js');
-var HipChat = require('./hipchat.js');
-var Maven = require('./maven.js');
-var ExecutionStrategy = require('./execution-strategy.js');
-var Axes = require('./axes.js');
-var Metadata = require('./metadata.js');
-var Notifications = require('./notifications.js');
-var Parameters = require('./parameters.js');
-var Properties = require('./properties.js');
-var Publishers = require('./publishers.js');
-var Reportes = require('./reporters.js');
-var Scm = require('./scm.js');
-var Triggers = require('./triggers.js');
+var Wrappers = require('./job/wrappers.js');
+var Builders = require('./job/builders.js');
+var HipChat = require('./job/hipchat.js');
+var Maven = require('./job/maven.js');
+var ExecutionStrategy = require('./job/execution-strategy.js');
+var Axes = require('./job/axes.js');
+var Metadata = require('./job/metadata.js');
+var Notifications = require('./job/notifications.js');
+var Parameters = require('./job/parameters.js');
+var Properties = require('./job/properties.js');
+var Publishers = require('./job/publishers.js');
+var Reporters = require('./job/reporters.js');
+var Scm = require('./job/scm.js');
+var Triggers = require('./job/triggers.js');
 
 uppableObjectProxy(Job)
 Job.prototype.clone = function() {

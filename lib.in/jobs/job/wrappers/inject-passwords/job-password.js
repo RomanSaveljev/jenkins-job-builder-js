@@ -3,5 +3,5 @@
 var util = require('../../../../misc/util.js');
 
 uppableObjectProxy(JobPassword)
-primitiveArray(util, JobPassword, 'name')
-primitiveArray(util, JobPassword, 'password')
+primitive(util, JobPassword, 'name')
+primitive(util, JobPassword, 'password')
