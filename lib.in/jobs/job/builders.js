@@ -29,6 +29,7 @@ var SshBuilder = require('./builders/ssh-builder.js');
 var SystemGroovy = require('./builders/system-groovy.js');
 var Project = require('./builders/project.js');
 var TriggerRemote = require('./builders/trigger-remote.js');
+var Grails = require('./builders/grails.js');
 
 uppableArrayProxy(Builders)
 keyedObjectElement(util, Builders, 'ant', Ant)
