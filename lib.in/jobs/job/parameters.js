@@ -16,7 +16,7 @@ var Node = require('./parameters/node.js');
 var Password = require('./parameters/value.js');
 var Run = require('./parameters/run.js');
 var SvnTags = require('./parameters/svn-tags.js');
-var Text = require('./parameters/text.js');
+var Text = require('./parameters/value.js');
 var ValidatingString = require('./parameters/validating-string.js');
 
 uppableArrayProxy(Parameters)
