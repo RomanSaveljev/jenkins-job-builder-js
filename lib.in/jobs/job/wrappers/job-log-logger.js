@@ -3,4 +3,4 @@
 var util = require('../../../misc/util.js');
 
 uppableObjectProxy(JobLogLogger)
-primitiveArray(util, JobLogLogger, 'suppress-empty')
+primitive(util, JobLogLogger, 'suppress-empty')
