@@ -4,6 +4,7 @@ var util = require('../../misc/util.js');
 var Git = require('./scm/git.js');
 var Hg = require('./scm/hg.js');
 var Repo = require('./scm/repo.js');
+var Store = require('./scm/store.js');
 var Svn = require('./scm/svn.js');
 var Tfs = require('./scm/tfs.js');
 var Workspace = require('./scm/workspace.js');
