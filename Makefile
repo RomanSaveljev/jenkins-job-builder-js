@@ -27,6 +27,10 @@ cov-all: expand
 	@NODE_ENV=test $(MOCHA) \
 		--reporter html-cov --require blanket --recursive
 
+travis-test: expand
+	@NODE_ENV=test $(MOCHA) \
+		--reporter travis-cov --require blanket --recursive
+
 create-tests: expand
 	@(cd lib && find -type f) | \
 	while read JSFILE; \
