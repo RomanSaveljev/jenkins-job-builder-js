@@ -24,7 +24,8 @@
     "blanket": "*",
     "travis-cov": "*",
     "mocha-lcov-reporter": "*",
-    "mocha": "*"
+    "mocha": "*",
+    "sweet.js": "*"
   },
   "keywords": [
     "jenkins-job-builder"

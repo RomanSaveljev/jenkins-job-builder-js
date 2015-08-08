@@ -133,7 +133,6 @@ More documentation on implemented concepts is available from [documentation](doc
 * GitHub pull requests are reviewed and accepted
 * GitHub issues are tracked
 * Travis CI build includes checking against coverage threshold and must pass
-* `sjs` tool from [sweet.js](http://sweetjs.org/) is required to expand templates
 * Additional information is found from [developer documentation](doc/developer/README.md)
 
 ## License 

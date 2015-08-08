@@ -5,6 +5,7 @@ else
 endif
 
 MOCHA = ./node_modules/.bin/mocha
+SJS = ./node_modules/.bin/sjs
 
 FILTER ?= .+
 
@@ -14,7 +15,7 @@ ALL_LIB_JS := $(patsubst lib.in/%,lib/%,$(shell find lib.in -type f -name '*.js'
 
 lib/%.js : lib.in/%.js lib.in/macros.sjs
 	@mkdir -p $(dir $@)
-	@sjs --module ./lib.in/macros.sjs -o $@ $<
+	@$(SJS) --module ./lib.in/macros.sjs -o $@ $<
 
 expand: $(ALL_LIB_JS)
 	@echo All templates from lib.in expanded successfully 1>&2
