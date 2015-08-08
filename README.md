@@ -94,6 +94,8 @@ $ jenkins-jobs test input.json
 
 Currently, `jenkins-jobs` does not support handling of STDIN.
 
+More examples can be found under `samples` directory.
+
 ## Design
 
 The library has over 250 different modules, but you need not read hundreds of pages of the documentation.
@@ -124,7 +126,15 @@ There is but a handful of consolidating constraints, which should help to get a 
     * If implemented, a getter ALWAYS creates a new proxy object, which manages its own chunk of the stuffed object
     * If implemented, a setter always returns the object, where it belongs (the same level)
 
-More detailed descriptions of selected items follow.
+More documentation on implemented concepts is available from [documentation](docs/design/README.md).
+
+## Development
+
+* GitHub pull requests are reviewed and accepted
+* GitHub issues are tracked
+* Travis CI build includes checking against coverage threshold and must pass
+* `sjs` tool from [sweet.js](http://sweetjs.org/) is required to expand templates
+* Additional information is found from [documentation](docs/developer/README.md)
 
 ## License 
 
