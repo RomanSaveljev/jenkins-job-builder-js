@@ -1,4 +1,4 @@
-# jenkins-job-builder-js [![Build Status](https://travis-ci.org/RomanSaveljev/jenkins-job-builder-js.svg)](http://travis-ci.org/RomanSaveljev/jenkins-job-builder-js) [![Coverage Status](https://coveralls.io/repos/romansaveljev/jenkins-job-builder-js/badge.png)](https://coveralls.io/r/romansaveljev/jenkins-job-builder-js)
+# jenkins-job-builder-js [![Build Status](https://travis-ci.org/RomanSaveljev/jenkins-job-builder-js.svg)](http://travis-ci.org/RomanSaveljev/jenkins-job-builder-js)
 
 ## Description
 
