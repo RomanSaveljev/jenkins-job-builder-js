@@ -4,3 +4,7 @@ lib-cov/
 Makefile
 .travis.yml
 logo.png
+samples/
+doc/
+lib.in/
+.gitignore
