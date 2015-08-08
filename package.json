@@ -1,6 +1,6 @@
 {
   "name": "jenkins-job-builder-js",
-  "version": "1.2.100",
+  "version": "1.2.101",
   "description": "JavaScript front-end for Jenkins Job Builder",
   "main": "index.js",
   "repository": "RomanSaveljev/jenkins-job-builder-js",
