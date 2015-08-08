@@ -1,13 +1,13 @@
 {
-  "name": "jenkins-job-builder",
-  "version": "0.0.1",
-  "description": "jenkins-job-builder",
+  "name": "jenkins-job-builder-js",
+  "version": "1.2.100",
+  "description": "JavaScript front-end for Jenkins Job Builder",
   "main": "index.js",
   "scripts": {
     "test": "make test-all",
     "cov": "make cov-all",
     "travis-cov": {
-      "threshold": 90
+      "threshold": 98
     }
   },
   "config": {
@@ -16,7 +16,6 @@
     }
   },
   "dependencies": {
-    "yamljs": "*"
   },
   "devDependencies": {
     "should": "*",
