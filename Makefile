@@ -1,4 +1,9 @@
-REPORTER = nyan
+ifeq ($(TRAVIS_BUILD),)
+  REPORTER ?= nyan
+else
+  REPORTER ?= tap
+endif
+
 MOCHA = ./node_modules/.bin/mocha
 
 FILTER ?= .+
