@@ -126,7 +126,7 @@ There is but a handful of consolidating constraints, which should help to get a 
     * If implemented, a getter ALWAYS creates a new proxy object, which manages its own chunk of the stuffed object
     * If implemented, a setter always returns the object, where it belongs (the same level)
 
-More documentation on implemented concepts is available from [documentation](docs/design/README.md).
+More documentation on implemented concepts is available from [documentation](doc/design/README.md).
 
 ## Development
 
@@ -134,7 +134,7 @@ More documentation on implemented concepts is available from [documentation](doc
 * GitHub issues are tracked
 * Travis CI build includes checking against coverage threshold and must pass
 * `sjs` tool from [sweet.js](http://sweetjs.org/) is required to expand templates
-* Additional information is found from [documentation](docs/developer/README.md)
+* Additional information is found from [developer documentation](doc/developer/README.md)
 
 ## License 
 
