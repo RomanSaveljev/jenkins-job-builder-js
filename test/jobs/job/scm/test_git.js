@@ -6,6 +6,7 @@ var Remote = require('../../../../lib/jobs/job/scm/git/remote.js');
 var Merge = require('../../../../lib/jobs/job/scm/git/merge.js');
 var Submodule = require('../../../../lib/jobs/job/scm/git/submodule.js');
 var Clean = require('../../../../lib/jobs/job/scm/git/clean.js');
+var SparseCheckout = require('../../../../lib/jobs/job/scm/git/sparse-checkout.js');
 
 describe('Git', function() {
   describe('constructor', testlib.describeProxyConstructor(Git));
@@ -40,6 +41,7 @@ describe('Git', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(Git, 'git-config-email'));
   describe('properties', testlib.describeProxyObjectProperty(Git, 'changelog-against', ChangelogAgainst));
   describe('properties', testlib.describeProxyObjectProperty(Git, 'clean', Clean));
+  describe('properties', testlib.describeProxyObjectProperty(Git, 'sparse-checkout', SparseCheckout));
   describe('properties', testlib.describeProxyPrimitiveArrayProperty(Git, 'ignore-commits-with-messages'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Git, 'force-polling-using-workspace'));
   describe('properties', testlib.describeProxyObjectProperty(Git, 'submodule', Submodule));

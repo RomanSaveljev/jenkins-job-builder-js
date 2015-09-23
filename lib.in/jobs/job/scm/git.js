@@ -6,6 +6,7 @@ var Merge = require('./git/merge.js');
 var ChangeLogAgainst = require('./git/changelog-against.js');
 var Clean = require('./git/clean.js');
 var Submodule = require('./git/submodule.js');
+var SparseCheckout = require('./git/sparse-checkout.js');
 
 uppableObjectProxy(Git)
 primitive(util, Git, 'url')
@@ -38,6 +39,7 @@ primitive(util, Git, 'git-config-name')
 primitive(util, Git, 'git-config-email')
 object(util, Git, 'changelog-against', ChangeLogAgainst)
 object(util, Git, 'clean', Clean)
+object(util, Git, 'sparse-checkout', SparseCheckout)
 primitiveArray(util, Git, 'ignore-commits-with-messages')
 primitive(util, Git, 'force-polling-using-workspace')
 object(util, Git, 'submodule', Submodule)
