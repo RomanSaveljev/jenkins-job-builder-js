@@ -41,6 +41,7 @@ describe('Git', function() {
   describe('properties', testlib.describeProxyObjectProperty(Git, 'changelog-against', ChangelogAgainst));
   describe('properties', testlib.describeProxyObjectProperty(Git, 'clean', Clean));
   describe('properties', testlib.describeProxyPrimitiveArrayProperty(Git, 'ignore-commits-with-messages'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(Git, 'force-polling-using-workspace'));
   describe('properties', testlib.describeProxyObjectProperty(Git, 'submodule', Submodule));
   describe('properties', testlib.describeProxyPrimitiveProperty(Git, 'timeout'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Git, 'wipe-workspace'));
