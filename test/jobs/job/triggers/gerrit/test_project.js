@@ -14,5 +14,6 @@ describe('Project', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(Project, 'branch-pattern'));
   describe('properties', testlib.describeProxyObjectArrayProperty(Project, 'branches', Branch));
   describe('properties', testlib.describeProxyObjectArrayProperty(Project, 'file-paths', FilePath));
+  describe('properties', testlib.describeProxyObjectArrayProperty(Project, 'forbidden-file-paths', FilePath));
   describe('properties', testlib.describeProxyObjectArrayProperty(Project, 'topics', Topic));
 });
