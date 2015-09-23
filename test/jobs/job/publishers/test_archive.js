@@ -10,4 +10,5 @@ describe('Archive', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(Archive, 'latest-only'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Archive, 'allow-empty'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Archive, 'fingerprint'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(Archive, 'only-if-success'));
 });
