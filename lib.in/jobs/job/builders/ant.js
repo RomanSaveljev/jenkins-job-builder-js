@@ -1,10 +1,11 @@
 "use strict";
 
 var util = require('../../../misc/util.js');
+var Properties = require('./ant/properties.js')
 
 uppableObjectProxy(Ant)
 primitive(util, Ant, 'targets')
 primitive(util, Ant, 'buildfile')
-Ant.prototype.properties = util.generateToDoMember('Need to figure out the undefined method proxy');
+object(util, Ant, 'properties', Properties)
 primitive(util, Ant, 'ant-name')
 primitive(util, Ant, 'java-opts')
