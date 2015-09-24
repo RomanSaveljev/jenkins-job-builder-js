@@ -2,6 +2,8 @@
 
 var util = require('../../misc/util.js');
 var Inject = require('./wrappers/inject.js');
+var AndroidEmulator = require('./wrappers/android-emulator.js');
+var Ansicolor = require('./wrappers/ansicolor.js');
 var BuildName = require('./wrappers/build-name.js');
 var Xvnc = require('./wrappers/xvnc.js');
 var Xvfb = require('./wrappers/xvfb.js');
@@ -12,7 +14,6 @@ var CopyToSlave = require('./wrappers/copy-to-slave.js');
 var CustomTools = require('./wrappers/custom-tools.js');
 var DeliveryPipeline = require('./wrappers/delivery-pipeline.js');
 var ConfigFileProvider = require('./wrappers/config-file-provider.js');
-var Ansicolor = require('./wrappers/ansicolor.js');
 var CredentialsBinding = require('./wrappers/credentials-binding.js');
 var EnvFile = require('./wrappers/env-file.js');
 var EnvScript = require('./wrappers/env-script.js');
@@ -40,6 +41,7 @@ var RvmEnv = require('./wrappers/rvm-env.js');
 var SauceOndemand = require('./wrappers/sauce-ondemand.js');
 
 uppableArrayProxy(Wrappers)
+keyedObjectElement(util, Wrappers, 'android-emulator', AndroidEmulator)
 keyedObjectElement(util, Wrappers, 'ansicolor', Ansicolor)
 keyedObjectElement(util, Wrappers, 'build-name', BuildName)
 keyedObjectElement(util, Wrappers, 'build-user-vars', BuildUserVars)
