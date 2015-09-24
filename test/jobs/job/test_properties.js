@@ -1,6 +1,8 @@
 var should = require('should');
 var Properties = require('../../../lib/jobs/job/properties.js');
 var testlib = require('../../testlib.js');
+var Authorization = require('../../../lib/jobs/job/properties/authorization.js');
+var BatchTasks = require('../../../lib/jobs/job/properties/batch-tasks.js');
 var BuildBlocker = require('../../../lib/jobs/job/properties/build-blocker.js');
 var BuildsChainFingerprinter = require('../../../lib/jobs/job/properties/builds-chain-fingerprinter.js');
 var CopyArtifact = require('../../../lib/jobs/job/properties/copyartifact.js');
@@ -19,7 +21,7 @@ var EmptyProxy = require('../../../lib/misc/empty-proxy.js');
 describe('Properties', function() {
   describe('constructor', testlib.describeProxyConstructor(Properties));
   describe('object', testlib.describeProxyUppableAndable(Properties));
-  //describe('properties', testlib.describeProxyKeyedObjectProperty(Properties, 'authorization', Authorization));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Properties, 'authorization', Authorization));
   //describe('properties', testlib.describeProxyKeyedArrayProperty(Properties, 'batch-tasks', BatchTasks));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Properties, 'build-blocker', BuildBlocker));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Properties, 'builds-chain-fingerprinter', BuildsChainFingerprinter));

@@ -1,6 +1,7 @@
 "use strict";
 
 var util = require('../../misc/util.js');
+var Authorization = require('./properties/authorization.js');
 var BatchTasks = require('./properties/batch-tasks.js');
 var BuildBlocker = require('./properties/build-blocker.js');
 var BuildsChainFingerprinter = require('./properties/builds-chain-fingerprinter.js');
@@ -18,7 +19,7 @@ var Throttle = require('./properties/throttle.js');
 var ZeromqEvent = require('../../misc/empty-proxy.js');
 
 uppableArrayProxy(Properties)
-Properties.prototype.authorization = util.generateToDoMember('TODO: need to decide on adding user defined properties');
+keyedObjectElement(util, Properties, 'authorization', Authorization)
 keyedArrayElement(util, Properties, 'batch-tasks', BatchTasks)
 keyedObjectElement(util, Properties, 'build-blocker', BuildBlocker)
 keyedObjectElement(util, Properties, 'builds-chain-fingerprinter', BuildsChainFingerprinter)

@@ -43,6 +43,17 @@ macro primitiveArray {
 }
 export primitiveArray;
 
+macro namedPrimitiveArray {
+  rule {
+    ($anUtil, $anObject, $aProperty)
+  } => {
+    $anObject.prototype[$aProperty] = function(name, value) {
+      return $anUtil.primitiveArrayAccessor.apply(this, [name, value]);
+    };
+  }
+}
+export namedPrimitiveArray;
+
 macro objectArray {
   rule {
     ($anUtil, $anObject, $aProperty, $aConstructor)

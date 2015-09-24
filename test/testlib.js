@@ -75,7 +75,7 @@ exports.describeProxyNamedPrimitiveProperty = function(constructor, key) {
       setter.apply(obj, ['new-prop', 'value for new-prop'])
       should(internal['new-prop']).be.equal('value for new-prop')
     })
-  };  
+  };
 }
 
 exports.describeProxyObjectProperty = function(constructor, key, type) {
@@ -240,6 +240,38 @@ exports.describeProxyPrimitiveArrayProperty = function(constructor, key) {
       var getter = obj[property];
       getter.apply(obj).add('value for ' + property);
       should(internal[key]).containEql('value for ' + property);
+    });
+  }
+};
+
+exports.describeProxyNamedPrimitiveArrayProperty = function(constructor, property) {
+  return function() {
+    it('should have ' + property, function() {
+      should(new constructor(null, null)).have.property(property);
+    });
+    it('should have ' + property + '()', function() {
+      var obj = new constructor(null, null);
+      should(obj[property]).be.a.Function();
+    });
+    it(property + '(key) creates new property, which holds array', function() {
+      var internal = {};
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      getter.apply(obj, ['new-property'])
+      should(internal['new-property']).be.Array()
+    });
+    it(property + '(key) returns PrimitiveArrayProxy', function() {
+      var internal = {};
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      should(getter.apply(obj, ['my-prop'])).be.instanceof(PrimitiveArrayProxy);
+    });
+    it('returned PrimitiveArrayProxy manipulates new property', function() {
+      var internal = {};
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      getter.apply(obj, ['new-name']).add('value for ' + property);
+      should(internal['new-name']).containEql('value for ' + property);
     });
   }
 };
