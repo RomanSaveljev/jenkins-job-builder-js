@@ -76,6 +76,17 @@ macro primitive {
 }
 export primitive;
 
+macro namedPrimitive {
+  rule {
+    ($anUtil, $anObject, $aProperty)
+  } => {
+    $anObject.prototype[$aProperty] = function(name, value) {
+      return $anUtil.primitiveAccessor.apply(this, [name, value]);
+    };
+  }
+}
+export namedPrimitive;
+
 macro object {
   rule {
     ($anUtil, $anObject, $aProperty, $aConstructor)

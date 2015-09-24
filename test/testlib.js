@@ -59,6 +59,25 @@ exports.describeProxyPrimitiveProperty = function(constructor, key) {
   };
 };
 
+exports.describeProxyNamedPrimitiveProperty = function(constructor, key) {
+  return function() {
+    it('should have ' + key, function() {
+      should(new constructor(null, null)).have.property(key);
+    });
+    it('should have ' + key + '()', function() {
+      var obj = new constructor(null, null);
+      should(obj[key]).be.a.Function();
+    });
+    it('should create new properties', function() {
+      var internal = {};
+      var obj = new constructor(null, internal);
+      var setter = obj[key];
+      setter.apply(obj, ['new-prop', 'value for new-prop'])
+      should(internal['new-prop']).be.equal('value for new-prop')
+    })
+  };  
+}
+
 exports.describeProxyObjectProperty = function(constructor, key, type) {
   var property = camelize(key);
   return function() {
