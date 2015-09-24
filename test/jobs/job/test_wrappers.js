@@ -2,6 +2,7 @@ var should = require('should');
 var Wrappers = require('../../../lib/jobs/job/wrappers.js');
 var testlib = require('../../testlib.js');
 var AndroidEmulator = require('../../../lib/jobs/job/wrappers/android-emulator.js');
+var Ansicolor = require('../../../lib/jobs/job/wrappers/ansicolor.js');
 var BuildName = require('../../../lib/jobs/job/wrappers/build-name.js');
 var EmptyProxy = require('../../../lib/misc/empty-proxy.js');
 var ConfigFileProvider = require('../../../lib/jobs/job/wrappers/config-file-provider.js');
@@ -39,6 +40,7 @@ describe('Wrappers', function() {
   describe('constructor', testlib.describeProxyConstructor(Wrappers));
   describe('object', testlib.describeProxyUppableAndable(Wrappers));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'android-emulator', AndroidEmulator));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'ansicolor', Ansicolor));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'build-name', BuildName));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'build-user-vars', EmptyProxy));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'ci-skip', EmptyProxy));
