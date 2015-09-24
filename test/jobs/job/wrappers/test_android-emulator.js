@@ -1,5 +1,6 @@
 var should = require('should');
 var AndroidEmulator = require('../../../../lib/jobs/job/wrappers/android-emulator.js');
+var HardwareProperties = require('../../../../lib/jobs/job/wrappers/android-emulator/hardware-properties.js');
 var testlib = require('../../../testlib.js');
 
 describe('AndroidEmulator', function() {
@@ -19,4 +20,5 @@ describe('AndroidEmulator', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(AndroidEmulator, 'startup-delay'));
   describe('properties', testlib.describeProxyPrimitiveProperty(AndroidEmulator, 'commandline-options'));
   describe('properties', testlib.describeProxyPrimitiveProperty(AndroidEmulator, 'exe'));
+  describe('properties', testlib.describeProxyObjectProperty(AndroidEmulator, 'hardware-properties', HardwareProperties));
 });
