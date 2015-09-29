@@ -3,7 +3,7 @@ var util = require('../../lib/misc/util.js');
 var PrimitiveArrayProxy = require('../../lib/misc/primitive-array-proxy.js');
 var ObjectArrayProxy = require('../../lib/misc/object-array-proxy.js');
 
-describe('__Primitive accessor', function() {
+describe('Primitive accessor', function() {
   var obj = {obj: {inner: 5}};
   it('sets inner field value', function() {
     util.primitiveAccessor.apply(obj, ['inner', 'text']);
@@ -14,7 +14,7 @@ describe('__Primitive accessor', function() {
   });
 });
 
-describe('__Object accessor', function() {
+describe('Object accessor', function() {
   describe('', function() {
     var constructor = function(upper, shared) {
       this.upper = upper;
@@ -55,7 +55,7 @@ describe('__Object accessor', function() {
   });
 });
 
-describe('__Primitive array accessor', function() {
+describe('Primitive array accessor', function() {
   var accessor = util.primitiveArrayAccessor;
   it('returns PrimitiveArrayProxy object', function() {
     var obj = {obj: {inner: []}};
@@ -73,7 +73,7 @@ describe('__Primitive array accessor', function() {
   });
 });
 
-describe('__Object array accessor', function() {
+describe('Object array accessor', function() {
   var constructor = function() {
     return this;
   };
