@@ -7,4 +7,5 @@ describe('Merge', function() {
   describe('object', testlib.describeProxyUppableAndable(Merge));
   describe('properties', testlib.describeProxyPrimitiveProperty(Merge, 'remote'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Merge, 'branch'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(Merge, 'strategy'));
 });
