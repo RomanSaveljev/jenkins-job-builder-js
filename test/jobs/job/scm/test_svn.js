@@ -20,4 +20,5 @@ describe('Svn', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(Svn, 'ignore-property-changes-on-directories'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Svn, 'filter-changelog'));
   describe('properties', testlib.describeProxyObjectArrayProperty(Svn, 'repos', Repo));
+  describe('properties', testlib.describeProxyPrimitiveProperty(Svn, 'viewvc-url'));
 });
