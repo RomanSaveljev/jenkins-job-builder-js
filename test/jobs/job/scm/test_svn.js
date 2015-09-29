@@ -9,6 +9,7 @@ describe('Svn', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(Svn, 'url'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Svn, 'basedir'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Svn, 'credentials-id'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(Svn, 'repo-depth'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Svn, 'ignore-externals'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Svn, 'workspaceupdater'));
   describe('properties', testlib.describeProxyPrimitiveArrayProperty(Svn, 'excluded-users'));
