@@ -10,4 +10,5 @@ describe('Script', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(Script, 'cron'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Script, 'enable-concurrent'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Script, 'exit-code'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(Script, 'script-file-path'));
 });
