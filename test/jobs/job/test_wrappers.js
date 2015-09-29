@@ -58,7 +58,7 @@ describe('Wrappers', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'jclouds', Jclouds));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'job-log-logger', JobLogLogger));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'live-screenshot', LiveScreenshot));
-  //describe('properties', testlib.describeProxyKeyedPrimitiveArrayProperty(Wrappers, 'locks'));
+  describe('properties', testlib.describeProxyKeyedPrimitiveArrayProperty(Wrappers, 'locks'));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'logfilesize', LogFileSize));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'logstash', LogStash));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'm2-repository-cleanup', M2RepositoryCleanup));

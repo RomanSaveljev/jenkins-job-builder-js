@@ -218,6 +218,34 @@ exports.describeProxyKeyedPrimitiveProperty = function(constructor, key) {
   };
 };
 
+exports.describeProxyKeyedPrimitiveArrayProperty = function(constructor, key) {
+  var property = camelize(key);
+  return function() {
+    it('should have ' + property, function() {
+      should(new constructor(null, null)).have.property(property);
+    });
+    it('should have ' + property + '()', function() {
+      var obj = new constructor(null, null);
+      should(obj[property]).be.a.Function();
+    });
+    it(property + '() returns PrimitiveArrayProxy', function() {
+      var internal = [];
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      should(getter.apply(obj)).be.instanceof(PrimitiveArrayProxy);
+    });
+    it('returned PrimitiveArrayProxy manipulates ' + key, function() {
+      var internal = [];
+      var obj = new constructor(null, internal);
+      var getter = obj[property];
+      getter.apply(obj).add('value for ' + property);
+      should(internal[0]).have.property(key);
+      should(internal[0][key]).be.Array();
+      should(internal[0][key][0]).be.equal('value for ' + property);
+    });
+  };
+};
+
 exports.describeProxyPrimitiveArrayProperty = function(constructor, key) {
   var property = camelize(key);
   return function() {
