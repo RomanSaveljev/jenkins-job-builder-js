@@ -4,6 +4,7 @@ var util = require('../misc/util.js');
 var Wrappers = require('./job/wrappers.js');
 var Builders = require('./job/builders.js');
 var HipChat = require('./job/hipchat.js');
+var LogRotate = require('./job/logrotate.js');
 var Maven = require('./job/maven.js');
 var ExecutionStrategy = require('./job/execution-strategy.js');
 var Axes = require('./job/axes.js');
@@ -29,6 +30,7 @@ primitive(util, Job, 'project-type')
 primitive(util, Job, 'dsl')
 primitive(util, Job, 'needs-workspace')
 primitive(util, Job, 'dsl-file')
+object(util, Job, 'logrotate', LogRotate)
 object(util, Job, 'maven', Maven)
 customArray(util, Job, 'wrappers', Wrappers)
 customArray(util, Job, 'builders', Builders)
