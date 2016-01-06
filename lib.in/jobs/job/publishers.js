@@ -78,6 +78,7 @@ var WorkspaceCleanup = require('./publishers/workspace-cleanup.js');
 var XmlSummary = require('./publishers/xml-summary.js');
 var Xunit = require('./publishers/xunit.js');
 var Zulip = require('../../misc/empty-proxy.js');
+var Whitesource = require('./publishers/whitesource.js');
 
 uppableArrayProxy(Publishers)
 keyedObjectElement(util, Publishers, 'aggregate-flow-tests', AggregateFlowTests)
@@ -157,3 +158,4 @@ keyedObjectElement(util, Publishers, 'workspace-cleanup', WorkspaceCleanup)
 keyedObjectElement(util, Publishers, 'xml-summary', XmlSummary)
 keyedObjectElement(util, Publishers, 'xunit', Xunit)
 keyedObjectElement(util, Publishers, 'zulip', Zulip)
+keyedObjectElement(util, Publishers, 'whitesource', Whitesource)
