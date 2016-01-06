@@ -20,3 +20,4 @@ PostBuildScript.prototype.builders = function(value) {
 primitive(util, PostBuildScript, 'script-only-if-succeeded')
 primitive(util, PostBuildScript, 'script-only-if-failed')
 primitive(util, PostBuildScript, 'execute-on')
+primitive(util, PostBuildScript, 'mark-unstable-if-failed')

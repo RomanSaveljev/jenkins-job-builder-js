@@ -15,4 +15,5 @@ describe('PostbuildScript', function() {
   //describe('properties', testlib.describeProxyPrimitiveProperty(PostbuildScript, 'onfailure'));
   describe('properties', testlib.describeProxyPrimitiveProperty(PostbuildScript, 'script-only-if-failed'));
   describe('properties', testlib.describeProxyPrimitiveProperty(PostbuildScript, 'execute-on'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(PostbuildScript, 'mark-unstable-if-failed'));
 });
