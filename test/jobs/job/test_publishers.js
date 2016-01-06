@@ -149,4 +149,5 @@ describe('Publishers', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'workspace-cleanup', WorkspaceCleanup));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'xml-summary', XmlSummary));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'xunit', Xunit));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'zulip', EmptyProxy));
 });
