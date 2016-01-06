@@ -15,6 +15,7 @@ var Publishers = require('../../lib/jobs/job/publishers.js');
 var Reporters = require('../../lib/jobs/job/reporters.js');
 var Scm = require('../../lib/jobs/job/scm.js');
 var Triggers = require('../../lib/jobs/job/triggers.js');
+var Logrotate = require('../../lib/jobs/job/logrotate.js');
 
 describe('Job', function() {
   describe('constructor', testlib.describeProxyConstructor(Job));
@@ -40,4 +41,5 @@ describe('Job', function() {
   describe('properties', testlib.describeProxyCustomArrayProperty(Job, 'reporters', Reporters));
   describe('properties', testlib.describeProxyCustomArrayProperty(Job, 'scm', Scm));
   describe('properties', testlib.describeProxyCustomArrayProperty(Job, 'triggers', Triggers));
+  describe('properties', testlib.describeProxyObjectProperty(Job, 'logrotate', Logrotate));
 });
