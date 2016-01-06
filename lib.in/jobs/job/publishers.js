@@ -84,6 +84,7 @@ var Phabricator = require('./publishers/phabricator.js');
 var Jdepend = require('./publishers/jdepend.js');
 var Hipchat = require('./publishers/hipchat.js');
 var CucumberTestResult = require('./publishers/cucumber-testresult.js');
+var CucumberReports = require('./publishers/cucumber-reports.js');
 
 uppableArrayProxy(Publishers)
 keyedObjectElement(util, Publishers, 'aggregate-flow-tests', AggregateFlowTests)
@@ -169,3 +170,4 @@ keyedObjectElement(util, Publishers, 'phabricator', Phabricator)
 keyedObjectElement(util, Publishers, 'jdepend', Jdepend)
 keyedObjectElement(util, Publishers, 'hipchat', Hipchat)
 keyedObjectElement(util, Publishers, 'cucumber-testresult', CucumberTestResult)
+keyedObjectElement(util, Publishers, 'cucumber-reports', CucumberReports)
