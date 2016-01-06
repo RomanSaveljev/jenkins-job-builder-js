@@ -23,4 +23,5 @@ describe('TriggerParameterizedBuild', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'matrix-child-combination-filter'));
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'use-matrix-child-files'));
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'combine-queued-commits'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'include-upstream'));
 });
