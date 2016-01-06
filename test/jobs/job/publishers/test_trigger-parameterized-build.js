@@ -14,8 +14,9 @@ describe('TriggerParameterizedBuild', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'condition'));
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'property-file'));
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'fail-on-missing'));
-  describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'trigger-with-no-params'));  
+  describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'trigger-with-no-params'));
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'restrict-matrix-project'));
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'node-label-name'));
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'node-label'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'file-encoding'));
 });
