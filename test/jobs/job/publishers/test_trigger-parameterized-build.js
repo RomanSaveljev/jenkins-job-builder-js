@@ -21,4 +21,5 @@ describe('TriggerParameterizedBuild', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'file-encoding'));
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'only-exact-matrix-child-runs'));
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'matrix-child-combination-filter'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'use-matrix-child-files'));
 });
