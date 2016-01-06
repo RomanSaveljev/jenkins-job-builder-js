@@ -16,4 +16,16 @@ describe('GithubPullRequest', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(GithubPullRequest, 'permit-all'));
   describe('properties', testlib.describeProxyPrimitiveProperty(GithubPullRequest, 'auto-close-on-fail'));
   describe('properties', testlib.describeProxyPrimitiveArrayProperty(GithubPullRequest, 'white-list-target-branches'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(GithubPullRequest, 'auth-id'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(GithubPullRequest, 'build-desc-template'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(GithubPullRequest, 'status-context'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(GithubPullRequest, 'triggered-status'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(GithubPullRequest, 'started-status'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(GithubPullRequest, 'status-url'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(GithubPullRequest, 'success-status'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(GithubPullRequest, 'failure-status'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(GithubPullRequest, 'error-status'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(GithubPullRequest, 'success-comment'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(GithubPullRequest, 'failure-comment'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(GithubPullRequest, 'error-comment'));
 });
