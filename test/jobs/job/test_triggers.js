@@ -9,6 +9,7 @@ var GitlabMergeRequest = require('../../../lib/jobs/job/triggers/gitlab-merge-re
 var PollUrl = require('../../../lib/jobs/job/triggers/pollurl.js');
 var Reverse = require('../../../lib/jobs/job/triggers/reverse.js');
 var Script = require('../../../lib/jobs/job/triggers/script.js');
+var Gitlab = require('../../../lib/jobs/job/triggers/gitlab.js');
 
 describe('Triggers', function() {
   describe('constructor', testlib.describeProxyConstructor(Triggers));
@@ -23,4 +24,5 @@ describe('Triggers', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'reverse', Reverse));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'script', Script));
   describe('properties', testlib.describeProxyKeyedPrimitiveProperty(Triggers, 'timed'));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'gitlab', Gitlab));
 });

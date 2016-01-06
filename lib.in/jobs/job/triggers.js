@@ -9,6 +9,7 @@ var GitlabMergeRequest = require('./triggers/gitlab-merge-request.js');
 var PollUrl = require('./triggers/pollurl.js');
 var Reverse = require('./triggers/reverse.js');
 var Script = require('./triggers/script.js');
+var Gitlab = require('./triggers/gitlab.js');
 
 uppableArrayProxy(Triggers)
 keyedObjectElement(util, Triggers, 'build-result', BuildResult)
@@ -21,3 +22,4 @@ keyedObjectElement(util, Triggers, 'pollurl', PollUrl)
 keyedObjectElement(util, Triggers, 'reverse', Reverse)
 keyedObjectElement(util, Triggers, 'script', Script)
 keyedPrimitiveElement(util, Triggers, 'timed')
+keyedObjectElement(util, Triggers, 'gitlab', Gitlab)
