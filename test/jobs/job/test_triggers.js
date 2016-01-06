@@ -25,4 +25,5 @@ describe('Triggers', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'script', Script));
   describe('properties', testlib.describeProxyKeyedPrimitiveProperty(Triggers, 'timed'));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'gitlab', Gitlab));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'bitbucket', EmptyProxy));
 });
