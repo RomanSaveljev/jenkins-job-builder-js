@@ -82,6 +82,7 @@ var Whitesource = require('./publishers/whitesource.js');
 var Rundeck = require('./publishers/rundeck.js');
 var Phabricator = require('./publishers/phabricator.js');
 var Jdepend = require('./publishers/jdepend.js');
+var Hipchat = require('./publishers/hipchat.js');
 
 uppableArrayProxy(Publishers)
 keyedObjectElement(util, Publishers, 'aggregate-flow-tests', AggregateFlowTests)
@@ -165,3 +166,4 @@ keyedObjectElement(util, Publishers, 'whitesource', Whitesource)
 keyedObjectElement(util, Publishers, 'rundeck', Rundeck)
 keyedObjectElement(util, Publishers, 'phabricator', Phabricator)
 keyedObjectElement(util, Publishers, 'jdepend', Jdepend)
+keyedObjectElement(util, Publishers, 'hipchat', Hipchat)

@@ -73,6 +73,7 @@ var Whitesource = require('../../../lib/jobs/job/publishers/whitesource.js');
 var Rundeck = require('../../../lib/jobs/job/publishers/rundeck.js');
 var Phabricator = require('../../../lib/jobs/job/publishers/phabricator.js');
 var Jdepend = require('../../../lib/jobs/job/publishers/jdepend.js');
+var Hipchat = require('../../../lib/jobs/job/publishers/hipchat.js');
 
 describe('Publishers', function() {
   describe('constructor', testlib.describeProxyConstructor(Publishers));
@@ -158,4 +159,5 @@ describe('Publishers', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'rundeck', Rundeck));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'phabricator', Phabricator));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'jdepend', Jdepend));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'hipchat', Hipchat));
 });
