@@ -70,6 +70,7 @@ var WorkspaceCleanup = require('../../../lib/jobs/job/publishers/workspace-clean
 var XmlSummary = require('../../../lib/jobs/job/publishers/xml-summary.js');
 var Xunit = require('../../../lib/jobs/job/publishers/xunit.js');
 var Whitesource = require('../../../lib/jobs/job/publishers/whitesource.js');
+var Rundeck = require('../../../lib/jobs/job/publishers/rundeck.js');
 
 describe('Publishers', function() {
   describe('constructor', testlib.describeProxyConstructor(Publishers));
@@ -152,4 +153,5 @@ describe('Publishers', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'xunit', Xunit));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'zulip', EmptyProxy));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'whitesource', Whitesource));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'rundeck', Rundeck));
 });
