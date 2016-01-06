@@ -80,6 +80,7 @@ var Xunit = require('./publishers/xunit.js');
 var Zulip = require('../../misc/empty-proxy.js');
 var Whitesource = require('./publishers/whitesource.js');
 var Rundeck = require('./publishers/rundeck.js');
+var Phabricator = require('./publishers/phabricator.js');
 
 uppableArrayProxy(Publishers)
 keyedObjectElement(util, Publishers, 'aggregate-flow-tests', AggregateFlowTests)
@@ -161,3 +162,4 @@ keyedObjectElement(util, Publishers, 'xunit', Xunit)
 keyedObjectElement(util, Publishers, 'zulip', Zulip)
 keyedObjectElement(util, Publishers, 'whitesource', Whitesource)
 keyedObjectElement(util, Publishers, 'rundeck', Rundeck)
+keyedObjectElement(util, Publishers, 'phabricator', Phabricator)
