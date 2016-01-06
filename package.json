@@ -14,7 +14,7 @@
       "pattern": "//^((?!(node_modules|test)).)*$/"
     },
     "travis-cov": {
-      "threshold": 98
+      "threshold": 99
     }
   },
   "dependencies": {
