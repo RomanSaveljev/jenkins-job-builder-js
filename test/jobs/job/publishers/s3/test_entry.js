@@ -12,4 +12,5 @@ describe('Entry', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(Entry, 'upload-on-failure'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Entry, 'upload-from-slave'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Entry, 'managed-artifacts'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(Entry, 'flatten'));
 });
