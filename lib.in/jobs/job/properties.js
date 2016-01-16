@@ -17,6 +17,7 @@ var PromotedBuild = require('./properties/promoted-build.js');
 var SlaveUtilization = require('./properties/slave-utilization.js');
 var Throttle = require('./properties/throttle.js');
 var ZeromqEvent = require('../../misc/empty-proxy.js');
+var Rebuild = require('./properties/rebuild.js');
 
 uppableArrayProxy(Properties)
 keyedObjectElement(util, Properties, 'authorization', Authorization)
@@ -35,3 +36,4 @@ keyedObjectElement(util, Properties, 'promoted-build', PromotedBuild)
 keyedObjectElement(util, Properties, 'slave-utilization', SlaveUtilization)
 keyedObjectElement(util, Properties, 'throttle', Throttle)
 keyedObjectElement(util, Properties, 'zeromq-event', ZeromqEvent)
+keyedObjectElement(util, Properties, 'rebuild', Rebuild)

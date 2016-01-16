@@ -16,6 +16,7 @@ var PrioritySorter = require('../../../lib/jobs/job/properties/priority-sorter.j
 var PromotedBuild = require('../../../lib/jobs/job/properties/promoted-build.js');
 var SlaveUtilization = require('../../../lib/jobs/job/properties/slave-utilization.js');
 var Throttle = require('../../../lib/jobs/job/properties/throttle.js');
+var Rebuild = require('../../../lib/jobs/job/properties/rebuild.js');
 var EmptyProxy = require('../../../lib/misc/empty-proxy.js');
 
 describe('Properties', function() {
@@ -37,4 +38,5 @@ describe('Properties', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Properties, 'slave-utilization', SlaveUtilization));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Properties, 'throttle', Throttle));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Properties, 'zeromq-event', EmptyProxy));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Properties, 'rebuild', Rebuild));
 });
