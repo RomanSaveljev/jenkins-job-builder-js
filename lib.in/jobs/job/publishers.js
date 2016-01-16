@@ -86,6 +86,7 @@ var Hipchat = require('./publishers/hipchat.js');
 var CucumberTestResult = require('./publishers/cucumber-testresult.js');
 var CucumberReports = require('./publishers/cucumber-reports.js');
 var Clamav = require('./publishers/clamav.js');
+var Artifactory = require('./publishers/artifactory.js');
 
 uppableArrayProxy(Publishers)
 keyedObjectElement(util, Publishers, 'aggregate-flow-tests', AggregateFlowTests)
@@ -173,3 +174,4 @@ keyedObjectElement(util, Publishers, 'hipchat', Hipchat)
 keyedObjectElement(util, Publishers, 'cucumber-testresult', CucumberTestResult)
 keyedObjectElement(util, Publishers, 'cucumber-reports', CucumberReports)
 keyedObjectElement(util, Publishers, 'clamav', Clamav)
+keyedObjectElement(util, Publishers, 'artifactory', Artifactory)

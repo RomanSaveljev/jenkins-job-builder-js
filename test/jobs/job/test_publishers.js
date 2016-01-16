@@ -77,6 +77,7 @@ var Hipchat = require('../../../lib/jobs/job/publishers/hipchat.js');
 var CucumberTestResult = require('../../../lib/jobs/job/publishers/cucumber-testresult.js');
 var CucumberReports = require('../../../lib/jobs/job/publishers/cucumber-reports.js');
 var Clamav = require('../../../lib/jobs/job/publishers/clamav.js');
+var Artifactory = require('../../../lib/jobs/job/publishers/artifactory.js');
 
 describe('Publishers', function() {
   describe('constructor', testlib.describeProxyConstructor(Publishers));
@@ -166,4 +167,5 @@ describe('Publishers', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'cucumber-testresult', CucumberTestResult));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'cucumber-reports', CucumberReports));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'clamav', Clamav));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'artifactory', Artifactory));
 });
