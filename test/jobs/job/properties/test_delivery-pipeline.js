@@ -7,4 +7,5 @@ describe('DeliveryPipeline', function() {
   describe('object', testlib.describeProxyUppableAndable(DeliveryPipeline));
   describe('properties', testlib.describeProxyPrimitiveProperty(DeliveryPipeline, 'stage'));
   describe('properties', testlib.describeProxyPrimitiveProperty(DeliveryPipeline, 'task'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(DeliveryPipeline, 'description'));
 });
