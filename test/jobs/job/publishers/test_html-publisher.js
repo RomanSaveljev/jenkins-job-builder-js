@@ -10,4 +10,5 @@ describe('HtmlPublisher', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(HtmlPublisher, 'files'));
   describe('properties', testlib.describeProxyPrimitiveProperty(HtmlPublisher, 'keep-all'));
   describe('properties', testlib.describeProxyPrimitiveProperty(HtmlPublisher, 'allow-missing'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(HtmlPublisher, 'link-to-last-build'));
 });
