@@ -17,4 +17,5 @@ describe('CopyArtifact', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(CopyArtifact, 'fallback-to-last-successful'));
   describe('properties', testlib.describeProxyPrimitiveProperty(CopyArtifact, 'param'));
   describe('properties', testlib.describeProxyPrimitiveProperty(CopyArtifact, 'parameter-filters'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(CopyArtifact, 'do-not-fingerprint'));
 });
