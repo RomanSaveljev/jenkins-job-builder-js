@@ -8,4 +8,5 @@ describe('BuildBlocker', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(BuildBlocker, 'use-build-blocker'));
   describe('properties', testlib.describeProxyPrimitiveArrayProperty(BuildBlocker, 'blocking-jobs'));
   describe('properties', testlib.describeProxyPrimitiveProperty(BuildBlocker, 'queue-scanning'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(BuildBlocker, 'block-level'));
 });
