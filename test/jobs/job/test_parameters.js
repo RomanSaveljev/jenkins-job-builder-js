@@ -12,6 +12,7 @@ var Node = require('../../../lib/jobs/job/parameters/node.js');
 var Run = require('../../../lib/jobs/job/parameters/run.js');
 var SvnTags = require('../../../lib/jobs/job/parameters/svn-tags.js');
 var ValidatingString = require('../../../lib/jobs/job/parameters/validating-string.js');
+var CopyArtifactBuildSelector = require('../../../lib/jobs/job/parameters/copyartifact-build-selector.js');
 
 describe('Parameters', function() {
   describe('constructor', testlib.describeProxyConstructor(Parameters));
@@ -33,4 +34,5 @@ describe('Parameters', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Parameters, 'svn-tags', SvnTags));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Parameters, 'text', Value));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Parameters, 'validating-string', ValidatingString));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Parameters, 'copyartifact-build-selector', CopyArtifactBuildSelector));
 });

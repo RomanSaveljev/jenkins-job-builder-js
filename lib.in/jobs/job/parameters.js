@@ -18,6 +18,7 @@ var Run = require('./parameters/run.js');
 var SvnTags = require('./parameters/svn-tags.js');
 var Text = require('./parameters/value.js');
 var ValidatingString = require('./parameters/validating-string.js');
+var CopyArtifactBuildSelector = require('./parameters/copyartifact-build-selector.js');
 
 uppableArrayProxy(Parameters)
 keyedObjectElement(util, Parameters, 'bool', Bool)
@@ -37,3 +38,4 @@ keyedObjectElement(util, Parameters, 'string', String)
 keyedObjectElement(util, Parameters, 'svn-tags', SvnTags)
 keyedObjectElement(util, Parameters, 'text', Text)
 keyedObjectElement(util, Parameters, 'validating-string', ValidatingString)
+keyedObjectElement(util, Parameters, 'copyartifact-build-selector', CopyArtifactBuildSelector)
