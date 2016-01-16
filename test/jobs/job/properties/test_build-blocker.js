@@ -7,4 +7,5 @@ describe('BuildBlocker', function() {
   describe('object', testlib.describeProxyUppableAndable(BuildBlocker));
   describe('properties', testlib.describeProxyPrimitiveProperty(BuildBlocker, 'use-build-blocker'));
   describe('properties', testlib.describeProxyPrimitiveArrayProperty(BuildBlocker, 'blocking-jobs'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(BuildBlocker, 'queue-scanning'));
 });
