@@ -41,6 +41,7 @@ var RvmEnv = require('./wrappers/rvm-env.js');
 var SauceOndemand = require('./wrappers/sauce-ondemand.js');
 var NodeJsInstallator = require('./wrappers/nodejs-installator.js');
 var ArtifactoryMaven = require('./wrappers/artifactory-maven.js');
+var ArtifactoryMavenFreeStyle = require('./wrappers/artifactory-maven-freestyle.js');
 
 uppableArrayProxy(Wrappers)
 keyedObjectElement(util, Wrappers, 'android-emulator', AndroidEmulator)
@@ -84,3 +85,4 @@ keyedObjectElement(util, Wrappers, 'xvfb', Xvfb)
 keyedObjectElement(util, Wrappers, 'xvnc', Xvnc)
 keyedObjectElement(util, Wrappers, 'nodejs-installator', NodeJsInstallator)
 keyedObjectElement(util, Wrappers, 'artifactory-maven', ArtifactoryMaven)
+keyedObjectElement(util, Wrappers, 'artifactory-maven-freestyle', ArtifactoryMavenFreeStyle)
