@@ -38,6 +38,7 @@ var Xvnc = require('../../../lib/jobs/job/wrappers/xvnc.js');
 var NodeJsInstallator = require('../../../lib/jobs/job/wrappers/nodejs-installator.js');
 var ArtifactoryMaven = require('../../../lib/jobs/job/wrappers/artifactory-maven.js');
 var ArtifactoryMavenFreeStyle = require('../../../lib/jobs/job/wrappers/artifactory-maven-freestyle.js');
+var ArtifactoryGeneric = require('../../../lib/jobs/job/wrappers/artifactory-generic.js');
 
 describe('Wrappers', function() {
   describe('constructor', testlib.describeProxyConstructor(Wrappers));
@@ -84,4 +85,5 @@ describe('Wrappers', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'nodejs-installator', NodeJsInstallator));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'artifactory-maven', ArtifactoryMaven));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'artifactory-maven-freestyle', ArtifactoryMavenFreeStyle));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Wrappers, 'artifactory-generic', ArtifactoryGeneric));
 });
