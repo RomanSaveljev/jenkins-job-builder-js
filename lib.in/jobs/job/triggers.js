@@ -11,6 +11,7 @@ var Reverse = require('./triggers/reverse.js');
 var Script = require('./triggers/script.js');
 var Gitlab = require('./triggers/gitlab.js');
 var Bitbucket = require('../../misc/empty-proxy.js');
+var MonitorFolders = require('./triggers/monitor-folders.js');
 
 uppableArrayProxy(Triggers)
 keyedObjectElement(util, Triggers, 'build-result', BuildResult)
@@ -25,3 +26,4 @@ keyedObjectElement(util, Triggers, 'script', Script)
 keyedPrimitiveElement(util, Triggers, 'timed')
 keyedObjectElement(util, Triggers, 'gitlab', Gitlab)
 keyedObjectElement(util, Triggers, 'bitbucket', Bitbucket)
+keyedObjectElement(util, Triggers, 'monitor-folders', MonitorFolders)
