@@ -7,7 +7,7 @@ describe('Node', function() {
   describe('object', testlib.describeProxyUppableAndable(Node));
   describe('properties', testlib.describeProxyPrimitiveProperty(Node, 'name'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Node, 'description'));
-  describe('properties', testlib.describeProxyPrimitiveArrayProperty(Node, 'default-nodes'));
+  describe('properties', testlib.describeProxyPrimitiveArrayProperty(Node, 'default-slaves'));
   describe('properties', testlib.describeProxyPrimitiveArrayProperty(Node, 'allowed-slaves'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Node, 'ignore-offline-nodes'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Node, 'allowed-multiselect'));
