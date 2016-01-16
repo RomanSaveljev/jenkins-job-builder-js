@@ -8,6 +8,7 @@ var Store = require('../../../lib/jobs/job/scm/store.js');
 var Svn = require('../../../lib/jobs/job/scm/svn.js');
 var Tfs = require('../../../lib/jobs/job/scm/tfs.js');
 var Workspace = require('../../../lib/jobs/job/scm/workspace.js');
+var OpenShiftImgStreams = require('../../../lib/jobs/job/scm/openshift-img-streams.js');
 
 describe('Scm', function() {
   describe('constructor', testlib.describeProxyConstructor(Scm));
@@ -19,5 +20,5 @@ describe('Scm', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Scm, 'svn', Svn));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Scm, 'tfs', Tfs));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Scm, 'workspace', Workspace));
-
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Scm, 'openshift-img-streams', OpenShiftImgStreams));
 });

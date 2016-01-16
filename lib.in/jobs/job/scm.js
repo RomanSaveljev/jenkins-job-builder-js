@@ -8,6 +8,7 @@ var Store = require('./scm/store.js');
 var Svn = require('./scm/svn.js');
 var Tfs = require('./scm/tfs.js');
 var Workspace = require('./scm/workspace.js');
+var OpenShiftImgStreams = require('./scm/openshift-img-streams.js');
 
 uppableArrayProxy(Scm)
 keyedObjectElement(util, Scm, 'git', Git)
@@ -17,3 +18,4 @@ keyedObjectElement(util, Scm, 'store', Store)
 keyedObjectElement(util, Scm, 'svn', Svn)
 keyedObjectElement(util, Scm, 'tfs', Tfs)
 keyedObjectElement(util, Scm, 'workspace', Workspace)
+keyedObjectElement(util, Scm, 'openshift-img-streams', OpenShiftImgStreams)
