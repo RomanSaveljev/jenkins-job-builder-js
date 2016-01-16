@@ -1,6 +1,7 @@
 var should = require('should');
 var TriggerParameterizedBuild = require('../../../../lib/jobs/job/publishers/trigger-parameterized-build.js');
 var testlib = require('../../../testlib.js');
+var BooleanParameters = require('../../../../lib/jobs/job/publishers/trigger-parameterized-build/boolean-parameters.js');
 
 describe('TriggerParameterizedBuild', function() {
   describe('constructor', testlib.describeProxyConstructor(TriggerParameterizedBuild));
@@ -24,4 +25,5 @@ describe('TriggerParameterizedBuild', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'use-matrix-child-files'));
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'combine-queued-commits'));
   describe('properties', testlib.describeProxyPrimitiveProperty(TriggerParameterizedBuild, 'include-upstream'));
+  describe('properties', testlib.describeProxyObjectProperty(TriggerParameterizedBuild, 'boolean-parameters', BooleanParameters));
 });

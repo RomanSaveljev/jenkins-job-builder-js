@@ -1,6 +1,7 @@
 "use strict";
 
 var util = require('../../../misc/util.js');
+var BooleanParameters = require('./trigger-parameterized-build/boolean-parameters.js')
 
 uppableObjectProxy(TriggerParameterizedBuild)
 primitiveArray(util, TriggerParameterizedBuild, 'project')
@@ -22,3 +23,4 @@ primitive(util, TriggerParameterizedBuild, 'matrix-child-combination-filter')
 primitive(util, TriggerParameterizedBuild, 'use-matrix-child-files')
 primitive(util, TriggerParameterizedBuild, 'combine-queued-commits')
 primitive(util, TriggerParameterizedBuild, 'include-upstream')
+object(util, TriggerParameterizedBuild, 'boolean-parameters', BooleanParameters)
