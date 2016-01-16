@@ -78,6 +78,7 @@ var CucumberTestResult = require('../../../lib/jobs/job/publishers/cucumber-test
 var CucumberReports = require('../../../lib/jobs/job/publishers/cucumber-reports.js');
 var Clamav = require('../../../lib/jobs/job/publishers/clamav.js');
 var Artifactory = require('../../../lib/jobs/job/publishers/artifactory.js');
+var CloudFormation = require('../../../lib/jobs/job/publishers/cloudformation.js');
 
 describe('Publishers', function() {
   describe('constructor', testlib.describeProxyConstructor(Publishers));
@@ -168,4 +169,5 @@ describe('Publishers', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'cucumber-reports', CucumberReports));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'clamav', Clamav));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'artifactory', Artifactory));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Publishers, 'cloudformation', CloudFormation));
 });
