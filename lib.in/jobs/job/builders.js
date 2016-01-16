@@ -31,6 +31,7 @@ var Project = require('./builders/project.js');
 var TriggerRemote = require('./builders/trigger-remote.js');
 var Grails = require('./builders/grails.js');
 var Runscope = require('./builders/runscope.js');
+var OpenShiftSvcVerify = require('./builders/openshift-svc-verify.js');
 
 uppableArrayProxy(Builders)
 keyedObjectElement(util, Builders, 'ant', Ant)
@@ -68,3 +69,4 @@ keyedObjectElement(util, Builders, 'system-groovy', SystemGroovy)
 keyedArrayElement(util, Builders, 'trigger-builds', Project)
 keyedObjectElement(util, Builders, 'trigger-remote', TriggerRemote)
 keyedObjectElement(util, Builders, 'runscope', Runscope)
+keyedObjectElement(util, Builders, 'openshift-svc-verify', OpenShiftSvcVerify)

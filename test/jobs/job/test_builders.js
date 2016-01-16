@@ -29,6 +29,7 @@ var SystemGroovy = require('../../../lib/jobs/job/builders/system-groovy.js');
 //var Project = require('../../../lib/jobs/job/builders/project.js');
 var TriggerRemote = require('../../../lib/jobs/job/builders/trigger-remote.js');
 var Runscope = require('../../../lib/jobs/job/builders/runscope.js');
+var OpenShiftSvcVerify = require('../../../lib/jobs/job/builders/openshift-svc-verify.js');
 
 describe('Builders', function() {
   describe('constructor', testlib.describeProxyConstructor(Builders));
@@ -68,4 +69,5 @@ describe('Builders', function() {
   //describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'trigger-builds', Project));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'trigger-remote', TriggerRemote));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'runscope', Runscope));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'openshift-svc-verify', OpenShiftSvcVerify));
 });
