@@ -11,6 +11,7 @@ var Reverse = require('../../../lib/jobs/job/triggers/reverse.js');
 var Script = require('../../../lib/jobs/job/triggers/script.js');
 var Gitlab = require('../../../lib/jobs/job/triggers/gitlab.js');
 var MonitorFolders = require('../../../lib/jobs/job/triggers/monitor-folders.js');
+var MonitorFiles = require('../../../lib/jobs/job/triggers/monitor-files.js');
 
 describe('Triggers', function() {
   describe('constructor', testlib.describeProxyConstructor(Triggers));
@@ -27,5 +28,6 @@ describe('Triggers', function() {
   describe('properties', testlib.describeProxyKeyedPrimitiveProperty(Triggers, 'timed'));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'gitlab', Gitlab));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'monitor-folders', MonitorFolders));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'monitor-files', MonitorFiles));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'bitbucket', EmptyProxy));
 });
