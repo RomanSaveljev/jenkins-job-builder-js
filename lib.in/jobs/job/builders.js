@@ -30,6 +30,7 @@ var SystemGroovy = require('./builders/system-groovy.js');
 var Project = require('./builders/project.js');
 var TriggerRemote = require('./builders/trigger-remote.js');
 var Grails = require('./builders/grails.js');
+var Runscope = require('./builders/runscope.js');
 
 uppableArrayProxy(Builders)
 keyedObjectElement(util, Builders, 'ant', Ant)
@@ -66,3 +67,4 @@ keyedObjectElement(util, Builders, 'ssh-builder', SshBuilder)
 keyedObjectElement(util, Builders, 'system-groovy', SystemGroovy)
 keyedArrayElement(util, Builders, 'trigger-builds', Project)
 keyedObjectElement(util, Builders, 'trigger-remote', TriggerRemote)
+keyedObjectElement(util, Builders, 'runscope', Runscope)

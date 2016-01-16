@@ -28,6 +28,7 @@ var SshBuilder = require('../../../lib/jobs/job/builders/ssh-builder.js');
 var SystemGroovy = require('../../../lib/jobs/job/builders/system-groovy.js');
 //var Project = require('../../../lib/jobs/job/builders/project.js');
 var TriggerRemote = require('../../../lib/jobs/job/builders/trigger-remote.js');
+var Runscope = require('../../../lib/jobs/job/builders/runscope.js');
 
 describe('Builders', function() {
   describe('constructor', testlib.describeProxyConstructor(Builders));
@@ -66,4 +67,5 @@ describe('Builders', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'system-groovy', SystemGroovy));
   //describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'trigger-builds', Project));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'trigger-remote', TriggerRemote));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'runscope', Runscope));
 });
