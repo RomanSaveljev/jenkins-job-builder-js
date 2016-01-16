@@ -12,6 +12,7 @@ var Script = require('../../../lib/jobs/job/triggers/script.js');
 var Gitlab = require('../../../lib/jobs/job/triggers/gitlab.js');
 var MonitorFolders = require('../../../lib/jobs/job/triggers/monitor-folders.js');
 var MonitorFiles = require('../../../lib/jobs/job/triggers/monitor-files.js');
+var PollScm = require('../../../lib/jobs/job/triggers/pollscm.js');
 
 describe('Triggers', function() {
   describe('constructor', testlib.describeProxyConstructor(Triggers));
@@ -21,7 +22,7 @@ describe('Triggers', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'github', EmptyProxy));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'github-pull-request', GithubPullRequest));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'gitlab-merge-request', GitlabMergeRequest));
-  describe('properties', testlib.describeProxyKeyedPrimitiveProperty(Triggers, 'pollscm'));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'pollscm', PollScm));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'pollurl', PollUrl));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'reverse', Reverse));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Triggers, 'script', Script));

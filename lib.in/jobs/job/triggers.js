@@ -13,6 +13,7 @@ var Gitlab = require('./triggers/gitlab.js');
 var Bitbucket = require('../../misc/empty-proxy.js');
 var MonitorFolders = require('./triggers/monitor-folders.js');
 var MonitorFiles = require('./triggers/monitor-files.js');
+var PollScm = require('./triggers/pollscm.js');
 
 uppableArrayProxy(Triggers)
 keyedObjectElement(util, Triggers, 'build-result', BuildResult)
@@ -20,7 +21,7 @@ keyedObjectElement(util, Triggers, 'gerrit', Gerrit)
 keyedObjectElement(util, Triggers, 'github', Github)
 keyedObjectElement(util, Triggers, 'github-pull-request', GithubPullRequest)
 keyedObjectElement(util, Triggers, 'gitlab-merge-request', GitlabMergeRequest)
-keyedPrimitiveElement(util, Triggers, 'pollscm')
+keyedObjectElement(util, Triggers, 'pollscm', PollScm)
 keyedObjectElement(util, Triggers, 'pollurl', PollUrl)
 keyedObjectElement(util, Triggers, 'reverse', Reverse)
 keyedObjectElement(util, Triggers, 'script', Script)
