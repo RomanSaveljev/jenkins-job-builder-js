@@ -34,6 +34,7 @@ var OpenShiftScaler = require('../../../lib/jobs/job/builders/openshift-scaler.j
 var OpenShiftImgTagger = require('../../../lib/jobs/job/builders/openshift-img-tagger.js');
 var OpenShiftDeployer = require('../../../lib/jobs/job/builders/openshift-deployer.js');
 var OpenShiftDepVerify = require('../../../lib/jobs/job/builders/openshift-dep-verify.js');
+var CloudFormation = require('../../../lib/jobs/job/builders/cloudformation.js');
 
 describe('Builders', function() {
   describe('constructor', testlib.describeProxyConstructor(Builders));
@@ -78,4 +79,5 @@ describe('Builders', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'openshift-img-tagger', OpenShiftImgTagger));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'openshift-deployer', OpenShiftDeployer));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'openshift-dep-verify', OpenShiftDepVerify));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'cloudformation', CloudFormation));
 });

@@ -36,6 +36,7 @@ var OpenShiftScaler = require('./builders/openshift-scaler.js');
 var OpenShiftImgTagger = require('./builders/openshift-img-tagger.js');
 var OpenShiftDeployer = require('./builders/openshift-deployer.js');
 var OpenShiftDepVerify = require('./builders/openshift-dep-verify.js');
+var CloudFormation = require('./builders/cloudformation.js');
 
 uppableArrayProxy(Builders)
 keyedObjectElement(util, Builders, 'ant', Ant)
@@ -78,3 +79,4 @@ keyedObjectElement(util, Builders, 'openshift-scaler', OpenShiftScaler)
 keyedObjectElement(util, Builders, 'openshift-img-tagger', OpenShiftImgTagger)
 keyedObjectElement(util, Builders, 'openshift-deployer', OpenShiftDeployer)
 keyedObjectElement(util, Builders, 'openshift-dep-verify', OpenShiftDepVerify)
+keyedObjectElement(util, Builders, 'cloudformation', CloudFormation)
