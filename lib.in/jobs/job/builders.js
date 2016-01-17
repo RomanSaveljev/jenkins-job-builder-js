@@ -34,6 +34,7 @@ var Runscope = require('./builders/runscope.js');
 var OpenShiftSvcVerify = require('./builders/openshift-svc-verify.js');
 var OpenShiftScaler = require('./builders/openshift-scaler.js');
 var OpenShiftImgTagger = require('./builders/openshift-img-tagger.js');
+var OpenShiftDeployer = require('./builders/openshift-deployer.js');
 
 uppableArrayProxy(Builders)
 keyedObjectElement(util, Builders, 'ant', Ant)
@@ -74,3 +75,4 @@ keyedObjectElement(util, Builders, 'runscope', Runscope)
 keyedObjectElement(util, Builders, 'openshift-svc-verify', OpenShiftSvcVerify)
 keyedObjectElement(util, Builders, 'openshift-scaler', OpenShiftScaler)
 keyedObjectElement(util, Builders, 'openshift-img-tagger', OpenShiftImgTagger)
+keyedObjectElement(util, Builders, 'openshift-deployer', OpenShiftDeployer)
