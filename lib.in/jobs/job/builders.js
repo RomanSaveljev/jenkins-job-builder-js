@@ -33,6 +33,7 @@ var Grails = require('./builders/grails.js');
 var Runscope = require('./builders/runscope.js');
 var OpenShiftSvcVerify = require('./builders/openshift-svc-verify.js');
 var OpenShiftScaler = require('./builders/openshift-scaler.js');
+var OpenShiftImgTagger = require('./builders/openshift-img-tagger.js');
 
 uppableArrayProxy(Builders)
 keyedObjectElement(util, Builders, 'ant', Ant)
@@ -72,3 +73,4 @@ keyedObjectElement(util, Builders, 'trigger-remote', TriggerRemote)
 keyedObjectElement(util, Builders, 'runscope', Runscope)
 keyedObjectElement(util, Builders, 'openshift-svc-verify', OpenShiftSvcVerify)
 keyedObjectElement(util, Builders, 'openshift-scaler', OpenShiftScaler)
+keyedObjectElement(util, Builders, 'openshift-img-tagger', OpenShiftImgTagger)

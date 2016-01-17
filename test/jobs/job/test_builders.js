@@ -31,6 +31,7 @@ var TriggerRemote = require('../../../lib/jobs/job/builders/trigger-remote.js');
 var Runscope = require('../../../lib/jobs/job/builders/runscope.js');
 var OpenShiftSvcVerify = require('../../../lib/jobs/job/builders/openshift-svc-verify.js');
 var OpenShiftScaler = require('../../../lib/jobs/job/builders/openshift-scaler.js');
+var OpenShiftImgTagger = require('../../../lib/jobs/job/builders/openshift-img-tagger.js');
 
 describe('Builders', function() {
   describe('constructor', testlib.describeProxyConstructor(Builders));
@@ -72,4 +73,5 @@ describe('Builders', function() {
   describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'runscope', Runscope));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'openshift-svc-verify', OpenShiftSvcVerify));
   describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'openshift-scaler', OpenShiftScaler));
+  describe('properties', testlib.describeProxyKeyedObjectProperty(Builders, 'openshift-img-tagger', OpenShiftImgTagger));
 });
