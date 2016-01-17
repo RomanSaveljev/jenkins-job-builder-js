@@ -42,4 +42,5 @@ describe('Job', function() {
   describe('properties', testlib.describeProxyCustomArrayProperty(Job, 'scm', Scm));
   describe('properties', testlib.describeProxyCustomArrayProperty(Job, 'triggers', Triggers));
   describe('properties', testlib.describeProxyObjectProperty(Job, 'logrotate', Logrotate));
+  describe('properties', testlib.describeProxyPrimitiveProperty(Job, 'raw'));
 });
