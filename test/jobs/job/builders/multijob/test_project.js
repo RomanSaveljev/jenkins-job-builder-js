@@ -12,6 +12,8 @@ describe('Project', function() {
   describe('properties', testlib.describeProxyPrimitiveProperty(Project, 'git-revision'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Project, 'property-file'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Project, 'predefined-parameters'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(Project, 'abort-all-job'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Project, 'enable-condition'));
   describe('properties', testlib.describeProxyPrimitiveProperty(Project, 'kill-phase-on'));
+  describe('properties', testlib.describeProxyPrimitiveProperty(Project, 'restrict-matrix-project'));
 });
